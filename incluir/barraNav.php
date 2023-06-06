@@ -9,7 +9,7 @@ if ($_SESSION['usuario']) {
 }
 if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     echo 'NO TIENES ACCESSO';
-    // header("Location:index.php");
+    header("Location:../loginAzul/login.php");
     die();
 }
 ?>
@@ -21,26 +21,13 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../recursos/css/index.css">
-    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
-    <script src="../recursos/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../recursos/css/cabecera.css">
-    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
-    <!-- Font Awesome carrito -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./recursos/css/index.css">
+    <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
+    
+    <script src="./recursos/js/jquery-3.7.0.min.js"></script>
+    <script src="./recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./recursos/css/cabecera.css">
 
-    <style>
-        a {
-            color: white;
-        }
-
-        a:hover {
-            color: orange;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -64,10 +51,15 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                         Gestión de Productos
                     </a>
                 </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="../admin.php">
+                <li class="nav-item dropdown pl-4">
+                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestión de Usuarios
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../gestionUsuarios/listarRoles.php">Lista de Usuarios</a>
+                        <a class="dropdown-item" href="../gestionUsuarios/crearRol.php">Crear Usuarios</a>
+                        <a class="dropdown-item" href="index.php">Editar</a>
+                    </div>
                 </li>
                 <li class="nav-item pl-4">
                     <a class="cabecera" href="../admin.php">

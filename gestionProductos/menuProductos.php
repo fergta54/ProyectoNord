@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
         </h1>
         <button><a class="botonesProductos">Administrar Productos</a></button>
         <button><a href="adminMarcas.php" class="botonesProductos">Administrar Marcas</a></button>
-        <button><a class="botonesProductos">Administrar Categorias</a></button>
+        <button><a href="adminCategorias.php" class="botonesProductos">Administrar Categorias</a></button>
     </center>
 </body>
 
