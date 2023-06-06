@@ -26,6 +26,11 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <script src="../recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+    <!-- Font Awesome carrito -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
         a {
             color: white;
@@ -107,11 +112,25 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                 <?php
                 }
                 ?>
+            
+
             </ul>
         </div>
+        <a href="cart.php" class="nav-item nav-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <?php
+                        if (isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                        }
+                        ?>             
+                </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
         </div>
+        
 
     </nav>
 </body>
