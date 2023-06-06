@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUCTOS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
-    <link rel="stylesheet" href="../recursos/bootstrap.min.css">
+    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
 </head>
 
 <body>
@@ -69,10 +71,10 @@
                             ';
 
                 ?>
-                                <td><button><a href="editarMarca.php?id=<?php echo $fila[0] ?>">
+                                <td><button class="btn btn-success"><a class="botonesProductos" href="editarMarca.php?id=<?php echo $fila[0] ?>">
                                             <i class="fas fa-marker">Editar</i>
                                         </a></button> </td>
-                                <td><button><a href="eliminarMarca.php?id=<?php echo $fila[0] ?>">
+                                <td><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarMarca.php?id=<?php echo $fila[0] ?>">
                                             Cambiar estado a inactivo
                                         </a></button> </td>
                                 </tr>

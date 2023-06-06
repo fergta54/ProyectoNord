@@ -90,3 +90,10 @@ header .navbar a:hover {
 .botonesProductos {
   color: black;
 }
+.cabecera {
+  color: white;
+}
+.cabecera:hover {
+  color: orange;
+  text-decoration: none;
+}
