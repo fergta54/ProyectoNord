@@ -97,3 +97,25 @@ header .navbar a:hover {
   color: orange;
   text-decoration: none;
 }
+.td1 {
+  width: 18%;
+}
+.td2 {
+  width: 10%;
+}
+.td3 {
+  width: 35%;
+}
+.td4 {
+  width: 5%;
+}
+.td5 {
+  width: 18%;
+}
+.td6 {
+  width: 25%;
+}
+
+.tablaMarcas {
+  width: 90%;
+}

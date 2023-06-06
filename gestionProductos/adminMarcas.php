@@ -24,22 +24,49 @@
         <button><a href="crearMarca.php" class="botonesProductos">Crear Marca</a></button>
         <button><a class="botonesProductos">Ad</a></button>
         <h1>REGISTRO DE MARCAS</h1><br>
-        <table class="table table-bordered">
+        <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar productos desactivados</button>
+        <br>
+        <br>
+
+        <script>
+            function toggleButton() {
+                var x = document.getElementById("ElementosEliminados");
+                var y = document.getElementById("tituloEliminado");
+                var button = document.getElementById("botonMostrar");
+                if (x.style.display === "none") {
+                    x.style.display = "table-row";
+                    y.style.display = "table-row";
+                    y.colspan = 6;
+                    button.innerHTML = "Ocultar productos desactivados";
+                    var color = window.getComputedStyle(button, null)
+                        .getPropertyValue("background-color");
+                    button.style.backgroundColor = "orange";
+                } else {
+                    x.style.display = "none";
+                    y.style.display = "none";
+                    button.innerHTML = "Mostrar productos desactivados";
+                    var color = window.getComputedStyle(button, null)
+                        .getPropertyValue("background-color");
+                    button.style.backgroundColor = "yellow";
+                }
+            }
+        </script>
+        <table class="tablaMarcas table table-bordered">
             <thead>
-                <tr>
-                    <td>Nro</td>
-                    <td>Marca</td>
-                    <td>Descripcion</td>
-                    <td>Estado</td>
-                    <td colspan="2">
-                        <center>Acción</center>
-                    </td>
+                <tr><b>
+                        <th class="td1">Nro</td>
+                        <th class="td2">Marca</td>
+                        <th class="td3">Descripcion</td>
+                        <th class="td4">Estado</td>
+                        <th class="td5 td6" colspan="2">
+                            <center>Acción</center>
+                        </th>
+                    </b>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                include("../conexion.php");
-
+                include('../conexion.php');
                 if (!$conexion) {
                     echo "Error en la conexion";
                 } else {
@@ -47,36 +74,40 @@
                     $ejecutarConsulta = mysqli_query(
                         $conexion,
                         "SELECT id_marca as Nro,nombre_marca as Marca, descripcion_marca as Descripcion
-                    ,estado_marca as Estado FROM marcas where estado_marca=1"
+                    ,estado_marca as Estado FROM marcas where estado_marca=1 order by id_marca"
                     )
                         or die("Problemas en la inserción" . mysqli_error($conexion));
                     //echo $_SESSION['IdRegistro'];
-                    mysqli_close($conexion);
+                    // mysqli_close($conexion);
                     $verFilas = mysqli_num_rows($ejecutarConsulta);
                     $fila = mysqli_fetch_array($ejecutarConsulta);
                     if (!$ejecutarConsulta) {
                         echo "Error en la consulta";
                     } else {
                         if ($verFilas < 1) {
-                            echo "<tr><td>SIN REGISTROS</td></tr>";
+                            echo "<tr><td colspan='6'>SIN REGISTROS</td></tr>";
                         } else {
                             for ($i = 0; $i < $fila; $i++) {
                                 echo '
                                 <tr>
-                                    <td>' . $fila[0] . '</td>
+                                    <td>' . $i + 1 . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[2] . '</td>
-                                    <td>' . $fila[3] . '</td>                                  
+                                    <td><center>' . $fila[3] . '</center></td>                                  
  
                             ';
 
                 ?>
-                                <td><button class="btn btn-success"><a class="botonesProductos" href="editarMarca.php?id=<?php echo $fila[0] ?>">
-                                            <i class="fas fa-marker">Editar</i>
-                                        </a></button> </td>
-                                <td><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarMarca.php?id=<?php echo $fila[0] ?>">
-                                            Cambiar estado a inactivo
-                                        </a></button> </td>
+                                <td>
+                                    <center><button class="btn btn-warning"><a class="botonesProductos" href="editarMarca.php?id=<?php echo $fila[0] ?>">
+                                                <i class="fas fa-marker">Editar</i>
+                                            </a></button> </center>
+                                </td>
+                                <td>
+                                    <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarMarca.php?id=<?php echo $fila[0] ?>">
+                                                Cambiar estado a inactivo
+                                            </a></button> </center>
+                                </td>
                                 </tr>
                 <?php
 
@@ -85,28 +116,70 @@
                         }
                     }
                 }
+
+                // ahora para los elementos ocultos
+
                 ?>
+                <tr id="tituloEliminado" style="display:none;">
+                    <td colspan="6"><b>Productos desactivados</b></td>
+                </tr>
+                <?php
+                if (!$conexion) {
+                    echo "Error en la conexion";
+                } else {
+                    //session_start();
+                    $ejecutarConsulta2 = mysqli_query(
+                        $conexion,
+                        "SELECT id_marca as Nro,nombre_marca as Marca, descripcion_marca as Descripcion
+                        ,estado_marca as Estado FROM marcas where estado_marca=2 order by id_marca"
+                    )
+                        or die("Problemas en la inserción" . mysqli_error($conexion));
+                    //echo $_SESSION['IdRegistro'];
+                    mysqli_close($conexion);
+                    $verFilas2 = mysqli_num_rows($ejecutarConsulta2);
+                    $fila2 = mysqli_fetch_array($ejecutarConsulta2);
+                    if (!$ejecutarConsulta2) {
+                        echo "Error en la consulta";
+                    } else {
+
+                        if ($verFilas2 < 1) {
+                            echo '<tr id="ElementosEliminados" style="display:none;"><td colspan="6">SIN REGISTROS</td></tr>';
+                        } else {
+                            for ($i = 0; $i < $fila2; $i++) {
+                                echo '
+                                    <tr id="ElementosEliminados" style="display:none;">
+                                        <td>' . $i + 1 . '</td>
+                                        <td>' . $fila2[1] . '</td>
+                                        <td>' . $fila2[2] . '</td>
+                                        <td><center>' . $fila2[3] . '</center></td>                                  
+     
+                                ';
+
+                ?>
+
+                                <td colspan="2">
+                                    <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarMarca.php?id=<?php echo $fila2[0] ?>">
+                                                Activar
+                                            </a></button></center>
+                                </td>
+                                </tr>
+                <?php
+
+                                $fila2 = mysqli_fetch_array($ejecutarConsulta2);
+                            }
+                        }
+                    }
+                }
+                ?>
+
+
             </tbody>
         </table>
         <br><br>
-        <?php
-        include("../conexion.php");
-
-        if (!$conexion) {
-            echo "Error en la conexion";
-        } else {
-
-            $consulta = mysqli_query($conexion, "SELECT COUNT(*) FROM  marcas")
-                or die("Problemas en la inserción" . mysqli_error($conexion));
-            $totalRegistros = mysqli_fetch_array($consulta);
-            echo "Cantidad de pasajeros en Objeto JSON: " . json_encode($totalRegistros);
-            //echo "<script type='text/javascript'>alert(".json_encode($totalRegistros).");</script>";
-
-        }
-        ?>
-
 
     </center>
+
+
 </body>
 
 </html>

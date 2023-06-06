@@ -9,7 +9,7 @@ if ($_SESSION['usuario']) {
 }
 if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     echo 'NO TIENES ACCESSO';
-    // header("Location:index.php");
+    header("Location:../loginAzul/login.php");
     die();
 }
 ?>
@@ -26,16 +26,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <script src="../recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
-    <style>
-        a {
-            color: white;
-        }
 
-        a:hover {
-            color: orange;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>

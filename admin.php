@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario'])) {
 }
 if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     echo 'NO TIENES ACCESSO';
-    // header("Location:index.php");
+    header("Location:./loginAzul/login.php");
     die();
 }
 ?>
