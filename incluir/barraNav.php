@@ -21,11 +21,12 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../recursos/css/index.css">
-    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
-    <script src="../recursos/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../recursos/css/cabecera.css">
-    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="./recursos/css/index.css">
+    <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
+    
+    <script src="./recursos/js/jquery-3.7.0.min.js"></script>
+    <script src="./recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./recursos/css/cabecera.css">
 
 </head>
 
@@ -50,10 +51,15 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                         Gestión de Productos
                     </a>
                 </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="../admin.php">
+                <li class="nav-item dropdown pl-4">
+                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestión de Usuarios
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../gestionUsuarios/listarRoles.php">Lista de Usuarios</a>
+                        <a class="dropdown-item" href="../gestionUsuarios/crearRol.php">Crear Usuarios</a>
+                        <a class="dropdown-item" href="index.php">Editar</a>
+                    </div>
                 </li>
                 <li class="nav-item pl-4">
                     <a class="cabecera" href="../admin.php">
@@ -98,11 +104,25 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                 <?php
                 }
                 ?>
+            
+
             </ul>
         </div>
+        <a href="cart.php" class="nav-item nav-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <?php
+                        if (isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                        }
+                        ?>             
+                </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
         </div>
+        
 
     </nav>
 </body>
