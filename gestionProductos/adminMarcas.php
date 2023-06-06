@@ -164,23 +164,23 @@
         var x = document.getElementById("ElementosEliminados");
         var y = document.getElementById("tituloEliminado");
         var button = document.getElementById("botonMostrar");
-        for (var i = 0; i < )
-            if (x.style.display === "none") {
-                x.style.display = "table-row";
-                y.style.display = "table-row";
-                y.colspan = 6;
-                button.innerHTML = "Ocultar marcas desactivadas";
-                var color = window.getComputedStyle(button, null)
-                    .getPropertyValue("background-color");
-                button.style.backgroundColor = "orange";
-            } else {
-                x.style.display = "none";
-                y.style.display = "none";
-                button.innerHTML = "Mostrar marcas desactivadas";
-                var color = window.getComputedStyle(button, null)
-                    .getPropertyValue("background-color");
-                button.style.backgroundColor = "yellow";
-            }
+
+        if (x.style.display === "none") {
+            x.style.display = "table-row";
+            y.style.display = "table-row";
+            y.colspan = 6;
+            button.innerHTML = "Ocultar marcas desactivadas";
+            var color = window.getComputedStyle(button, null)
+                .getPropertyValue("background-color");
+            button.style.backgroundColor = "orange";
+        } else {
+            x.style.display = "none";
+            y.style.display = "none";
+            button.innerHTML = "Mostrar marcas desactivadas";
+            var color = window.getComputedStyle(button, null)
+                .getPropertyValue("background-color");
+            button.style.backgroundColor = "yellow";
+        }
     }
 </script>
 
