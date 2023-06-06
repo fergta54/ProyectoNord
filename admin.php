@@ -8,8 +8,8 @@ if (isset($_SESSION['usuario'])) {
     $varRol = $_SESSION['rol'];
 }
 if ($varSession == null || $varSession = '' || $varRol != 'admin') {
-    echo 'NO TIENES ACCESSO';
-    // header("Location:index.php");
+    //echo 'NO TIENES ACCESSO';
+    header("Location:index.php");
     die();
 }
 ?>
