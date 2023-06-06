@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTOS</title>
+    <title>MARCAS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -24,33 +24,11 @@
         <button><a href="crearMarca.php" class="botonesProductos">Crear Marca</a></button>
         <button><a class="botonesProductos">Ad</a></button>
         <h1>REGISTRO DE MARCAS</h1><br>
-        <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar productos desactivados</button>
+        <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar marcas desactivadas</button>
         <br>
         <br>
 
-        <script>
-            function toggleButton() {
-                var x = document.getElementById("ElementosEliminados");
-                var y = document.getElementById("tituloEliminado");
-                var button = document.getElementById("botonMostrar");
-                if (x.style.display === "none") {
-                    x.style.display = "table-row";
-                    y.style.display = "table-row";
-                    y.colspan = 6;
-                    button.innerHTML = "Ocultar productos desactivados";
-                    var color = window.getComputedStyle(button, null)
-                        .getPropertyValue("background-color");
-                    button.style.backgroundColor = "orange";
-                } else {
-                    x.style.display = "none";
-                    y.style.display = "none";
-                    button.innerHTML = "Mostrar productos desactivados";
-                    var color = window.getComputedStyle(button, null)
-                        .getPropertyValue("background-color");
-                    button.style.backgroundColor = "yellow";
-                }
-            }
-        </script>
+
         <table class="tablaMarcas table table-bordered">
             <thead>
                 <tr><b>
@@ -121,7 +99,7 @@
 
                 ?>
                 <tr id="tituloEliminado" style="display:none;">
-                    <td colspan="6"><b>Productos desactivados</b></td>
+                    <td colspan="6"><b>Marcas desactivadas</b></td>
                 </tr>
                 <?php
                 if (!$conexion) {
@@ -145,7 +123,7 @@
                         if ($verFilas2 < 1) {
                             echo '<tr id="ElementosEliminados" style="display:none;"><td colspan="6">SIN REGISTROS</td></tr>';
                         } else {
-                            for ($i = 0; $i < $fila2; $i++) {
+                            for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
                                     <tr id="ElementosEliminados" style="display:none;">
                                         <td>' . $i + 1 . '</td>
@@ -181,5 +159,29 @@
 
 
 </body>
+<script>
+    function toggleButton() {
+        var x = document.getElementById("ElementosEliminados");
+        var y = document.getElementById("tituloEliminado");
+        var button = document.getElementById("botonMostrar");
+        for (var i = 0; i < )
+            if (x.style.display === "none") {
+                x.style.display = "table-row";
+                y.style.display = "table-row";
+                y.colspan = 6;
+                button.innerHTML = "Ocultar marcas desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "orange";
+            } else {
+                x.style.display = "none";
+                y.style.display = "none";
+                button.innerHTML = "Mostrar marcas desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "yellow";
+            }
+    }
+</script>
 
 </html>
