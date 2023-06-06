@@ -21,11 +21,12 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../recursos/css/index.css">
-    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
-    <script src="../recursos/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../recursos/css/cabecera.css">
-    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="./recursos/css/index.css">
+    <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
+    
+    <script src="./recursos/js/jquery-3.7.0.min.js"></script>
+    <script src="./recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./recursos/css/cabecera.css">
 
 </head>
 
@@ -50,10 +51,15 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                         Gestión de Productos
                     </a>
                 </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="../admin.php">
+                <li class="nav-item dropdown pl-4">
+                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestión de Usuarios
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../gestionUsuarios/listarRoles.php">Lista de Usuarios</a>
+                        <a class="dropdown-item" href="../gestionUsuarios/crearRol.php">Crear Usuarios</a>
+                        <a class="dropdown-item" href="index.php">Editar</a>
+                    </div>
                 </li>
                 <li class="nav-item pl-4">
                     <a class="cabecera" href="../admin.php">
