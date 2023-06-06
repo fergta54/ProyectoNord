@@ -8,11 +8,8 @@ include("../conexion.php");
 // mysqli_close($conexion);
 // header("location:./mostrarimg.php");
 // session_start();
-?>
-<!-- <script>
-    Console.log(<?php echo $_REQUEST['lgCat'] ?>)
-</script> -->
-<?php
+
+
 $registros = mysqli_query($conexion, "insert into categorias(nombre_categoria,descripcion_categoria,logo_categoria,estado_categoria) values 
 ('$_REQUEST[nombreCategoria]','$_REQUEST[descripcionCategoria]','$_REQUEST[lgCat]',1)")
     or die("Problemas al registrar la marca" . mysqli_error($conexion));

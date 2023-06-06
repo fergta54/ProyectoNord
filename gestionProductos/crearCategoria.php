@@ -44,19 +44,42 @@
                                                 <textarea name="descripcionCategoria" class="form-control" id="descripcionCategoria" required></textarea>
                                                 <br>
                                                 <label>Logo de la Categoria</label>
-                                                <input type="file" accept="image/*" class="localCat" required>
+                                                <input type="file" accept="image/*" class="localCat" id="logocat">
                                                 <input name="lgCat" id="lgCat" type="hidden">
+                                                <img id="imgdefecto" src="../recursos/img/sinfoto.jpg" hidden>
                                                 <script>
                                                     const $file = document.querySelector(".localCat");
+                                                    let url = "../recursos/img/sinfoto.jpg"
+                                                    // ESTA FUNCION PERMITE CARGAR UNA FOTO POR DEFECTO 
+                                                    const toDataURL = url => fetch(url)
+                                                        .then(response => response.blob())
+                                                        .then(blob => new Promise((resolve, reject) => {
+                                                            const reader = new FileReader()
+                                                            //reader.onloadend = () => resolve(reader.result)
+                                                            reader.onloadend = () => {
+                                                                const inpLogo = document.getElementById("lgCat");
+                                                                inpLogo.value = reader.result;
+                                                            }
+
+                                                            reader.onerror = reject
+                                                            reader.readAsDataURL(blob)
+                                                        }))
+                                                    toDataURL(url);
+
+                                                    // ESTA FUNCION PERMITE DETECTAR CARGADO DE IMAGEN EN INPUT
+                                                    // Y CARGARLA
                                                     $file.addEventListener("change", (event) => {
                                                         const selectedfile = event.target.files;
                                                         if (selectedfile.length > 0) {
                                                             const [imageFile] = selectedfile;
                                                             const fileReader = new FileReader();
+
+                                                            fileReader.readAsDataURL(imageFile);
+
                                                             fileReader.onload = () => {
                                                                 const srcData = fileReader.result;
                                                                 console.log('base64: ', srcData);
-                                                                const inpLogo = document.getElementById("lgCat");
+                                                                inpLogo = document.getElementById("lgCat");
                                                                 inpLogo.value = srcData;
 
                                                                 // $.post('gestionProductos/registrarCategoria.php', {
@@ -64,9 +87,6 @@
                                                                 // });
                                                                 console.log('exito enviando');
                                                             };
-                                                            fileReader.readAsDataURL(imageFile);
-                                                            //header("location: mostrarimg.php");
-                                                            // header('location: ./mostrarimg.php')          
                                                         }
                                                     })
                                                 </script>
