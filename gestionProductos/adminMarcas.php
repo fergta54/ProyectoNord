@@ -121,11 +121,11 @@
                     } else {
 
                         if ($verFilas2 < 1) {
-                            echo '<tr id="ElementosEliminados" style="display:none;"><td colspan="6">SIN REGISTROS</td></tr>';
+                            echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="6">SIN REGISTROS</td></tr>';
                         } else {
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
-                                    <tr id="ElementosEliminados" style="display:none;">
+                                    <tr class="ElementosEliminados" style="display:none;">
                                         <td>' . $i + 1 . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
@@ -161,26 +161,29 @@
 </body>
 <script>
     function toggleButton() {
-        var x = document.getElementById("ElementosEliminados");
+        var x = document.getElementsByClassName("ElementosEliminados");
         var y = document.getElementById("tituloEliminado");
         var button = document.getElementById("botonMostrar");
 
-        if (x.style.display === "none") {
-            x.style.display = "table-row";
-            y.style.display = "table-row";
-            y.colspan = 6;
-            button.innerHTML = "Ocultar marcas desactivadas";
-            var color = window.getComputedStyle(button, null)
-                .getPropertyValue("background-color");
-            button.style.backgroundColor = "orange";
-        } else {
-            x.style.display = "none";
-            y.style.display = "none";
-            button.innerHTML = "Mostrar marcas desactivadas";
-            var color = window.getComputedStyle(button, null)
-                .getPropertyValue("background-color");
-            button.style.backgroundColor = "yellow";
+        for (var i = 0; i < x.length; i++) {
+            if (x[i].style.display === "none") {
+                x[i].style.display = "table-row";
+                y.style.display = "table-row";
+                y.colspan = 6;
+                button.innerHTML = "Ocultar marcas desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "orange";
+            } else {
+                x[i].style.display = "none";
+                y.style.display = "none";
+                button.innerHTML = "Mostrar marcas desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "yellow";
+            }
         }
+
     }
 </script>
 

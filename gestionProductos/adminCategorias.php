@@ -139,7 +139,7 @@
 
                 ?>
                 <tr id="tituloEliminado" style="display:none;">
-                    <td colspan="6"><b>Categorias desactivadas</b></td>
+                    <td colspan="7"><b>Categorias desactivadas</b></td>
                 </tr>
                 <?php
                 if (!$conexion) {
@@ -162,15 +162,15 @@
                     } else {
 
                         if ($verFilas2 < 1) {
-                            echo '<tr id="ElementosEliminados" style="display:none;"><td colspan="7">SIN REGISTROS</td></tr>';
+                            echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="7">SIN REGISTROS</td></tr>';
                         } else {
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
-                                    <tr id="ElementosEliminados" style="display:none;">
+                                    <tr class="ElementosEliminados" style="display:none;">
                                         <td>' . $i + 1 . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
-                                        <td>' ?><img id="logo<?php echo $i ?>" width="50">
+                                        <td>' ?><img id="logo20<?php echo $i ?>" width="50">
                                 <script>
                                     var data = <?php echo json_encode($fila2[3]); ?>;
 
@@ -201,7 +201,7 @@
                                     var blob = dataURItoBlob(dataURI);
                                     var objectURL = URL.createObjectURL(blob);
 
-                                    logo<?php echo $i ?>.src = objectURL;
+                                    logo20<?php echo $i ?>.src = objectURL;
                                 </script>
                                 <?php echo
                                 '</td>
@@ -239,25 +239,29 @@
 </body>
 <script>
     function toggleButton() {
-        var x = document.getElementById("ElementosEliminados");
+        var x = document.getElementsByClassName("ElementosEliminados");
         var y = document.getElementById("tituloEliminado");
         var button = document.getElementById("botonMostrar");
-        if (x.style.display === "none") {
-            x.style.display = "table-row";
-            y.style.display = "table-row";
-            y.colspan = 6;
-            button.innerHTML = "Ocultar categorias desactivadas";
-            var color = window.getComputedStyle(button, null)
-                .getPropertyValue("background-color");
-            button.style.backgroundColor = "orange";
-        } else {
-            x.style.display = "none";
-            y.style.display = "none";
-            button.innerHTML = "Mostrar categorias desactivadas";
-            var color = window.getComputedStyle(button, null)
-                .getPropertyValue("background-color");
-            button.style.backgroundColor = "yellow";
+        for (var i = 0; i < x.length; i++) {
+            if (x[i].style.display === "none") {
+                x[i].style.display = "table-row";
+                y.style.display = "table-row";
+                y.colspan = 6;
+                button.innerHTML = "Ocultar categorias desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "orange";
+            } else {
+                x[i].style.display = "none";
+                y.style.display = "none";
+                button.innerHTML = "Mostrar categorias desactivadas";
+                var color = window.getComputedStyle(button, null)
+                    .getPropertyValue("background-color");
+                button.style.backgroundColor = "yellow";
+            }
         }
+
+
     }
 </script>
 
