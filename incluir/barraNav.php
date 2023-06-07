@@ -22,11 +22,12 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
+    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
 
-    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
-    <script src="../recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <script src="../recursos/js/bootstrap.min.js"></script>
+    
 
 </head>
 
@@ -47,7 +48,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                     </a>
                 </li>
                 <li class="nav-item pl-4">
-                    <a class="cabecera" href="menuProductos.php">
+                    <a class="cabecera" href="../gestionProductos/menuProductos.php">
                         Gestión de Productos
                     </a>
                 </li>

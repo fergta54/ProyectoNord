@@ -84,11 +84,17 @@
     <div class="container my-5 w-50">
         <h1 class="text-center">Reportes</h1>
         <br>
+        
         <div class="dropdown w-100">
             <button class="dropbtn w-100">Reporte Usuarios</button>
             <div class="dropdown-content w-100">
-                <a href="#">Generar reporte en PDF</a>
-                <a href="#">Generar reporte de EXCEL</a>
+                <form action="./ReportesUsuarios.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <form action="">
+                    <button >Generar reporte de EXCEL</button>
+                </form>
+                
             </div>
         </div>
         <br><br>
