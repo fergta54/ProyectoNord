@@ -53,10 +53,10 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                     </a>
                 </li>
                 <li class="nav-item dropdown pl-4">
-                    <a class="nav-link dropdown-toggle cabecera" style="color:white;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle cabecera" style="color:white;" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestión de Usuarios
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                         <a class="dropdown-item" href="../gestionUsuarios/listarRoles.php">Lista de Usuarios</a>
                         <a class="dropdown-item" href="../gestionUsuarios/crearRol.php">Crear Usuarios</a>
                         <a class="dropdown-item" href="index.php">Editar</a>
