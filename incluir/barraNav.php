@@ -64,8 +64,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                 </li>
                 <li class="nav-item pl-4">
                     <a class="cabecera" href="../admin.php">
-                        Gestión de Comprasholaaaasssss
-                        hola mundo
+                        Gestión de Compras
                     </a>
                 </li>
                 <li class="nav-item pl-4">
