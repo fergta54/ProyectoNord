@@ -104,11 +104,25 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                 <?php
                 }
                 ?>
+            
+
             </ul>
         </div>
+        <a href="cart.php" class="nav-item nav-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <?php
+                        if (isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                        }
+                        ?>             
+                </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
         </div>
+        
 
     </nav>
 </body>

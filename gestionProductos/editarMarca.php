@@ -21,8 +21,8 @@ if (isset($_POST['actualizar'])) {
 
     $query = "UPDATE marcas set nombre_marca = '$nombre', descripcion_marca = '$descripcion' WHERE id_marca=$id";
     mysqli_query($conexion, $query);
-    $_SESSION['message'] = 'Task Updated Successfully';
-    $_SESSION['message_type'] = 'warning';
+    // $_SESSION['message'] = 'Task Updated Successfully';
+    // $_SESSION['message_type'] = 'warning';
     header('Location: ./adminMarcas.php');
 }
 
