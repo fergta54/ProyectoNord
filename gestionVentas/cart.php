@@ -1,11 +1,12 @@
 <?php
-
 session_start();
+include('../conexion.php');
+require_once ("CreateDb.php");
+
+$database = new CreateDb("productos");
 
 include ('checkout.php');
 
-
-$database = new CreateDb("productos");
 
 if (isset($_POST['remove'])){
   if ($_GET['action'] == 'remove'){
@@ -26,23 +27,23 @@ if (isset($_POST['remove'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
-
-    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../recursos/css/ventas.css">
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
+    <script src="../recursos/js/bootstrap.min.js"></script>
+    <!-- Font Awesome carrito -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body class="bg-light">
 
-
-<?php //include('menu.php') ?>
+<?php include('navVentas.php');?>
 <div class="container-fluid">
     <div class="row px-5">
         <div class="col-md-7">
