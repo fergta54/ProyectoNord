@@ -10,7 +10,7 @@ class MYPDF extends TCPDF{
         $bMargin  = $this->getBreakMargin();
         $auto_page_break = $this->AutoPageBreak;
         $this->SetAutoPageBreak(false, 0);
-        $img_file = dirname( __FILE__) .'/recursos/img/logo.png';
+        $img_file = dirname( __FILE__ ) .'./logo.png';
         $this->Image($img_file, 85, 8, 20, 25, '', '', '', false, 30, '', false, false, 0);
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         $this->setPageMark();
@@ -63,8 +63,8 @@ $pdf->SetTextColor(0,0,0);
 $pdf->SetFIllColor(232,232,232);
 $pdf->SetFont('helvetica', 'B', 12);
 $pdf->Cell(40,6,'Nombre',1,0,'C',1);
-$pdf->Cell(60,6,'Nombre de usuario',1,0,'C',1);
-$pdf->Cell(35,6,'Correo electronico',1,0,'C',1);
+$pdf->Cell(40,6,'Nombre de usuario',1,0,'C',1);
+$pdf->Cell(55,6,'Correo electronico',1,0,'C',1);
 $pdf->Cell(35,6,'Contraseña',1,1,'C',1);
 
 
@@ -79,13 +79,13 @@ $query = mysqli_query($conexion, $sqlTrabajadores);
 
 while($dataRow = mysqli_fetch_array($query)) {
     $pdf->Cell(40,6,($dataRow['nombre_completo']),1,0,'C');
-    $pdf->Cell(60,6,($dataRow['nombre_usuario']),1,0,'C');
-    $pdf->Cell(35,6,($dataRow['correo_usuario']),1,0,'C');
-    $pdf->Cell(35,6,($dataRow['contrasenia']),1,0,'C');
+    $pdf->Cell(40,6,($dataRow['nombre_usuario']),1,0,'C');
+    $pdf->Cell(55,6,($dataRow['correo_usuario']),1,0,'C');
+    $pdf->Cell(35,6,($dataRow['contrasenia']),1,1,'C');
 
 }
 
-$pdf->AddPage();
+//$pdf->AddPage();
 $pdf->Output('Resumen_Usuarios_'.date('d_m_y').'.pdf', 'I');
 
 
