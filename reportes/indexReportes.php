@@ -91,9 +91,7 @@
                 <form action="./ReportesUsuarios.php">
                     <button type="submit">Generar reporte en PDF</button>
                 </form>
-                <form action="">
-                    <button >Generar reporte de EXCEL</button>
-                </form>
+                <a href="./ReporteUsuariosExcel.php">Generar reporte de EXCEL</a>
                 
             </div>
         </div>
@@ -102,7 +100,7 @@
             <button class="dropbtn w-100">Reporte Cliente</button>
             <div class="dropdown-content w-100">
                 <a href="#">Generar reporte en PDF</a>
-                <a href="#">Generar reporte de EXCEL</a>
+                <a href="">Generar reporte de EXCEL</a>
             </div>
         </div>
         <br><br>
