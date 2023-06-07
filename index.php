@@ -44,7 +44,7 @@ $varRol = null;
                     </li>
 
                     <li class="nav-item">
-                        <a class="cabecera" href="index.php">
+                        <a class="cabecera" href="./gestionVentas/menu.php">
                             Comprar
                         </a>
                     </li>
