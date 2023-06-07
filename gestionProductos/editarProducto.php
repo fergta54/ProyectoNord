@@ -22,7 +22,7 @@
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = "SELECT * FROM categorias WHERE id_categoria=$id";
+        $query = "SELECT * FROM productos WHERE id_producto=$id";
         $result = mysqli_query($conexion, $query);
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
