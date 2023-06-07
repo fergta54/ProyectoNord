@@ -10,14 +10,14 @@ class MYPDF extends TCPDF{
         $bMargin  = $this->getBreakMargin();
         $auto_page_break = $this->AutoPageBreak;
         $this->SetAutoPageBreak(false, 0);
-        $img_file = dirname( __FILE__ ) .'./logo.png';
+        $img_file = realpath(dirname( __FILE__ )) .'../recursos/img/logo.png';
         $this->Image($img_file, 85, 8, 20, 25, '', '', '', false, 30, '', false, false, 0);
         $this->SetAutoPageBreak($auto_page_break, $bMargin);
         $this->setPageMark();
     }
 }
 
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, 'mm', 'Letter', true, 'UTF-8', false);
+$pdf = new MYPDF('P', 'mm', 'Letter', true, 'UTF-8', false);
 
 $pdf->SetMargins(20, 35, 25);
 $pdf->SetHeaderMargin(20);
