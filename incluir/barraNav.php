@@ -24,9 +24,9 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <link rel="stylesheet" href="../recursos/css/index.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    
     
 
 </head>
@@ -64,7 +64,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
                 </li>
                 <li class="nav-item pl-4">
                     <a class="cabecera" href="../admin.php">
-                        Gestión de Compras
+                        Gestión de Comprasholaaaa
                     </a>
                 </li>
                 <li class="nav-item pl-4">
