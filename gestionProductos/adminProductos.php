@@ -75,7 +75,7 @@
                             for ($i = 0; $i < $verFilas; $i++) {
                                 echo '
                                 <tr>
-                                    <td>' . $i + 1 . '</td>
+                                    <td>' . ($i + 1) . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[5] . '</td>
                                     <td>' ?><img id="logo3<?php echo $i ?>" width="50">
@@ -174,7 +174,7 @@
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
                                     <tr class="ElementosEliminados" style="display:none;">
-                                    <td>' . $i + 1 . '</td>
+                                    <td>' . ($i + 1) . '</td>
                                     <td>' . $fila2[1] . '</td>
                                     <td>' . $fila2[5] . '</td>
                                         <td>' ?><img id="logo20<?php echo $i ?>" width="50">

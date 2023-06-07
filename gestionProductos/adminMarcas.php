@@ -68,7 +68,7 @@
                             for ($i = 0; $i < $verFilas; $i++) {
                                 echo '
                                 <tr>
-                                    <td>' . $i + 1 . '</td>
+                                    <td>' . ($i + 1) . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[2] . '</td>
                                     <td><center>' . ($fila[3] == 1 ? "Activo" : "Inactivo") . '</center></td>   
@@ -124,7 +124,7 @@
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
                                     <tr class="ElementosEliminados" style="display:none;">
-                                        <td>' . $i + 1 . '</td>
+                                        <td>' . ($i + 1) . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
                                         <td><center>' . ($fila2[3] == 1 ? "Activo" : "Inactivo")  . '</center></td>                                  
