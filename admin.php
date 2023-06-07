@@ -59,7 +59,7 @@ include('./verificarSesionAdmin.php')
                     </div>
                 </li>
                 <li class="nav-item pl-4">
-                    <a class="cabecera" href="index.php">
+                    <a class="cabecera" href="./gestionProveedores/menuProveedores.php">
                         Gestión de Compras
                     </a>
                 </li>
