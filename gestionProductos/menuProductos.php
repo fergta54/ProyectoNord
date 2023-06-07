@@ -20,7 +20,7 @@
         <h1>
             PRODUCTOS
         </h1>
-        <button><a class="botonesProductos">Administrar Productos</a></button>
+        <button><a href="adminProductos.php" class="botonesProductos">Administrar Productos</a></button>
         <button><a href="adminMarcas.php" class="botonesProductos">Administrar Marcas</a></button>
         <button><a href="adminCategorias.php" class="botonesProductos">Administrar Categorias</a></button>
     </center>

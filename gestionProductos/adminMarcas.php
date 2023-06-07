@@ -32,10 +32,10 @@
         <table class="tablaMarcas table table-bordered">
             <thead>
                 <tr><b>
-                        <th class="td1">Nro</td>
-                        <th class="td2">Marca</td>
-                        <th class="td3">Descripcion</td>
-                        <th class="td4">Estado</td>
+                        <th class="td1">Nro</th>
+                        <th class="td2">Marca</th>
+                        <th class="td3">Descripcion</th>
+                        <th class="td4">Estado</th>
                         <th class="td5 td6" colspan="2">
                             <center>Acción</center>
                         </th>
@@ -65,7 +65,7 @@
                         if ($verFilas < 1) {
                             echo "<tr><td colspan='6'>SIN REGISTROS</td></tr>";
                         } else {
-                            for ($i = 0; $i < $fila; $i++) {
+                            for ($i = 0; $i < $verFilas; $i++) {
                                 echo '
                                 <tr>
                                     <td>' . $i + 1 . '</td>

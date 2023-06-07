@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATEGORIAS</title>
+    <title>PRODUCTOS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -19,11 +19,11 @@
     ?>
     <center>
         <h1>
-            CATEGORIAS
+            PRODUCTOS
         </h1>
-        <button><a href="crearCategoria.php" class="botonesProductos">Crear Categoria</a></button>
+        <button><a href="crearProducto.php" class="botonesProductos">Crear Producto</a></button>
         <button><a class="botonesProductos">Ad</a></button>
-        <h1>REGISTRO DE CATEGORIAS</h1><br>
+        <h1>REGISTRO DE PRODUCTOS</h1><br>
         <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar categorias desactivadas</button>
         <br>
         <br>
@@ -33,9 +33,11 @@
             <thead>
                 <tr><b>
                         <th class="td1">Nro</th>
-                        <th class="td2">Categoria</th>
+                        <th class="td2">Nombre</th>
                         <th class="td3">Descripcion</th>
-                        <th class="td4">Logo</th>
+                        <th class="td4">Imagen</th>
+                        <th class="td5">Categoria</th>
+                        <th class="td5">Marca</th>
                         <th class="td5">Estado</th>
                         <th class="td6 td7" colspan="2">
                             <center>Acción</center>
@@ -52,13 +54,15 @@
                     //session_start();
                     $ejecutarConsulta = mysqli_query(
                         $conexion,
-                        "SELECT id_categoria as Nro,nombre_categoria as Categoria, descripcion_categoria as Descripcion,
-                        logo_categoria as Logo,estado_categoria as Estado 
-                        FROM categorias where estado_categoria=1 order by id_categoria"
+                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_prod,marcas.nombre_marca,                        
+                        pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
+                        FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
+                            inner join marcas on pr.id_marca=marcas.id_marca
+                         where estado_producto=1 order by id_prod"
                     )
                         or die("Problemas en la inserción" . mysqli_error($conexion));
-                    //echo $_SESSION['IdRegistro'];
-                    // mysqli_close($conexion);
+
+
                     $verFilas = mysqli_num_rows($ejecutarConsulta);
                     $fila = mysqli_fetch_array($ejecutarConsulta);
                     if (!$ejecutarConsulta) {
@@ -73,10 +77,10 @@
                                 <tr>
                                     <td>' . $i + 1 . '</td>
                                     <td>' . $fila[1] . '</td>
-                                    <td>' . $fila[2] . '</td>
-                                    <td>' ?><img id="logo<?php echo $i ?>" width="50">
+                                    <td>' . $fila[5] . '</td>
+                                    <td>' ?><img id="logo3<?php echo $i ?>" width="50">
                                 <script>
-                                    var data = <?php echo json_encode($fila[3]); ?>;
+                                    var data = <?php echo json_encode($fila[2]); ?>;
 
                                     function dataURItoBlob(dataURI) {
                                         // convert base64/URLEncoded data component to raw binary data held in a string
@@ -105,24 +109,25 @@
                                     var blob = dataURItoBlob(dataURI);
                                     var objectURL = URL.createObjectURL(blob);
 
-                                    logo<?php echo $i ?>.src = objectURL;
+                                    logo3<?php echo $i ?>.src = objectURL;
                                 </script>
                                 <?php echo
-                                '</td>
+                                '<td>' . $fila[6] . '</td>
+                                <td>' . $fila[4] . '</td>
                                 <td>
-                                    <center>' . ($fila[4] == 1 ? "Activo" : "Inactivo") . '</center>
+                                    <center>' . ($fila[7] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>
 
                                 ';
 
                                 ?>
                                 <td>
-                                    <center><button class="btn btn-warning"><a class="botonesProductos" href="editarCategoria.php?id=<?php echo $fila[0] ?>">
-                                                <i class="fas fa-marker">Editar</i>
+                                    <center><button class="btn btn-success"><a class="botonesProductos" href="verProducto.php?id=<?php echo $fila[0] ?>">
+                                                <i class="fas fa-marker">Ver info</i>
                                             </a></button> </center>
                                 </td>
                                 <td>
-                                    <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarCategoria.php?id=<?php echo $fila[0] ?>">
+                                    <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href="eliminarProducto.php?id=<?php echo $fila[0] ?>">
                                                 Cambiar estado a inactivo
                                             </a></button> </center>
                                 </td>
@@ -148,9 +153,11 @@
                     //session_start();
                     $ejecutarConsulta2 = mysqli_query(
                         $conexion,
-                        "SELECT id_categoria as Nro,nombre_categoria as Categoria, descripcion_categoria as Descripcion,
-                        logo_categoria as Logo,estado_categoria as Estado 
-                        FROM categorias where estado_categoria=2 order by id_categoria"
+                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_prod,marcas.nombre_marca,                        
+                        pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
+                        FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
+                            inner join marcas on pr.id_marca=marcas.id_marca
+                         where estado_producto=2 order by id_prod"
                     )
                         or die("Problemas en la inserción" . mysqli_error($conexion));
                     //echo $_SESSION['IdRegistro'];
@@ -167,12 +174,12 @@
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
                                     <tr class="ElementosEliminados" style="display:none;">
-                                        <td>' . $i + 1 . '</td>
-                                        <td>' . $fila2[1] . '</td>
-                                        <td>' . $fila2[2] . '</td>
+                                    <td>' . $i + 1 . '</td>
+                                    <td>' . $fila2[1] . '</td>
+                                    <td>' . $fila2[5] . '</td>
                                         <td>' ?><img id="logo20<?php echo $i ?>" width="50">
                                 <script>
-                                    var data = <?php echo json_encode($fila2[3]); ?>;
+                                    var data = <?php echo json_encode($fila2[2]); ?>;
 
                                     function dataURItoBlob(dataURI) {
                                         // convert base64/URLEncoded data component to raw binary data held in a string
@@ -204,9 +211,10 @@
                                     logo20<?php echo $i ?>.src = objectURL;
                                 </script>
                                 <?php echo
-                                '</td>
+                                '<td>' . $fila2[6] . '</td>
+                                <td>' . $fila2[4] . '</td>
                                 <td>
-                                    <center>' . ($fila2[4] == 1 ? "Activo" : "Inactivo") . '</center>
+                                    <center>' . ($fila2[7] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>                                  
      
                                 ';
@@ -214,7 +222,7 @@
                                 ?>
 
                                 <td colspan="2">
-                                    <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarCategoria.php?id=<?php echo $fila2[0] ?>">
+                                    <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarProducto.php?id=<?php echo $fila2[0] ?>">
                                                 Activar
                                             </a></button></center>
                                 </td>
