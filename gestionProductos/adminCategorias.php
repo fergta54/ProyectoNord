@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTOS</title>
+    <title>CATEGORIAS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -110,7 +110,7 @@
                                 <?php echo
                                 '</td>
                                 <td>
-                                    <center>' . $fila[4] . '</center>
+                                    <center>' . ($fila[4] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>
 
                                 ';
@@ -206,7 +206,7 @@
                                 <?php echo
                                 '</td>
                                 <td>
-                                    <center>' . $fila2[4] . '</center>
+                                    <center>' . ($fila2[4] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>                                  
      
                                 ';

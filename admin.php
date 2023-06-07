@@ -24,7 +24,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <title>ADMIN</title>
     <link rel="stylesheet" href="./recursos/css/index.css">
     <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
-    
+
     <script src="./recursos/js/jquery-3.7.0.min.js"></script>
     <script src="./recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./recursos/css/cabecera.css">
@@ -46,9 +46,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
         <a class="cabecera " href="index.php">
             <img class="container-fluid" src="./recursos/img/lg.png" alt="logo" />
         </a>
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto pl-5">
                 <li class="nav-item">

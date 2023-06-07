@@ -119,3 +119,9 @@ header .navbar a:hover {
 .tablaMarcas {
   width: 90%;
 }
+#navbarDropdownMenuLink {
+  color: white;
+}
+.cabecera {
+  color: white;
+}

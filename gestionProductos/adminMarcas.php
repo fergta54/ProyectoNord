@@ -71,7 +71,7 @@
                                     <td>' . $i + 1 . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[2] . '</td>
-                                    <td><center>' . $fila[3] . '</center></td>   
+                                    <td><center>' . ($fila[3] == 1 ? "Activo" : "Inactivo") . '</center></td>   
                             ';
                 ?>
                                 <td>
@@ -127,7 +127,7 @@
                                         <td>' . $i + 1 . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
-                                        <td><center>' . $fila2[3] . '</center></td>                                  
+                                        <td><center>' . ($fila2[3] == 1 ? "Activo" : "Inactivo")  . '</center></td>                                  
      
                                 ';
 
