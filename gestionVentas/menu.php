@@ -33,17 +33,16 @@ productos
             include('../conexion.php');
             $seleccionar = mysqli_query(
                 $conexion,
-                "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_unit_compra,pr.estado_producto                        
-                FROM productos 
+                "SELECT pr.id_prod as id,pr.nombre_prod,pr.imagen_prod,pr.precio_unit_compra,pr.estado_producto                        
+                FROM productos pr
                  where estado_producto=1 order by id_prod"
             );
-            $row = mysqli_fetch_array($seleccionar);
+
             if($seleccionar) {
                 while ($row = mysqli_fetch_assoc($seleccionar)){
-                    component($row[''] ,$row['nombre_prod'], $row['precio_unit_compra'], $row['imagen_prod'], $row['id']);
+                    component($row['nombre_prod'], $row['precio_unit_compra'], $row['imagen_prod'], $row['id']);
                 }
             }
-               component($row['nombre_prod'], 444,'./upload/product1.png', 1);
             ?>
         </div>
 </div>
