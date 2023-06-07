@@ -1,3 +1,27 @@
+<?php
+
+session_start();
+
+include ('checkout.php');
+
+
+$database = new CreateDb("productos");
+
+if (isset($_POST['remove'])){
+  if ($_GET['action'] == 'remove'){
+      foreach ($_SESSION['cart'] as $key => $value){
+          if($value["id_prod"] == $_GET['id']){
+              unset($_SESSION['cart'][$key]);
+              echo "<script>alert('Producto eliminado')</script>";
+              echo "<script>window.location = 'cart.php'</script>";
+          }
+      }
+  }
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +42,7 @@
 <body class="bg-light">
 
 
-
+<?php //include('menu.php') ?>
 <div class="container-fluid">
     <div class="row px-5">
         <div class="col-md-7">
@@ -30,14 +54,14 @@
 
                 $total = 0;
                     if (isset($_SESSION['cart'])){
-                        $product_id = array_column($_SESSION['cart'], 'product_id');
+                        $product_id = array_column($_SESSION['cart'], 'id_prod');
 
                         $result = $db->getData();
                         while ($row = mysqli_fetch_assoc($result)){
                             foreach ($product_id as $id){
                                 if ($row['id'] == $id){
-                                    cartElement($row['product_image'], $row['product_name'],$row['product_price'], $row['id']);
-                                    $total = $total + (int)$row['product_price'];
+                                    cartElement($row['imagen_prod'], $row['nombre_prod'],$row['precio_prod'], $row['id']);
+                                    $total = $total + (int)$row['precio_prod'];
                                 }
                             }
                         }

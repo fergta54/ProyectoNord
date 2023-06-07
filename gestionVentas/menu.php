@@ -1,3 +1,62 @@
+<?php
+session_start();
+include('conexion.php');
+class CreateDb
+{    
+    public $tablename;
+    public $con;
+    public function __construct(
+        $tablename = "productos"
+    )
+    {
+      $this->tablename = $tablename;
+      include('conexion.php');
+      $this->con = mysqli_connect($servidor, $usu, $password, $bd);
+    }
+    public function getData(){
+        $sql = "SELECT * FROM $this->tablename";
+
+        $result = mysqli_query($this->con, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+    }
+}
+
+$database = new CreateDb("productos");
+
+include ('checkout.php');
+
+if (isset($_POST['add'])){
+    if(isset($_SESSION['cart'])){
+
+        $item_array_id = array_column($_SESSION['cart'], "id_prod");
+
+        if(in_array($_POST['id_prod'], $item_array_id)){
+            echo "<script>alert('El producto ya esta en el carrito')</script>";
+            echo "<script>window.location = 'menu.php'</script>";
+        }else{
+
+            $count = count($_SESSION['cart']);
+            $item_array = array(
+                'id_prod' => $_POST['id_prod']
+            );
+
+            $_SESSION['cart'][$count] = $item_array;
+        }
+    }else{
+        $item_array = array(
+                'id_prod' => $_POST['id_prod']
+        );
+        // Create new session variable
+        $_SESSION['cart'][0] = $item_array;
+        print_r($_SESSION['cart']);
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +81,6 @@
             <a class="cabecera" href="index.php">
                 <img src="./recursos/img/lg.png" alt="logo" />
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,12 +94,6 @@
                     <li class="nav-item">
                         <a class="cabecera" href="index.php">
                             Servicios
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Comprar
                         </a>
                     </li>
                     <li class="nav-item">
@@ -58,44 +110,9 @@
                         <a class="cabecera" href="index.php">
                             Contacto
                         </a>
-                    </li>
-
-                    <?php
-
-                    if (isset($_SESSION['usuario'])) {
-                        // echo '<script>Console.log("LLEGA")</script>';
-                        $usuario = $_SESSION['usuario'];
-                        $varRol = $_SESSION['rol'];
-                    }
-                    if ($varRol === 'cliente') {
-                    ?>
-                        <li class="nav-item">
-                            <a class="cabecera" href="">
-                                Bienvenido <?php
-                                            echo $_SESSION['usuario'];
-                                            ?> !
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./loginAzul/cerrarSesion.php">
-                                Cerrar Sesion
-                            </a>
-                        </li>
-                    <?php
-                    } // 
-                    else {
-                    ?>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./loginAzul/login.php">
-                                Login
-                            </a>
-                        </li>
-                    <?php
-                    }
-                    ?>                    
+                    </li>           
                 </ul>
-            </div>
-         
+            </div>         
                 <a href="cart.php" class="nav-item nav-link active">
                         <i class="fas fa-shopping-cart"></i> 
                         <?php
@@ -113,13 +130,17 @@
 
 <body>
 productos
-<?php //include('../incluir/barraNav.php') ?>
-<?php //require_once ("../incluir/barraNav.php"); ?>
 
-
-
-
-
+<div class="container">
+        <div class="row text-center py-5">
+            <?php
+                $result = $database->getData();
+                while ($row = mysqli_fetch_assoc($result)){
+                    component($row['nombre_prod'], $row['precio_prod'], $row['imagen_prod'], $row['id']);
+                }
+            ?>
+        </div>
+</div>
 
 </body>
 
