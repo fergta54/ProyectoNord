@@ -10,7 +10,7 @@ include("../conexion.php");
 // session_start();
 
 
-$registros = mysqli_query($conexion, "insert into productos(nombre_prod,imagen_prod,precio_prod,id_marca,
+$registros = mysqli_query($conexion, "insert into productos(nombre_prod,imagen_prod,precio_unit_compra,id_marca,
 descripcion_prod,id_categoria,estado_producto) values 
 ('$_REQUEST[nombreProducto]','$_REQUEST[lgPr]','$_REQUEST[precioProducto]','$_REQUEST[marcaProd]',
 '$_REQUEST[descripcionProducto]','$_REQUEST[catProd]',1)")

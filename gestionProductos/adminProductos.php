@@ -54,7 +54,7 @@
                     //session_start();
                     $ejecutarConsulta = mysqli_query(
                         $conexion,
-                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_prod,marcas.nombre_marca,                        
+                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_unit_compra,marcas.nombre_marca,                        
                         pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
                         FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
                             inner join marcas on pr.id_marca=marcas.id_marca
@@ -153,7 +153,7 @@
                     //session_start();
                     $ejecutarConsulta2 = mysqli_query(
                         $conexion,
-                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_prod,marcas.nombre_marca,                        
+                        "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_unit_compra,marcas.nombre_marca,                        
                         pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
                         FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
                             inner join marcas on pr.id_marca=marcas.id_marca
