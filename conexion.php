@@ -13,3 +13,5 @@ $bd = 'db_a9a738_nrdazul';
 $conexion = mysqli_connect($servidor, $usu, $password, $bd);
 
 // $conexion = mysqli_connect('localhost', 'root', '', 'nordsternazul');
+
+
