@@ -214,7 +214,7 @@
                                 '<td>' . $fila2[6] . '</td>
                                 <td>' . $fila2[4] . '</td>
                                 <td>
-                                    <center>' . ($fila2[7] == 1 ? "Activo" : "Inactivo") . '</center>
+                                    <center><p class="formatoEliminado">' . ($fila2[7] == 1 ? "Activo" : "Inactivo") . '</p></center>
                                 </td>                                  
      
                                 ';
