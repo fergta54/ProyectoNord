@@ -26,8 +26,8 @@
         $result = mysqli_query($conexion, $query);
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_categoria'];
-            $descripcion = $row['descripcion_categoria'];
+            $nombre = $row['nombre_prod'];
+            $descripcion = $row['descripcion_prod'];
             $dataLogo = $row['logo_categoria'];
         }
     }
@@ -53,13 +53,13 @@
             <div class="row">
                 <div class="col-md-4 mx-auto">
                     <div class="card card-body">
-                        <form action="editarCategoria.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                        <form action="editarProducto.php?id=<?php echo $_GET['id']; ?>" method="POST">
                             <div class="form-group">
                                 <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
                             </div>
                             <div>
-                                <div id="mostrarImgCat">
-                                    <img id="imgEditarCat" width="50">
+                                <div id="mostrarImgProd">
+                                    <img id="imgEditarProd" width="50">
                                 </div>
                                 <script>
                                     var data = <?php echo json_encode($dataLogo); ?>;
@@ -94,8 +94,8 @@
                                     imgEditarCat.src = objectURL;
                                 </script>
                                 <label>Logo de la Categoria</label>
-                                <input type="file" accept="image/*" class="localCat22" id="logocat">
-                                <input name="lgCat22" id="lgCat22" type="hidden">
+                                <input type="file" accept="image/*" class="localProd22" id="logocat">
+                                <input name="lgProd22" id="lgProd22" type="hidden">
                                 <input type="button" onclick="ponerImagenDefecto()" value="Eliminar imagen">
 
                                 <script>

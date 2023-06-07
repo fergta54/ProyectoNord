@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    include('../incluir/barraNav.php')
+    include('../incluir/barraNavAdmin.php')
     ?>
     <center>
         <h1>
@@ -65,7 +65,7 @@
                             for ($i = 0; $i < $verFilas; $i++) {
                                 echo '
                                 <tr>
-                                    <td>' . $i + 1 . '</td>
+                                    <td>' . ($i + 1) . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[2] . '</td>
                                     <td>' . $fila[3] . '</td>
@@ -128,7 +128,7 @@
                             for ($i = 0; $i < $verFilas2; $i++) {
                                 echo '
                                     <tr class="ElementosEliminados" style="display:none;">
-                                        <td>' . $i + 1 . '</td>
+                                        <td>' . ($i + 1) . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
                                         <td>' . $fila2[3] . '</td>

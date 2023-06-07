@@ -125,3 +125,8 @@ header .navbar a:hover {
 .cabecera {
   color: white;
 }
+
+.formatoEliminado{
+ background-color: red;
+ color:white;
+}

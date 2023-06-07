@@ -1,17 +1,18 @@
 <?php
-// seguridad de sesiones paginacion
-session_start();
-$varSession = null;
-$varRol = null;
-if ($_SESSION['usuario']) {
-    $varSession = $_SESSION['usuario'];
-    $varRol = $_SESSION['rol'];
-}
-if ($varSession == null || $varSession = '' || $varRol != 'admin') {
-    echo 'NO TIENES ACCESSO';
-    header("Location:../loginAzul/login.php");
-    die();
-}
+include('verificarSesionAdminNav.php');
+// // seguridad de sesiones paginacion
+// session_start();
+// $varSession = null;
+// $varRol = null;
+// if ($_SESSION['usuario']) {
+//     $varSession = $_SESSION['usuario'];
+//     $varRol = $_SESSION['rol'];
+// }
+// if ($varSession == null || $varSession = '' || $varRol != 'admin') {
+//     echo 'NO TIENES ACCESSO';
+//     header("Location:../loginAzul/login.php");
+//     die();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +21,7 @@ if ($varSession == null || $varSession = '' || $varRol != 'admin') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
     <link rel="stylesheet" href="../recursos/css/index.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
