@@ -16,7 +16,7 @@
 
 <body>
     <?php
-    include('../incluir/barraNav.php')
+    include('../incluir/barraNavAdmin.php')
     ?>
 
     <div class="container my-5 text-center">

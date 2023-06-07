@@ -14,7 +14,7 @@
 
 <body>
     <?php
-    include('../incluir/barraNav.php');
+    include('../incluir/barraNavAdmin.php');
     include('../conexion.php');
     ?>
     <center>

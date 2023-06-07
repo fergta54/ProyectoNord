@@ -57,7 +57,7 @@
 
 <body>
     <?php
-        include('../incluir/barraNav.php')
+        include('../incluir/barraNavAdmin.php')
     ?>
     <div class="container my-5 w-50">
         <h2 class="text-center">Crear Rol</h2>

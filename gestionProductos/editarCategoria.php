@@ -46,7 +46,7 @@
     }
 
     ?>
-    <?php include('../incluir/barraNav.php'); ?>
+    <?php include('../incluir/barraNavAdmin.php'); ?>
     <center>
         <h1>Editar Categoria</h1>
         <div class="container p-4">

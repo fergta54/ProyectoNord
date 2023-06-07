@@ -43,7 +43,7 @@
     }
 
     ?>
-    <?php include('../incluir/barraNav.php'); ?>
+    <?php include('../incluir/barraNavAdmin.php'); ?>
     <center>
         <h1>Editar Marca</h1>
         <div class="container p-4">
