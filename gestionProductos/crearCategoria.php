@@ -46,7 +46,6 @@
                                                 <label>Logo de la Categoria</label>
                                                 <input type="file" accept="image/*" class="localCat" id="logocat">
                                                 <input name="lgCat" id="lgCat" type="hidden">
-                                                <img id="imgdefecto" src="../recursos/img/sinfoto.jpg" hidden>
                                                 <script>
                                                     const $file = document.querySelector(".localCat");
                                                     let url = "../recursos/img/sinfoto.jpg"

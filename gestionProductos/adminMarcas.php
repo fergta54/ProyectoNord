@@ -71,10 +71,8 @@
                                     <td>' . $i + 1 . '</td>
                                     <td>' . $fila[1] . '</td>
                                     <td>' . $fila[2] . '</td>
-                                    <td><center>' . $fila[3] . '</center></td>                                  
- 
+                                    <td><center>' . $fila[3] . '</center></td>   
                             ';
-
                 ?>
                                 <td>
                                     <center><button class="btn btn-warning"><a class="botonesProductos" href="editarMarca.php?id=<?php echo $fila[0] ?>">
