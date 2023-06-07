@@ -105,10 +105,12 @@
         </div>
         <br><br>
         <div class="dropdown w-100">
-            <button class="dropbtn w-100">Reporte Inventario</button>
+            <button class="dropbtn w-100">Reporte Marcas</button>
             <div class="dropdown-content w-100">
-                <a href="#">Generar reporte en PDF</a>
-                <a href="#">Generar reporte de EXCEL</a>
+                <form action="./ReportesMarcas/ReporteMarcasPDF.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <a href="./ReportesMarcas/ReporteMarcasExcel.php">Generar reporte de EXCEL</a>
             </div>
         </div>
         <br><br>
@@ -121,10 +123,12 @@
         </div>
         <br><br>
         <div class="dropdown w-100">
-            <button class="dropbtn w-100">Reporte Ventas</button>
+            <button class="dropbtn w-100">Reporte Productos</button>
             <div class="dropdown-content w-100">
-                <a href="#">Generar reporte en PDF</a>
-                <a href="#">Generar reporte de EXCEL</a>
+                <form action="./ReportesProductos/ReportesProductosPDF.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <a href="./ReportesProductos/ReporteProductosExcel.php">Generar reporte de EXCEL</a>
             </div>
         </div>
     </div>
