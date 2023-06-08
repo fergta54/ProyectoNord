@@ -14,7 +14,9 @@ if (isset($_GET['id'])) {
     mysqli_query($conexion, $query2);
     $_SESSION['message'] = 'Task Updated Successfully';
     $_SESSION['message_type'] = 'warning';
-    header('Location: ./adminCategorias.php');
+    echo "<script type='text/javascript'>alert('La categoria ha sido activada');
+    window.location = './adminCategorias.php';
+    </script>";
 }
 
 // if (isset($_POST['actualizar'])) {
@@ -30,7 +32,7 @@ if (isset($_GET['id'])) {
 // }
 
 ?>
-            <?php include('../incluir/barraNavAdmin.php'); ?>
+<?php include('../incluir/barraNavAdmin.php'); ?>
 <!-- <center>
     <h1>Editar Marca</h1>
     <div class="container p-4">

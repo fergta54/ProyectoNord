@@ -14,7 +14,9 @@ if (isset($_GET['id'])) {
     mysqli_query($conexion, $query2);
     $_SESSION['message'] = 'Task Updated Successfully';
     $_SESSION['message_type'] = 'warning';
-    header('Location: ./adminMarcas.php');
+    echo "<script type='text/javascript'>alert('La marca ha sido activada');
+    window.location = './adminMarcas.php';
+    </script>";
 }
 
 // if (isset($_POST['actualizar'])) {

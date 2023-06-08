@@ -39,7 +39,9 @@
         mysqli_query($conexion, $query);
         // $_SESSION['message'] = 'Task Updated Successfully';
         // $_SESSION['message_type'] = 'warning';
-        header('Location: ./adminMarcas.php');
+        echo "<script type='text/javascript'>alert('Los cambios en la marca han sido guardados');
+        window.location = './adminMarcas.php';
+        </script>";
     }
 
     ?>

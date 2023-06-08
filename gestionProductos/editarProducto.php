@@ -42,7 +42,9 @@
         logo_categoria='$dataLogo' WHERE id_categoria=$id";
         mysqli_query($conexion, $query);
 
-        header('Location: ./adminCategorias.php');
+        echo "<script type='text/javascript'>alert('Los cambios en el producto han sido guardados');
+        window.location = './adminProductos.php';
+        </script>";
     }
 
     ?>

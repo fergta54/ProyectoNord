@@ -19,13 +19,8 @@ $registros = mysqli_query($conexion, "insert into categorias(nombre_categoria,de
 // $a = mysqli_query($conexion, "CALL SP_RegistrarPrecios('$ultimoId','$_REQUEST[precioEjecutivo]','$_REQUEST[precioComercial]')");
 
 mysqli_close($conexion);
-//echo "Informacion grabada con exito";
-//echo $_SESSION['IdRegistro'];
-?>
-<script>
-    Alert('Marca registrada con éxito');
-</script>
-<?php
-header("Location:./adminCategorias.php"); ?>
 
-<br><br>
+
+echo "<script type='text/javascript'>alert('Categoría registrada con éxito');
+        window.location = './adminCategorias.php';
+        </script>";

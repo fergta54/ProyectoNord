@@ -23,11 +23,6 @@ descripcion_prod,id_categoria,estado_producto) values
 mysqli_close($conexion);
 //echo "Informacion grabada con exito";
 //echo $_SESSION['IdRegistro'];
-?>
-<script>
-    Alert('Marca registrada con éxito');
-</script>
-<?php
-header("Location:./adminProductos.php"); ?>
-
-<br><br>
+echo "<script type='text/javascript'>alert('Producto registrado con éxito');
+        window.location = './adminProductos.php';
+        </script>";

@@ -14,7 +14,9 @@ if (isset($_GET['id'])) {
     mysqli_query($conexion, $query2);
     $_SESSION['message'] = 'Task Updated Successfully';
     $_SESSION['message_type'] = 'warning';
-    header('Location: ./adminCategorias.php');
+    echo "<script type='text/javascript'>alert('La categoría ha sido desactivada');
+    window.location = './adminCategorias.php';
+    </script>";
 }
 
 // if (isset($_POST['actualizar'])) {

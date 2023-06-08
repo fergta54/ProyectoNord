@@ -9,14 +9,8 @@ $registros = mysqli_query($conexion, "insert into marcas(nombre_marca,descripcio
 // $a = mysqli_query($conexion, "CALL SP_RegistrarPrecios('$ultimoId','$_REQUEST[precioEjecutivo]','$_REQUEST[precioComercial]')");
 
 mysqli_close($conexion);
-//echo "Informacion grabada con exito";
-//echo $_SESSION['IdRegistro'];
-?>
-<script>
-    Alert('Marca registrada con éxito');
-</script>
-<?php
-header("Location:adminMarcas.php");
-?>
 
-<br><br>
+
+echo "<script type='text/javascript'>alert('Marca registrada con éxito');
+        window.location = './adminMarcas.php';
+        </script>";
