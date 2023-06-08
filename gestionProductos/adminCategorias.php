@@ -28,7 +28,7 @@
                 <br>
 
                 <table class="tablaCategorias table table-bordered">
-                    <thead class="thead thead-dark">
+                    <thead class="thead thead-dark fijadorCabecera">
                         <tr>
                             <th class="td1">Nro</th>
                             <th class="td2">Categoria</th>

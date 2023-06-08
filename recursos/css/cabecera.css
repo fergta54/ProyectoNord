@@ -184,3 +184,33 @@ header {
   background-color: #d9cea2;
   color: green;
 } */
+
+.tablaCategorias {
+  overflow: auto;
+  height: 100px;
+}
+.tablaCategorias thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tablaProductos {
+  overflow: auto;
+  height: 100px;
+}
+.tablaProductos thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.tablaMarcas {
+  overflow: auto;
+  height: 100px;
+}
+.tablaMarcas thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
