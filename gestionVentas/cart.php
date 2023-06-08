@@ -1,11 +1,7 @@
 <?php
 session_start();
+require_once ("tarjetas.php");
 include('../conexion.php');
-require_once ("CreateDb.php");
-
-$database = new CreateDb("productos");
-
-include ('checkout.php');
 
 
 if (isset($_POST['remove'])){
@@ -19,8 +15,6 @@ if (isset($_POST['remove'])){
       }
   }
 }
-
-
 ?>
 
 <!doctype html>
@@ -50,19 +44,26 @@ if (isset($_POST['remove'])){
             <div class="shopping-cart">
                 <h6>Mi Carrito</h6>
                 <hr>
-
                 <?php
-
+                $subtotal = 0;
+                
                 $total = 0;
                     if (isset($_SESSION['cart'])){
-                        $product_id = array_column($_SESSION['cart'], 'id_prod');
+                        $id_prod = array_column($_SESSION['cart'], 'id_prod');
 
-                        $result = $db->getData();
-                        while ($row = mysqli_fetch_assoc($result)){
-                            foreach ($product_id as $id){
+                        $seleccionar = mysqli_query(
+                            $conexion,
+                            "SELECT pr.id_prod as id,pr.nombre_prod,pr.imagen_prod,pr.precio_unit_compra,pr.estado_producto                        
+                            FROM productos pr
+                             where estado_producto=1 order by id_prod"
+                        );
+                        while ($row = mysqli_fetch_assoc($seleccionar)){
+                            foreach ($id_prod as $id){
                                 if ($row['id'] == $id){
-                                    cartElement($row['imagen_prod'], $row['nombre_prod'],$row['precio_prod'], $row['id']);
-                                    $total = $total + (int)$row['precio_prod'];
+                                    cartElement($row['imagen_prod'], $row['nombre_prod'],$row['precio_unit_compra'], $row['id']);
+                                    $subtotal += $row['precio_unit_compra']; 
+                                    $iva = round($subtotal * 0.13, 2);
+                                    $total = round($subtotal + $iva, 2);
                                 }
                             }
                         }
@@ -77,33 +78,29 @@ if (isset($_POST['remove'])){
         <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
 
             <div class="pt-4">
-                <h6>DETALLE</h6>
+                <h6>DETALLE DE LA COMPRA</h6>
                 <hr>
                 <div class="row price-details">
                     <div class="col-md-6">
                         <?php
                             if (isset($_SESSION['cart'])){
                                 $count  = count($_SESSION['cart']);
-                                echo "<h6>Precio ($count items)</h6>";
+                                echo "<h6>Subtotal ($count items)</h6>";
                             }else{
-                                echo "<h6>Precio (0 items)</h6>";
+                                echo "<h6>Subtotal (0 items)</h6>";
                             }
                         ?>
-                        <h6>Iva</h6>
+                        <h6>IVA</h6>
                         <hr>
                         <h6>Total</h6>
                     </div>
                     <div class="col-md-6">
-                        <h6>$<?php echo $total; ?></h6>
-                        <h6 class="text-success">FREE</h6>
-                        <hr>
-                        <h6>$<?php
-                            echo $total;
-                            ?></h6>
+                        <h6>Bs. <?php echo $subtotal; ?></h6>
+                        <h6>Bs. <?php echo $iva; ?></h6><hr>
+                        <h6>Bs. <?php echo $total; ?></h6>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
