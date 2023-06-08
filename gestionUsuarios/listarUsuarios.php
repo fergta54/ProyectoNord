@@ -27,8 +27,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
                     <th>Estado</th>
-                    <th>Accion</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +42,7 @@
                     die("Coxion fallida: " . $conexion->connect_error);
                 }
 
-                $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado order by estado_rol";
+                $sql = "SELECT * FROM usuarios inner join estados on usuarios.estado_usuario = estados.id_estado inner join rol on usuarios.id_rol = rol.id_rol order by estado_rol";
                 $result = $conexion->query($sql);
 
                 if(!$result){
@@ -48,16 +52,20 @@
                 while($row = $result->fetch_assoc()) {
                     echo "
                     <tr>
-                        <td>$row[id_rol]</td>
+                        <td>$row[id_usuario]</td>
+                        <td>$row[nombre_completo]</td>
+                        <td>$row[nombre_usuario]</td>
+                        <td>$row[correo_usuario]</td>
+                        <td>$row[contrasenia]</td>
                         <td>$row[nombre_rol]</td>
                         <td>$row[estado_descripcion]</td>
                         
                         <td>";
             
-                        if($row['estado_rol'] === '1'){
+                        if($row['estado_usuario'] === '1'){
                             echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivar.php?id_rol=$row[id_rol]'>Desactivar</a>";
                         }
-                        if($row['estado_rol'] === '2'){
+                        if($row['estado_usuario'] === '2'){
                             echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarRol.php?id_rol=$row[id_rol]'>Activar</a>";
                         }
             

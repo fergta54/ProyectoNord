@@ -53,8 +53,18 @@ include('./verificarSesionAdmin.php')
                         Gestión de Usuarios
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="./gestionUsuarios/listarRoles.php">Lista de Usuarios</a>
+                        <a class="dropdown-item" href="./gestionUsuarios/listarUsuarios.php">Lista de Usuarios</a>
                         <a class="dropdown-item" href="./gestionUsuarios/crearRol.php">Crear Usuarios</a>
+                        <a class="dropdown-item" href="index.php">Editar</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown pl-4">
+                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestión de Roles
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./gestionUsuarios/listarRoles.php">Lista de Roles</a>
+                        <a class="dropdown-item" href="./gestionUsuarios/crearRol.php">Crear Rol</a>
                         <a class="dropdown-item" href="index.php">Editar</a>
                     </div>
                 </li>
