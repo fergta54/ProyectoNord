@@ -60,14 +60,14 @@ include('verificarSesionAdminNav.php');
             </ul>
           </li>
           <li>
-            <a href="../reportes/indexReportes.php"  class="">Reportes</a>
-            
+            <a href="../reportes/indexReportes.php" class="">Reportes</a>
+
           </li>
           <li>
             <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de categorías</a>
             <ul class="collapse list-unstyled" id="categoriasSubmenu">
               <li>
-                <a href="./gestionProductos/adminCategorias.php">Listar categorías</a>
+                <a href="../gestionProductos/adminCategorias.php">Listar categorías</a>
               </li>
               <li>
                 <a href="../gestionProductos/crearCategoria.php">Crear categoría</a>

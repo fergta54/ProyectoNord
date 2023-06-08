@@ -98,7 +98,7 @@ header .navbar a:hover {
   text-decoration: none;
 }
 .td1 {
-  width: 18%;
+  width: 2%;
 }
 .td2 {
   width: 10%;
@@ -126,7 +126,7 @@ header .navbar a:hover {
   color: white;
 }
 
-.formatoEliminado{
- background-color: red;
- color:white;
+.formatoEliminado {
+  background-color: red;
+  color: white;
 }

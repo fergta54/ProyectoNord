@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -17,71 +19,30 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>
-                    MARCAS
-                </h1>
-                <button><a href="crearMarca.php">Crear Marca</a></button>
-                <button><a>Ad</a></button>
-                <h1>REGISTRO DE MARCAS</h1><br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="jumbotron">
-                                <h1 class="display-4 text-center">Registrar una marca</h1>
+            <div class="container my-5 w-50">
 
-                                <p classs="lead text-center">Inserta todos los datos para registrar una marca</p>
-                                <hr class="my-4">
+                <h2 class="text-center">Registrar una marca</h2>
 
-                                <div class="section-center">
-                                    <div class="container">
-                                        <div class="row">
-                                            <form action="./registrarMarca.php" method="post">
-                                                <div class="row">
-                                                    <div>
-                                                        <label>Nombre de marca</label>
-                                                        <input name="nombreMarca" class="form-control" id="nombreMarca" type="text" required>
-                                                        <label>Descripción de la marca</label>
-                                                        <textarea name="descripcionMarca" class="form-control" id="descripcionMarca" required></textarea>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <div class="form-btn">
-                                                            <button class="submit-btn">Registrar</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
+                <p classs="lead text-center">Inserta todos los datos para registrar una marca</p>
+                <hr class="my-4">
 
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
+                <form action="./registrarMarca.php" method="post">
+                    <div class="form-group ">
+                        <label for="nombreMarca">Nombre de marca</label><br>
+                        <input name="nombreMarca" class="form-control-lg w-100" id="nombreMarca" type="text" required>
+
+                        <label for="descripcionMarca">Descripción de la marca</label>
+                        <textarea name="descripcionMarca" class="form-control-lg w-100" id="descripcionMarca" required></textarea>
                     </div>
-                </div>
-                <br><br>
-                <?php
-                include("../conexion.php");
+                    <br>
 
-                if (!$conexion) {
-                    echo "Error en la conexion";
-                } else {
+                    <a href="./adminMarcas.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                    <button type="submit" class="btn btn-primary btn-success btn-lg w-100">Registrar</button>
 
-                    $consulta = mysqli_query($conexion, "SELECT COUNT(*) FROM  marcas")
-                        or die("Problemas en la inserción" . mysqli_error($conexion));
-                    $totalRegistros = mysqli_fetch_array($consulta);
-                    echo "Cantidad de pasajeros en Objeto JSON: " . json_encode($totalRegistros);
-                    //echo "<script type='text/javascript'>alert(".json_encode($totalRegistros).");</script>";
+                </form>
 
-                }
-                ?>
-
-
-            </center>
+            </div>
         </div>
     </div>
 </body>

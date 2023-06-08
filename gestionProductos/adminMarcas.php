@@ -19,29 +19,26 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>
-                    MARCAS
-                </h1>
-                <button><a href="crearMarca.php" class="botonesProductos">Crear Marca</a></button>
-                <button><a class="botonesProductos">Ad</a></button>
-                <h1>REGISTRO DE MARCAS</h1><br>
-                <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar marcas desactivadas</button>
+
+            <div class="container my-5 text-center">
+                <h1>Lista de Marcas</h1>
+                <br><br>
+
+                <button id="botonMostrar" class="btn btn-warning" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar marcas desactivadas</button>
                 <br>
                 <br>
 
 
                 <table class="tablaMarcas table table-bordered">
-                    <thead>
-                        <tr><b>
-                                <th class="td1">Nro</th>
-                                <th class="td2">Marca</th>
-                                <th class="td3">Descripcion</th>
-                                <th class="td4">Estado</th>
-                                <th class="td5 td6" colspan="2">
-                                    <center>Acción</center>
-                                </th>
-                            </b>
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th class="td1">Nro</th>
+                            <th class="td2">Marca</th>
+                            <th class="td3">Descripcion</th>
+                            <th class="td4">Estado</th>
+                            <th class="td5 td6" colspan="2">
+                                <center>Acción</center>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -155,9 +152,9 @@
                 </table>
                 <br><br>
 
-            </center>
+
+            </div>
         </div>
-    </div>
 
 </body>
 <script>
