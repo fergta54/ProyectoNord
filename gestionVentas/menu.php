@@ -6,6 +6,8 @@ require_once ('tarjetas.php');
 
 include('../conexion.php');
 
+
+
 if (isset($_POST['add'])){
     if(isset($_SESSION['cart'])){
 

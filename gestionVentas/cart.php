@@ -97,13 +97,15 @@ if (isset($_POST['remove'])){
                     <div class="col-md-6">
                         <h6>Bs. <?php echo $subtotal; ?></h6>
                         <h6>Bs. <?php echo $iva; ?></h6><hr>
-                        <h6>Bs. <?php echo $total; ?></h6>
-                    </div>
+                        <h6>Bs. <?php echo $total; ?></h6>                        
+                    </div>                    
                 </div>
+                <div id="paypal-payment-button">
             </div>
         </div>
     </div>
 </div>
-
+<script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
+    <script src="PayPal.js"></script>
 </body>
 </html>
