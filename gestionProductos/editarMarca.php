@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -50,32 +52,29 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>Editar Marca</h1>
-                <div class="container p-4">
-                    <div class="row">
-                        <div class="col-md-4 mx-auto">
-                            <div class="card card-body">
-                                <form action="editarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                                    <div class="form-group">
-                                        <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
-                                    </div>
-                                    <button class="btn-success" name="actualizar">
-                                        Actualizar datos
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+            <div class="container my-5 w-50">
+                <h2 class="text-center">Editar Marca</h2>
+
+                <form action="editarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                    <div class="form-group">
+                        <label for="nombreMarca">Nombre de la marca</label><br>
+                        <input name="nombre" type="text" class="form-control-lg w-100" id="nombreMarca" value="<?php echo $nombre; ?>"></input>
+
+                        <label for="descripcionMarca">Descripcion de la marca</label><br>
+                        <textarea name="descripcion" class="form-control-lg w-100" id="descripcionMarca" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
                     </div>
-                </div>
-            </center>
-            <?php //include('includes/footer.php'); 
-            ?>
+
+                    <a href="./adminMarcas.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                    <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Actualizar datos</button>
+
+                </form>
+            </div>
         </div>
     </div>
+
+    <?php //include('includes/footer.php'); 
+    ?>
+
 </body>
 
 </html>
