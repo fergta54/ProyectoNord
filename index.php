@@ -94,6 +94,11 @@ $varRol = null;
                                 Login
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="cabecera" href="./registroAzul/registrarCliente.php">
+                                Login
+                            </a>
+                        </li>
                     <?php
                     }
                     ?>
