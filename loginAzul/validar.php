@@ -5,30 +5,12 @@ $contrasenia = MD5($_POST['contrasenia']);
 session_start();
 ?>
 <script>
+    // CLAVEEE PERMITE IMPRIMIR EN CONSOLA VARIABLES DE PHP
     console.log(<?= json_encode($contrasenia); ?>);
 </script>
 <?php
 
-echo '<script>console.log($_COOKIE["verifContras"])</script>';
-?>
-<script>
-    function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-</script>
-<?php
+
 $_SESSION['usuario'] = $usuario;
 $_SESSION['rol'] = '';
 
@@ -58,14 +40,6 @@ if ($filas) {
     echo "<script type='text/javascript'>alert('Error en la autenticación');    
     window.location='./login.php';
     </script>";
-?>
-    <script>
-        var verifContra = getCookie('verifContras');
-        console.log(verifContra)
-    </script>
-<?php
-
-
 }
 
 mysqli_free_result($resultado);
