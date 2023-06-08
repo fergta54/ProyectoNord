@@ -19,32 +19,26 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>
-                    PRODUCTOS
-                </h1>
-                <button><a href="crearProducto.php" class="botonesProductos">Crear Producto</a></button>
-                <button><a class="botonesProductos">Ad</a></button>
-                <h1>REGISTRO DE PRODUCTOS</h1><br>
-                <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar categorias desactivadas</button>
+            <div class="container my-5 text-center">
+                <h1>Lista de Productos</h1>
+                <br><br>
+                <button id="botonMostrar" class="btn btn-warning" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar productos desactivados</button>
                 <br>
                 <br>
 
-
-                <table class="tablaMarcas table table-bordered">
-                    <thead>
-                        <tr><b>
-                                <th class="td1">Nro</th>
-                                <th class="td2">Nombre</th>
-                                <th class="td3">Descripcion</th>
-                                <th class="td4">Imagen</th>
-                                <th class="td5">Categoria</th>
-                                <th class="td5">Marca</th>
-                                <th class="td5">Estado</th>
-                                <th class="td6 td7" colspan="2">
-                                    <center>Acción</center>
-                                </th>
-                            </b>
+                <table class="tablaProductos table table-bordered">
+                    <thead thead-dark>
+                        <tr>
+                            <th class="td1">Nro</th>
+                            <th class="td2">Nombre</th>
+                            <th class="td3">Descripcion</th>
+                            <th class="td4">Imagen</th>
+                            <th class="td5">Categoria</th>
+                            <th class="td5">Marca</th>
+                            <th class="td5">Estado</th>
+                            <th class="td6 td7" colspan="2">
+                                <center>Acción</center>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +57,6 @@
                          where estado_producto=1 order by id_prod"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
-
 
                             $verFilas = mysqli_num_rows($ejecutarConsulta);
                             $fila = mysqli_fetch_array($ejecutarConsulta);
@@ -125,7 +118,7 @@
                                         ?>
                                         <td>
                                             <center><button class="btn btn-success"><a class="botonesProductos" href="verProducto.php?id=<?php echo $fila[0] ?>">
-                                                        <i class="fas fa-marker">Ver info</i>
+                                                        Editar
                                                     </a></button> </center>
                                         </td>
                                         <td>
@@ -239,10 +232,8 @@
                     </tbody>
                 </table>
                 <br><br>
-
-            </center>
+            </div>
         </div>
-    </div>
 
 </body>
 <script>

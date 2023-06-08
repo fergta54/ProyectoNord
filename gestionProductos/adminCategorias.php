@@ -19,30 +19,25 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>
-                    CATEGORIAS
-                </h1>
-                <button><a href="crearCategoria.php" class="botonesProductos">Crear Categoria</a></button>
-                <button><a class="botonesProductos">Ad</a></button>
-                <h1>REGISTRO DE CATEGORIAS</h1><br>
-                <button id="botonMostrar" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar categorias desactivadas</button>
+            <div class="container my-5 text-center">
+                <h1>Lista de Categorías</h1>
+                <br><br>
+                <button id="botonMostrar" class="btn btn-warning" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar categorías desactivadas</button>
                 <br>
                 <br>
 
+                <table class="tablaCategorias table table-bordered">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th class="td1">Nro</th>
+                            <th class="td2">Categoria</th>
+                            <th class="td3">Descripcion</th>
+                            <th class="td4">Logo</th>
+                            <th class="td5">Estado</th>
+                            <th class="td6 td7" colspan="2">
+                                <center>Acción</center>
+                            </th>
 
-                <table class="tablaMarcas table table-bordered">
-                    <thead>
-                        <tr><b>
-                                <th class="td1">Nro</th>
-                                <th class="td2">Categoria</th>
-                                <th class="td3">Descripcion</th>
-                                <th class="td4">Logo</th>
-                                <th class="td5">Estado</th>
-                                <th class="td6 td7" colspan="2">
-                                    <center>Acción</center>
-                                </th>
-                            </b>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,7 +115,7 @@
                                         ?>
                                         <td>
                                             <center><button class="btn btn-warning"><a class="botonesProductos" href="editarCategoria.php?id=<?php echo $fila[0] ?>">
-                                                        <i class="fas fa-marker">Editar</i>
+                                                        Editar
                                                     </a></button> </center>
                                         </td>
                                         <td>
@@ -235,9 +230,9 @@
                 </table>
                 <br><br>
 
-            </center>
+                </center>
+            </div>
         </div>
-    </div>
 
 </body>
 <script>
@@ -263,8 +258,6 @@
                 button.style.backgroundColor = "yellow";
             }
         }
-
-
     }
 </script>
 
