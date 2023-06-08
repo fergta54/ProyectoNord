@@ -26,10 +26,10 @@ include('verificarSesionAdminNav.php');
             <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de usuarios</a>
             <ul class="collapse list-unstyled" id="usuarioSubmenu">
               <li>
-                <a href="#">Listar usuarios</a>
+                <a href="../gestionUsuarios/listarUsuarios.php">Listar usuarios</a>
               </li>
               <li>
-                <a href="#">Crear usuario</a>
+                <a href="../gestionUsuarios/registrarUsuario.php">Crear usuario</a>
               </li>
               <li>
                 <a href="#">Editar usuarios</a>
@@ -40,15 +40,19 @@ include('verificarSesionAdminNav.php');
             <a href="#rolesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de roles</a>
             <ul class="collapse list-unstyled" id="rolesSubmenu">
               <li>
-                <a href="./gestionUsuarios/listarRoles.php">Listar roles</a>
+                <a href="../gestionUsuarios/listarRoles.php">Listar roles</a>
               </li>
               <li>
-                <a href="./gestionUsuarios/crearRol.php">Crear rol</a>
+                <a href="../gestionUsuarios/crearRol.php">Crear rol</a>
               </li>
               <li>
-                <a href="./gestionUsuarios/editarRol.php">Editar roles</a>
+                <a href="../gestionUsuarios/editarRol.php">Editar roles</a>
               </li>
             </ul>
+          </li>
+          <li>
+            <a href="../reportes/indexReportes.php"  class="">Reportes</a>
+            
           </li>
           <li>
             <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de categorías</a>

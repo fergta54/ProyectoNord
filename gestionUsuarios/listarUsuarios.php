@@ -15,12 +15,14 @@
 </head>
 
 <body>
-    <?php
-    include('../incluir/barraNavAdmin.php')
-    ?>
+    <div class="row">
+        <div class="col-2">
+        <?php include('../incluir/asideNavAdmin.php') ?>
+            </div>
+            <div class="col-10">
 
-    <div class="container my-5 text-center">
-        <h1>Lista de Roles</h1>
+            <div class="container my-5 text-center">
+        <h1>Lista de Usuarios</h1>
         <br><br>
         <table class="table">
             <thead class="thead thead-dark">
@@ -63,14 +65,14 @@
                         <td>";
             
                         if($row['estado_usuario'] === '1'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivar.php?id_rol=$row[id_rol]'>Desactivar</a>";
+                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivarUsuario.php?id_usuario=$row[id_usuario]'>Desactivar</a>";
                         }
                         if($row['estado_usuario'] === '2'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarRol.php?id_rol=$row[id_rol]'>Activar</a>";
+                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarUsuario.php?id_usuario=$row[id_usuario]'>Activar</a>";
                         }
             
                     echo "
-                    <a class='btn btn-primary btn-info btn-sm' href='./editarRol.php?id_rol=$row[id_rol]'>Editar</a>
+                    <a class='btn btn-primary btn-info btn-sm' href='./editarRol.php?id_rol=$row[id_usuario]'>Editar</a>
                         </td>
                     </tr>";
                 }
@@ -79,6 +81,12 @@
             </tbody>
         </table>
     </div>
+
+            </div>
+    </div>
+    
+
+    
 
 </body>
 

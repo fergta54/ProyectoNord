@@ -67,31 +67,23 @@
 </head>
 
 <body>
-    <!-- <div class="container my-5 w-50">
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle w-100" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+    <div class="row">
+        <div class="col-2">
+        <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
-    </div> -->
-    
-    <div class="container my-5 w-50">
+        <div class="col-10">
+
+        <div class="container my-5 w-50">
         <h1 class="text-center">Reportes</h1>
         <br>
         
         <div class="dropdown w-100">
             <button class="dropbtn w-100">Reporte Usuarios</button>
             <div class="dropdown-content w-100">
-                <form action="./ReportesUsuarios.php">
+                <form action="./ReportesUsuarios/ReportesUsuarios.php">
                     <button type="submit">Generar reporte en PDF</button>
                 </form>
-                <a href="./ReporteUsuariosExcel.php">Generar reporte de EXCEL</a>
+                <a href="./ReportesUsuarios/ReporteUsuariosExcel.php">Generar reporte de EXCEL</a>
                 
             </div>
         </div>
@@ -136,6 +128,11 @@
             </div>
         </div>
     </div>
+
+        </div>
+    </div>
+    
+    
     
 </body>
 

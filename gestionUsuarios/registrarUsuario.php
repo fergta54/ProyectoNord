@@ -60,7 +60,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Roles</title>
+    <title>Registro de Usuarios</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -71,11 +71,14 @@
 </head>
 
 <body>
-    <?php
-        include('../incluir/barraNavAdmin.php')
-    ?>
-    <div class="container my-5 w-50">
-        <h2 class="text-center">Crear Rol</h2>
+    <div class="row">
+        <div class="col-2">
+        <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+
+        <div class="container my-5 w-50">
+        <h2 class="text-center">Crear Usuario</h2>
 
         <?php
         if(!empty($errorMessage)) {
@@ -94,19 +97,19 @@
         <form method="post">
             <div class="form-group ">
                 <label for="exampleInputEmail1">Nombre Completo</label><br>
-                <input name="nombre" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del rol" value="<?php echo $nombreUsuario; ?>">
+                <input name="nombre" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del usuario" value="<?php echo $nombreUsuario; ?>">
                 
                 <label for="exampleInputEmail1">Nombre de Usuario</label><br>
-                <input name="usuario" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del rol" value="<?php echo $usuarioUsuario; ?>">
+                <input name="usuario" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el usuario" value="<?php echo $usuarioUsuario; ?>">
                 
                 <label for="exampleInputEmail1">Correo Electronico</label><br>
-                <input name="correo" type="email" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del rol" value="<?php echo $correoUsuario; ?>">
+                <input name="correo" type="email" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el correo electronico" value="<?php echo $correoUsuario; ?>">
                 
                 <label for="exampleInputEmail1">Contraseña</label><br>
-                <input name="contrasenia" type="password" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del rol" value="<?php echo $contraseniaUsuario; ?>">
+                <input name="contrasenia" type="password" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la contraseña" value="<?php echo $contraseniaUsuario; ?>">
             </div>
             <div class="form-group">
-                <label for="comboEstado">Rol</label>
+                <label for="rol">Rol</label>
                 <select name="rol" class="form-control form-control-lg w-100">
                     <?php
                         $query1 = mysqli_query($conexion, "SELECT id_rol,nombre_rol FROM rol 
@@ -125,6 +128,8 @@
                         }
                     ?>
                 </select>
+                <br>
+                <label for="estado">Estado</label>
                 <select name="estado" class="form-control form-control-lg w-100">
                     <option value="1">Activado</option>
                     <option value="2">Desactivado</option>
@@ -150,6 +155,10 @@
         </form>
 
     </div>
+
+        </div>
+    </div>
+    
 </body>
 
 
