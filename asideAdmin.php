@@ -38,6 +38,14 @@
             </ul>
           </li>
           <li>
+            <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de Clientes</a>
+            <ul class="collapse list-unstyled" id="clientesSubmenu">
+              <li>
+                <a href="./gestionClientes/listarClientes.php">Listar Clientes</a>
+              </li>
+            </ul>
+          </li>
+          <li>
             <a href="#rolesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de roles</a>
             <ul class="collapse list-unstyled" id="rolesSubmenu">
               <li>
