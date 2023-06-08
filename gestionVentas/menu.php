@@ -3,7 +3,37 @@
 session_start();
 
 require_once ('tarjetas.php');
+
+include('../conexion.php');
+
+if (isset($_POST['add'])){
+    if(isset($_SESSION['cart'])){
+
+        $item_array_id = array_column($_SESSION['cart'], "id_prod");
+
+        if(in_array($_POST['id_prod'], $item_array_id)){
+            echo "<script>alert('El producto ya esta en el carrito')</script>";
+            echo "<script>window.location = 'menu.php'</script>";
+        }else{
+
+            $count = count($_SESSION['cart']);
+            $item_array = array(
+                'id_prod' => $_POST['id_prod']
+            );
+
+            $_SESSION['cart'][$count] = $item_array;
+        }
+    }else{
+        $item_array = array(
+                'id_prod' => $_POST['id_prod']
+        );
+        $_SESSION['cart'][0] = $item_array;
+        print_r($_SESSION['cart']);
+    }
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +67,6 @@ productos
                 FROM productos pr
                  where estado_producto=1 order by id_prod"
             );
-
             if($seleccionar) {
                 while ($row = mysqli_fetch_assoc($seleccionar)){
                     component($row['nombre_prod'], $row['precio_unit_compra'], $row['imagen_prod'], $row['id']);
