@@ -126,7 +126,7 @@
                                         <td>' . ($i + 1) . '</td>
                                         <td>' . $fila2[1] . '</td>
                                         <td>' . $fila2[2] . '</td>
-                                        <td><center>' . ($fila2[3] == 1 ? "Activo" : "Inactivo")  . '</center></td>                                  
+                                        <td><center><p class="formatoEliminado">' . ($fila2[3] == 1 ? "Activo" : "Inactivo")  . '</p></center></td>                                  
      
                                 ';
 

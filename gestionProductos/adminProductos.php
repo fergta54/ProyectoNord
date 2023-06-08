@@ -220,9 +220,7 @@
                                 </td>                                  
      
                                 ';
-
                                         ?>
-
                                         <td colspan="2">
                                             <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarProducto.php?id=<?php echo $fila2[0] ?>">
                                                         Activar
@@ -230,7 +228,6 @@
                                         </td>
                                         </tr>
                         <?php
-
                                         $fila2 = mysqli_fetch_array($ejecutarConsulta2);
                                     }
                                 }
