@@ -48,7 +48,7 @@ header {
   /* box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset; */
   box-sizing: border-box;
   /* color: #fff; */
-  cursor: pointer;
+  /* cursor: pointer; */
   display: inline-block;
   font-family: system-ui, "Segoe UI", "Liberation Sans", sans-serif;
   font-size: 14px;
@@ -62,7 +62,7 @@ header {
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
+  /* touch-action: manipulation; */
   vertical-align: baseline;
   white-space: nowrap;
 }

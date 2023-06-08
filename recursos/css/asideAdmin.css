@@ -40,6 +40,9 @@
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+
+  float: left;
+  position: fixed;
 }
 #sidebar.active {
   margin-left: -300px;

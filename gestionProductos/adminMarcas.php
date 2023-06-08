@@ -80,7 +80,7 @@
                                                     </a></button> </center>
                                         </td>
                                         <td>
-                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarMarca.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="btn btn-danger"><a class="botonesProductos" href=" eliminarMarca.php?id=<?php echo $fila[0] ?>">
                                                         Inhabilitar
                                                     </a></button> </center>
                                         </td>
@@ -151,6 +151,7 @@
 
                     </tbody>
                 </table>
+
                 <br><br>
 
 

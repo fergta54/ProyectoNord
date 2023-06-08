@@ -67,7 +67,7 @@
                             } else {
 
                                 if ($verFilas < 1) {
-                                    echo "<tr><td colspan='6'>SIN REGISTROS</td></tr>";
+                                    echo "<tr><td colspan='10'>SIN REGISTROS</td></tr>";
                                 } else {
                                     for ($i = 0; $i < $verFilas; $i++) {
                                         echo '
@@ -142,7 +142,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="7"><b>Categorias desactivadas</b></td>
+                            <td colspan="10"><b>Categorias desactivadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -167,7 +167,7 @@
                             } else {
 
                                 if ($verFilas2 < 1) {
-                                    echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="7">SIN REGISTROS</td></tr>';
+                                    echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="10">SIN REGISTROS</td></tr>';
                                 } else {
                                     for ($i = 0; $i < $verFilas2; $i++) {
                                         echo '
