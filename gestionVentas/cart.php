@@ -37,7 +37,8 @@ if (isset($_POST['remove'])){
 
 <body class="bg-light">
 
-<?php include('navVentas.php');?>
+<?php include('navVentas.php') ?>
+
 <div class="container-fluid">
     <div class="row px-5">
         <div class="col-md-7">

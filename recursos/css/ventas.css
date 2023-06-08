@@ -1,12 +1,6 @@
-.fa-star,
-.fa-star-half {
-  color: rgb(22, 227, 230);
-  padding: 2% 0;
-}
-
 #cart_count {
   text-align: center;
-  padding: 0 0.8rem 0.1rem 0.8rem;
+  padding: 0 0.9rem 0.1rem 0.9rem;
   border-radius: 3rem;
 }
 

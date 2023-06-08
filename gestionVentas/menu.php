@@ -2,11 +2,9 @@
 
 session_start();
 
-require_once ('tarjetas.php');
+require_once ('/tarjetas.php');
 
 include('../conexion.php');
-
-
 
 if (isset($_POST['add'])){
     if(isset($_SESSION['cart'])){
@@ -33,7 +31,6 @@ if (isset($_POST['add'])){
         print_r($_SESSION['cart']);
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +43,7 @@ if (isset($_POST['add'])){
     <title>menu</title>
     <link rel="stylesheet" href="../recursos/css/ventas.css">
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <!-- Font Awesome carrito -->
@@ -56,9 +54,8 @@ if (isset($_POST['add'])){
 
 
 <body>
-<?php include('navVentas.php') ?>
+<?php include('/navVentas.php') ?>
 productos
-
 <div class="container">
         <div class="row text-center py-5">
             <?php
@@ -77,7 +74,5 @@ productos
             ?>
         </div>
 </div>
-
 </body>
-
 </html>

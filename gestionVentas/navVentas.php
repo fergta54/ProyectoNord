@@ -3,7 +3,7 @@
 <header class="navbar">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container px-4 px-lg-5">
-            <a class="cabecera" href="index.php">
+            <a class="cabecera" href="../index.php">
                 <img src="../recursos/img/lg.png" alt="logo" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +12,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item">
-                        <a class="cabecera" href="index.php">
+                        <a class="cabecera" href="../index.php">
                             Inicio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="cabecera" href="menu.php">
+                        <a class="cabecera" href="/menu.php">
                             Productos
                         </a>
                     </li>
@@ -29,11 +29,6 @@
                     <li class="nav-item">
                         <a class="cabecera" href="index.php">
                             Sucursales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Sobre Nosotros
                         </a>
                     </li>
                     <li class="nav-item">
@@ -58,4 +53,3 @@
     </nav>
 </header>
 </html>
-
