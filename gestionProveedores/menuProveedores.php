@@ -13,16 +13,20 @@
 </head>
 
 <body>
-    <?php
-    include('../incluir/barraNavAdmin.php')
-    ?>
-    <center>
-        <h1>
-            PROVEEDORES
-        </h1>
-        <button><a href="./listarProveedores.php" class="botonesProductos">Listar Proveedores</a></button>
-        <button><a href="./registrarProveedores.php" class="botonesProductos">Registrar Proveedores</a></button>
-    </center>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+            <center>
+                <h1>
+                    PROVEEDORES
+                </h1>
+                <button><a href="./listarProveedores.php" class="botonesProductos">Listar Proveedores</a></button>
+                <button><a href="./registrarProveedores.php" class="botonesProductos">Registrar Proveedores</a></button>
+            </center>
+        </div>
+    </div>
 </body>
 
 </html>

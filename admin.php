@@ -30,6 +30,7 @@ include('./verificarSesionAdmin.php')
 </head>
 
 <body>
+<<<<<<< Updated upstream
     <nav class="navbar navbar-expand-lg navbar-light ">
 
         <a class="cabecera " href="index.php">
@@ -115,9 +116,17 @@ include('./verificarSesionAdmin.php')
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
+=======
+    <div class="row">
+        <div class="col-2">
+            <?php include('asideAdmin.php') ?>
+>>>>>>> Stashed changes
         </div>
+        <div class="col-10">
 
-    </nav>
+
+        </div>
+    </div>
 </body>
 
 </html>

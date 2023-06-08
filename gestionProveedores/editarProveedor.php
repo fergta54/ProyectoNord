@@ -49,46 +49,52 @@
     }
 
     ?>
-    <?php  include('../incluir/barraNavAdmin.php') ?>
-    <center>
-        <h1>EDITAR PROVEEDOR</h1>
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-md-4 mx-auto">
-                    <div class="card card-body">
-                        <form action="editarProveedor.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                            <label>Razon Social</label>
-                            <div class="form-group">
-                                <input name="razon" type="text" class="form-control" value="<?php echo $razonSocial; ?>"></input>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+            <center>
+                <h1>EDITAR PROVEEDOR</h1>
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto">
+                            <div class="card card-body">
+                                <form action="editarProveedor.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                                    <label>Razon Social</label>
+                                    <div class="form-group">
+                                        <input name="razon" type="text" class="form-control" value="<?php echo $razonSocial; ?>"></input>
+                                    </div>
+                                    <br>
+                                    <label>Correo</label>
+                                    <div class="form-group">
+                                        <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>"></input>
+                                    </div>
+                                    <br>
+                                    <label>Telefono</label>
+                                    <div class="form-group">
+                                        <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>"></input>
+                                    </div>
+                                    <br>
+                                    <label>Direccion</label>
+                                    <div class="form-group">
+                                        <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>"></input>
+                                    </div>
+                                    <br>
+
+                                    <button class="btn-success" name="actualizar">
+                                        Actualizar datos
+                                    </button>
+                                </form>
                             </div>
-                            <br>
-                            <label>Correo</label>
-                            <div class="form-group">
-                                <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>"></input>
-                            </div>
-                            <br>
-                            <label>Telefono</label>
-                            <div class="form-group">
-                                <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>"></input>
-                            </div>
-                            <br>
-                            <label>Direccion</label>
-                            <div class="form-group">
-                                <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>"></input>
-                            </div>
-                            <br>
-                                
-                            <button class="btn-success" name="actualizar">
-                                Actualizar datos
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </center>
+            <?php //include('includes/footer.php'); 
+            ?>
         </div>
-    </center>
-    <?php //include('includes/footer.php'); 
-    ?>
+    </div>
 </body>
 
 </html>

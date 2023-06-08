@@ -11,65 +11,74 @@
     <script src="../recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
-    
+
 </head>
 
 <body>
-    <?php
-    include('../incluir/barraNavAdmin.php')
-    ?>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
 
-    <div class="container my-5 text-center">
-        <h1>Lista de Roles</h1>
-        <br><br>
-        <table class="table">
-            <thead class="thead thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Estado</th>
-                    <th>Accion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include('../conexion.php');
-                if($conexion->connect_error){
-                    die("Coxion fallida: " . $conexion->connect_error);
-                }
+            <div class="container my-5 text-center">
+                <h1>Lista de Roles</h1>
+                <br><br>
+                <table class="table">
+                    <thead class="thead thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include('../conexion.php');
+                        if ($conexion->connect_error) {
+                            die("Coxion fallida: " . $conexion->connect_error);
+                        }
 
+<<<<<<< Updated upstream
                 $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado order by estado_rol";
                 $result = $conexion->query($sql);
+=======
+                        $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado";
+                        $result = $conexion->query($sql);
+>>>>>>> Stashed changes
 
-                if(!$result){
-                    die("Invalid query: " . $conexion->connect_error);
-                }
+                        if (!$result) {
+                            die("Invalid query: " . $conexion->connect_error);
+                        }
 
-                while($row = $result->fetch_assoc()) {
-                    echo "
+                        while ($row = $result->fetch_assoc()) {
+                            echo "
                     <tr>
                         <td>$row[id_rol]</td>
                         <td>$row[nombre_rol]</td>
                         <td>$row[estado_descripcion]</td>
                         
                         <td>";
-            
-                        if($row['estado_rol'] === '1'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivar.php?id_rol=$row[id_rol]'>Desactivar</a>";
-                        }
-                        if($row['estado_rol'] === '2'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarRol.php?id_rol=$row[id_rol]'>Activar</a>";
-                        }
-            
-                    echo "
+
+                            if ($row['estado_rol'] === '1') {
+                                echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivar.php?id_rol=$row[id_rol]'>Desactivar</a>";
+                            }
+                            if ($row['estado_rol'] === '2') {
+                                echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarRol.php?id_rol=$row[id_rol]'>Activar</a>";
+                            }
+
+                            echo "
                     <a class='btn btn-primary btn-info btn-sm' href='./editarRol.php?id_rol=$row[id_rol]'>Editar</a>
                         </td>
                     </tr>";
-                }
-                ?>
-                
-            </tbody>
-        </table>
+                        }
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 </body>

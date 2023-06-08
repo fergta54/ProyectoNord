@@ -17,29 +17,20 @@ if ($filas) {
     if ($filas2['id_rol'] == 1) { // administrador
         header("location:../admin.php");
         $_SESSION['rol'] = 'admin';
-    } else 
-    if ($filas2['id_rol'] == 2) {
+    } elseif ($filas2['id_rol'] == 2) {
         header("location:../index.php");
         $_SESSION['rol'] = 'cliente';
     } else {
-?>
-
-        <h1 class="bad">ERROR EN LA AUTENTICACION</h1>
-
-    <?php
-        echo "<script type='text/javascript'>alert('Error en la autenticación');</script>";
-        sleep(5);
-        header("location:../index.php");
+        sleep(2);
+        echo "<script type='text/javascript'>alert('Error en la autenticación');
+        window.location = './login.php';
+        </script>";
     }
 } else {
-
-
-    ?>
-    <h1 class="bad">ERROR EN LA AUTENTICACION</h1>
-<?php
-    echo "<script type='text/javascript'>alert('Error en la autenticación');</script>";
     sleep(2);
-    header("location:../index.php");
+    echo "<script type='text/javascript'>alert('Error en la autenticación');
+    window.location = './login.php';
+    </script>";
 }
 
 mysqli_free_result($resultado);

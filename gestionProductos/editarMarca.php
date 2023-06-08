@@ -43,31 +43,37 @@
     }
 
     ?>
-    <?php include('../incluir/barraNavAdmin.php'); ?>
-    <center>
-        <h1>Editar Marca</h1>
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-md-4 mx-auto">
-                    <div class="card card-body">
-                        <form action="editarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                            <div class="form-group">
-                                <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+            <center>
+                <h1>Editar Marca</h1>
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto">
+                            <div class="card card-body">
+                                <form action="editarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                                    <div class="form-group">
+                                        <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
+                                    </div>
+                                    <button class="btn-success" name="actualizar">
+                                        Actualizar datos
+                                    </button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
-                            </div>
-                            <button class="btn-success" name="actualizar">
-                                Actualizar datos
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </center>
+            <?php //include('includes/footer.php'); 
+            ?>
         </div>
-    </center>
-    <?php //include('includes/footer.php'); 
-    ?>
+    </div>
 </body>
 
 </html>

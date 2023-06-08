@@ -13,17 +13,21 @@
 </head>
 
 <body>
-    <?php
-    include('../incluir/barraNavAdmin.php')
-    ?>
-    <center>
-        <h1>
-            PRODUCTOS
-        </h1>
-        <button><a href="adminProductos.php" class="botonesProductos">Administrar Productos</a></button>
-        <button><a href="adminMarcas.php" class="botonesProductos">Administrar Marcas</a></button>
-        <button><a href="adminCategorias.php" class="botonesProductos">Administrar Categorias</a></button>
-    </center>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+            <center>
+                <h1>
+                    PRODUCTOS
+                </h1>
+                <button><a href="adminProductos.php" class="botonesProductos">Administrar Productos</a></button>
+                <button><a href="adminMarcas.php" class="botonesProductos">Administrar Marcas</a></button>
+                <button><a href="adminCategorias.php" class="botonesProductos">Administrar Categorias</a></button>
+            </center>
+        </div>
+    </div>
 </body>
 
 </html>
