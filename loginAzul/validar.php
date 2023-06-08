@@ -1,6 +1,6 @@
 <?php
 $usuario = $_POST['usuario'];
-$contrasenia = $_POST['contrasenia'];
+$contrasenia = MD5($_POST['contrasenia']);
 session_start();
 $_SESSION['usuario'] = $usuario;
 $_SESSION['rol'] = '';
