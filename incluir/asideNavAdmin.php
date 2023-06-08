@@ -40,13 +40,13 @@ include('verificarSesionAdminNav.php');
             <a href="#rolesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de roles</a>
             <ul class="collapse list-unstyled" id="rolesSubmenu">
               <li>
-                <a href="../gestionUsuarios/listarRoles.php">Listar roles</a>
+                <a href="./gestionUsuarios/listarRoles.php">Listar roles</a>
               </li>
               <li>
-                <a href="../gestionUsuarios/crearRol.php">Crear rol</a>
+                <a href="./gestionUsuarios/crearRol.php">Crear rol</a>
               </li>
               <li>
-                <a href="../gestionUsuarios/editarRol.php">Editar roles</a>
+                <a href="./gestionUsuarios/editarRol.php">Editar roles</a>
               </li>
             </ul>
           </li>
@@ -54,7 +54,7 @@ include('verificarSesionAdminNav.php');
             <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de categorías</a>
             <ul class="collapse list-unstyled" id="categoriasSubmenu">
               <li>
-                <a href="../gestionProductos/adminCategorias.php">Listar categorías</a>
+                <a href="./gestionProductos/adminCategorias.php">Listar categorías</a>
               </li>
               <li>
                 <a href="../gestionProductos/crearCategoria.php">Crear categoría</a>

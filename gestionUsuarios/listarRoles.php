@@ -40,13 +40,8 @@
                             die("Coxion fallida: " . $conexion->connect_error);
                         }
 
-<<<<<<< Updated upstream
-                $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado order by estado_rol";
-                $result = $conexion->query($sql);
-=======
-                        $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado";
+                        $sql = "SELECT * FROM rol inner join estados on rol.estado_rol = estados.id_estado order by estado_rol";
                         $result = $conexion->query($sql);
->>>>>>> Stashed changes
 
                         if (!$result) {
                             die("Invalid query: " . $conexion->connect_error);

@@ -30,97 +30,9 @@ include('./verificarSesionAdmin.php')
 </head>
 
 <body>
-<<<<<<< Updated upstream
-    <nav class="navbar navbar-expand-lg navbar-light ">
-
-        <a class="cabecera " href="index.php">
-            <img class="container-fluid" src="./recursos/img/lg.png" alt="logo" />
-        </a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto pl-5">
-                <li class="nav-item">
-                    <a class="cabecera" href="index.php">
-                        Inicio
-                    </a>
-                </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="./gestionProductos/menuProductos.php">
-                        Gestión de Productos
-                    </a>
-                </li>
-                <li class="nav-item dropdown pl-4">
-                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Gestión de Usuarios
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="./gestionUsuarios/listarUsuarios.php">Lista de Usuarios</a>
-                        <a class="dropdown-item" href="./gestionUsuarios/crearRol.php">Crear Usuarios</a>
-                        <a class="dropdown-item" href="index.php">Editar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown pl-4">
-                    <a class="nav-link dropdown-toggle cabecera" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Gestión de Roles
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="./gestionUsuarios/listarRoles.php">Lista de Roles</a>
-                        <a class="dropdown-item" href="./gestionUsuarios/crearRol.php">Crear Rol</a>
-                        <a class="dropdown-item" href="index.php">Editar</a>
-                    </div>
-                </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="./gestionProveedores/menuProveedores.php">
-                        Gestión de Compras
-                    </a>
-                </li>
-                <li class="nav-item pl-4">
-                    <a class="cabecera" href="index.php">
-                        Gestión de Sucursales
-                    </a>
-                </li>
-                <?php
-                if ($_SESSION['usuario']) {
-                    // echo '<script>Console.log("LLEGA")</script>';
-                    $usuario = $_SESSION['usuario'];
-                    $varRol = $_SESSION['rol'];
-                }
-                if ($varRol === 'admin') {
-                ?>
-                    <li class="nav-item pl-4">
-                        <a class="cabecera" href="">
-                            Bienvenido <?php
-                                        echo 'Administrador ';
-                                        echo $_SESSION['usuario'];
-                                        ?> !
-                        </a>
-                    </li>
-                    <li class="nav-item pl-4 ">
-                        <a class="d-flex cabecera" href="./loginAzul/cerrarSesion.php">
-                            Cerrar Sesion
-                        </a>
-                    </li>
-                <?php
-                } // 
-                else {
-                ?>
-                    <li class="nav-item pl-4">
-                        <a class="cabecera" href="./loginAzul/login.php">
-                            Login
-                        </a>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
-=======
     <div class="row">
         <div class="col-2">
             <?php include('asideAdmin.php') ?>
->>>>>>> Stashed changes
         </div>
         <div class="col-10">
 
