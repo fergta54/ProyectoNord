@@ -42,6 +42,9 @@ include('verificarSesionAdminNav.php');
               <li>
                 <a href="../gestionClientes/listarClientes.php">Listar Clientes</a>
               </li>
+              <li>
+                <a href="../gestionClientes/listarClientes.php">Listar Clientes</a>
+              </li>
             </ul>
           </li>
           <li>
