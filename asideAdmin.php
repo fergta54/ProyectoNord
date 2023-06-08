@@ -27,10 +27,10 @@
             <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion de usuarios</a>
             <ul class="collapse list-unstyled" id="usuarioSubmenu">
               <li>
-                <a href="#">Listar usuarios</a>
+                <a href="./gestionUsuarios/listarUsuarios.php">Listar usuarios</a>
               </li>
               <li>
-                <a href="#">Crear usuario</a>
+                <a href="./gestionUsuarios/registrarUsuario.php">Crear usuario</a>
               </li>
               <li>
                 <a href="#">Editar usuarios</a>
@@ -163,7 +163,7 @@
                           ?> !
             </li>
             <li>
-              <a class="cabecera" href="../loginAzul/cerrarSesion.php">
+              <a class="cabecera" href="./loginAzul/cerrarSesion.php">
                 Cerrar Sesion
               </a>
             </li>
