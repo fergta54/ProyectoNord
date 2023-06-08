@@ -97,7 +97,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="6"><b>Marcas desactivadas</b></td>
+                            <td colspan="6"><b>Marcas inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -135,7 +135,7 @@
 
                                         <td colspan="2">
                                             <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarMarca.php?id=<?php echo $fila2[0] ?>">
-                                                        Activar
+                                                        Habilitar
                                                     </a></button></center>
                                         </td>
                                         </tr>

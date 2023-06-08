@@ -101,7 +101,7 @@
                         </script>
                         <label for="logocat">Logo de la Categoria</label><br>
                         <input type="file" accept="image/*" class="localCat22" id="logocat" name="logocat">
-                        <input name="lgCat22" id="lgCat22" type="hidden">
+                        <input name="lgCat22" id="lgCat22" type="hidden" value="<?php echo $dataLogo; ?>">
                         &emsp13;&emsp13;&emsp13;&emsp13;&emsp13;
                         <input type="button" onclick="ponerImagenDefecto()" value="Eliminar imagen">
                         <br><br>

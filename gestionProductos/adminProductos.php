@@ -120,7 +120,7 @@
 
                                         ?>
                                         <td>
-                                            <center><button class="btn btn-warning"><a class="botonesProductos" href="verProducto.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="btn btn-warning"><a class="botonesProductos" href="editarProducto.php?id=<?php echo $fila[0] ?>">
                                                         Editar
                                                     </a></button> </center>
                                         </td>
@@ -142,7 +142,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="10"><b>Categorias desactivadas</b></td>
+                            <td colspan="10"><b>Categorias inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -220,7 +220,7 @@
                                         ?>
                                         <td colspan="2">
                                             <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarProducto.php?id=<?php echo $fila2[0] ?>">
-                                                        Activar
+                                                        Habilitar
                                                     </a></button></center>
                                         </td>
                                         </tr>

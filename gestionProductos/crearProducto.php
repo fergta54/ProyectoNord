@@ -39,7 +39,7 @@
                         <textarea name="descripcionProducto" class="form-control-lg w-100" id="descripcionProducto" required></textarea>
                         <br><br>
                         <label for="localProd">Imagen del Producto</label><br>
-                        <input type="file" accept="image/*" class="localProd-lg w-100" id="localProd" name="localProd">
+                        <input type="file" accept="image/*" class="localProd" id="localProd" name="localProd">
                         <input name="lgPr" id="lgPr" type="hidden">
                         <script>
                             const $file = document.querySelector(".localProd");

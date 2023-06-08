@@ -137,7 +137,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="7"><b>Categorias desactivadas</b></td>
+                            <td colspan="7"><b>Categorias inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -213,7 +213,7 @@
 
                                         <td colspan="2">
                                             <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarCategoria.php?id=<?php echo $fila2[0] ?>">
-                                                        Activar
+                                                        Habilitar
                                                     </a></button></center>
                                         </td>
                                         </tr>

@@ -23,7 +23,7 @@
     $telefono = '';
     $contraseña = '';
     $dataLogo = '';
-    
+
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "SELECT * FROM clientes WHERE id_cliente = $id";
@@ -49,7 +49,7 @@
         $telefono = $_POST['telefono'];
         $contraseña = $_POST['contraseña'];
         $dataLogo = $_POST['lgcli'];
-    
+
 
         $query = "UPDATE clientes SET nombre_cli = '$nombre', apellido_cli = '$apellido', correo_cli = '$correo', 
         direccion_cli = '$direccion', telf_cli = '$telefono', contrasenia_cli = '$contraseña', 
@@ -140,7 +140,7 @@
                                         </script>
                                         <label>Logo de la Categoria</label>
                                         <input type="file" accept="image/*" class="localCat22" id="logocat">
-                                        <input name="lgcli" id="lgcli" type="hidden">
+                                        <input name="lgcli" id="lgcli" type="hidden" value="<?php echo $dataLogo; ?>">
                                         <input type="button" onclick="ponerImagenDefecto()" value="Eliminar imagen">
 
                                         <script>
