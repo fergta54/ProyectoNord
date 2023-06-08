@@ -11,6 +11,7 @@
     <script src="../recursos/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+    <script src="../recursos/js/botonMostrar.js"></script>
 </head>
 
 <body>
@@ -22,12 +23,12 @@
             <div class="container my-5 text-center">
                 <h1>Lista de Productos</h1>
                 <br><br>
-                <button id="botonMostrar" class="btn btn-warning" onClick="toggleButton()" value="Mostrar Desactivados" style="background-color:yellow">Mostrar productos desactivados</button>
+                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">Mostrar Mostrar inhabilitados</button>
                 <br>
                 <br>
 
                 <table class="tablaProductos table table-bordered">
-                    <thead thead-dark>
+                    <thead class="thead-dark">
                         <tr>
                             <th class="td1">Nro</th>
                             <th class="td2">Nombre</th>
@@ -35,6 +36,7 @@
                             <th class="td4">Imagen</th>
                             <th class="td5">Categoria</th>
                             <th class="td5">Marca</th>
+                            <th class="td5">Precio compra</th>
                             <th class="td5">Estado</th>
                             <th class="td6 td7" colspan="2">
                                 <center>Acción</center>
@@ -109,6 +111,7 @@
                                         <?php echo
                                         '<td>' . $fila[6] . '</td>
                                 <td>' . $fila[4] . '</td>
+                                <td>' . $fila[3] . '</td>
                                 <td>
                                     <center>' . ($fila[7] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>
@@ -117,13 +120,13 @@
 
                                         ?>
                                         <td>
-                                            <center><button class="btn btn-success"><a class="botonesProductos" href="verProducto.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="btn btn-warning"><a class="botonesProductos" href="verProducto.php?id=<?php echo $fila[0] ?>">
                                                         Editar
                                                     </a></button> </center>
                                         </td>
                                         <td>
                                             <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href="eliminarProducto.php?id=<?php echo $fila[0] ?>">
-                                                        Cambiar estado a inactivo
+                                                        Inhabilitar
                                                     </a></button> </center>
                                         </td>
                                         </tr>
@@ -208,6 +211,7 @@
                                         <?php echo
                                         '<td>' . $fila2[6] . '</td>
                                 <td>' . $fila2[4] . '</td>
+                                <td>' . $fila2[3] . '</td>
                                 <td>
                                     <center><p class="formatoEliminado">' . ($fila2[7] == 1 ? "Activo" : "Inactivo") . '</p></center>
                                 </td>                                  
@@ -236,32 +240,5 @@
         </div>
 
 </body>
-<script>
-    function toggleButton() {
-        var x = document.getElementsByClassName("ElementosEliminados");
-        var y = document.getElementById("tituloEliminado");
-        var button = document.getElementById("botonMostrar");
-        for (var i = 0; i < x.length; i++) {
-            if (x[i].style.display === "none") {
-                x[i].style.display = "table-row";
-                y.style.display = "table-row";
-                y.colspan = 6;
-                button.innerHTML = "Ocultar categorias desactivadas";
-                var color = window.getComputedStyle(button, null)
-                    .getPropertyValue("background-color");
-                button.style.backgroundColor = "orange";
-            } else {
-                x[i].style.display = "none";
-                y.style.display = "none";
-                button.innerHTML = "Mostrar categorias desactivadas";
-                var color = window.getComputedStyle(button, null)
-                    .getPropertyValue("background-color");
-                button.style.backgroundColor = "yellow";
-            }
-        }
-
-
-    }
-</script>
 
 </html>

@@ -33,15 +33,7 @@ header {
   padding: 2rem 9%;
   text-transform: uppercase;
 }
-header .navbar a {
-  color: #fff;
-  font-size: 1rem;
-  margin: 0 0.8rem;
-}
 
-header .navbar a:hover {
-  color: var(--orange);
-}
 .navbar {
   background: #333;
 }
@@ -49,47 +41,38 @@ header .navbar a:hover {
   color: white;
 }
 
-.footer {
-  background: #333;
-}
-.footer .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer .box-container .box {
-  padding: 1rem 0;
-  flex: 1 1 25rem;
-}
-
-.footer .box-container .box h3 {
-  font-size: 2.5rem;
-  padding: 0.7rem 0;
-  color: #fff;
-}
-
-.footer .box-container .box p {
-  font-size: 1.5rem;
-  padding: 0.7rem 0;
-  color: #eee;
-}
-
-.footer .box-container .box a {
-  display: block;
-  font-size: 1.5rem;
-  padding: 0.7rem 0;
-  color: #eee;
-}
-
-.footer .box-container .box a:hover {
-  color: var(--orange);
-  text-decoration: underline;
-}
-
 .botonesProductos {
   color: black;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  /* box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset; */
+  box-sizing: border-box;
+  /* color: #fff; */
+  cursor: pointer;
+  display: inline-block;
+  font-family: system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 4px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
 }
+
+/* .botonesProductos:hover,
+.botonesProductos:focus {
+  background: #e6a437;
+  border-color: #f8b739;
+} */
+
 .cabecera {
   color: white;
 }
@@ -130,3 +113,74 @@ header .navbar a:hover {
   background-color: red;
   color: white;
 }
+
+.botonMostrarOcultos {
+  float: right;
+  background-color: #d9cea2;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  /* box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset; */
+  box-sizing: border-box;
+  /* color: #fff; */
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+/* .botonMostrarOcultos:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.botonMostrarOcultos:active {
+  background-color: #0064bd;
+  box-shadow: none;
+} */
+
+.btnTablass {
+  float: right;
+  background-color: #d9cea2;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  /* box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset; */
+  box-sizing: border-box;
+  /* color: #fff; */
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+/* .btnTablass:hover,
+.btnTablass:focus {
+  background-color: #d9cea2;
+  color: green;
+} */
