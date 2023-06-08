@@ -79,7 +79,7 @@ include('verificarSesionAdminNav.php');
             </ul>
           </li>
           <li>
-            <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-tags"></i> Gestion de Clientes</a>
+            <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-address-book"></i>  Gestion de Clientes</a>
             <ul class="collapse list-unstyled" id="clientesSubmenu">
               <li>
                 <a href="../gestionClientes/listarClientes.php">◉ Listar Clientes</a>
