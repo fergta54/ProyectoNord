@@ -99,6 +99,9 @@
                 <li>
                   <a href="./gestionClientes/listarClientes.php">◉ Listar Clientes</a>
                 </li>
+                <li>
+                  <a href="./gestionClientes/adminClientes.php">◉ Editar Clientes</a>
+                </li>
               </ul>
             </li>
             <li>
