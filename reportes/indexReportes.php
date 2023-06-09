@@ -147,6 +147,16 @@
                 <a href="./ReportesTiendas/ReporteTiendasExcel.php">Generar reporte de EXCEL</a>
             </div>
         </div>
+        <br><br>
+        <div class="dropdown w-100">
+            <button class="dropbtn w-100">Reporte Inventario</button>
+            <div class="dropdown-content w-100">
+                <form action="./ReportesInventario/ReporteInventarioPDF.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <a href="./ReportesInventario/ReporteInventarioExcel.php">Generar reporte de EXCEL</a>
+            </div>
+        </div>
     </div>
 
         </div>
