@@ -17,7 +17,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="cabecera" href="/menu.php">
+                        <a class="cabecera" href="menuProd.php">
                             Productos
                         </a>
                     </li>

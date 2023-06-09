@@ -42,7 +42,7 @@ $varRol = null;
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="cabecera" href="./gestionVentas/menu.php">
+                        <a class="cabecera" href="./gestionVentas/menuProd.php">
                             Comprar
                         </a>
                     </li>
@@ -59,6 +59,11 @@ $varRol = null;
                     <li class="nav-item">
                         <a class="cabecera" href="index.php">
                             Contacto
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="AnaliticaDeDatos.php">
+                            Analitica
                         </a>
                     </li>
 
