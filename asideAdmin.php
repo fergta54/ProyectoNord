@@ -13,43 +13,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./recursos/css/asideAdmin.css">
-  <style>
-    /* Estilos para las opciones principales */
-    #sidebar ul.list-unstyled.components li>a {
-      padding-left: 20px;
-      /* Agrega sangría a las opciones principales */
-      display: block;
-      color: #F6DDC8;
-      /* Color de texto para opciones no seleccionadas */
-    }
 
-    #sidebar ul.list-unstyled.components li>a.selected {
-      background-color: #004B99;
-      /* Color de fondo para opciones seleccionadas */
-      color: #F58A2C;
-      /* Color de texto para opciones seleccionadas */
-    }
-
-    /* Estilos para los submenús */
-    #sidebar ul.list-unstyled.components ul li>a {
-      padding-left: 40px;
-      /* Agrega más sangría a las opciones de submenú */
-    }
-
-    #sidebar {
-      overflow-y: auto;
-      height: 100vh;
-    }
-
-    #sidebar::-webkit-scrollbar {
-      width: 0.5em;
-      background-color: transparent;
-    }
-
-    #sidebar::-webkit-scrollbar-thumb {
-      background-color: transparent;
-    }
-  </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var menuLinks = document.querySelectorAll("#sidebar a");
@@ -207,6 +171,20 @@
                 </li>
                 <li>
                   <a href="#">◉ Crear pedido</a>
+                </li>
+                <li>
+                  <a href="#">◉ Editar pedidos</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
+              <ul class="collapse list-unstyled" id="dataSubmenu">
+                <li>
+                  <a href="./gestionData/AnaliticaDeDatos.php">◉ Analitica 1</a>
+                </li>
+                <li>
+                  <a href="./gestionData/Datos1.php">◉ Datos 1</a>
                 </li>
                 <li>
                   <a href="#">◉ Editar pedidos</a>

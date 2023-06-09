@@ -26,6 +26,7 @@
           <?php
               include ('../conexionOlap.php');
               // include ('../incluir/asideNavAdmin.php');
+              $id_tienda = $_GET['id'];
               $pastel_table = 0;
 
               //query
