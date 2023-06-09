@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATEGORIAS</title>
+    <title>TIENDAS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
@@ -17,33 +17,40 @@
     <?php
     include('../conexion.php');
     $nombre = '';
-    $descripcion = '';
-    $dataLogo = '';
+    $direccion = '';
+    $latitud = '';
+    $longitud = '';
+    $dataFoto = '';
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $query = "SELECT * FROM categorias WHERE id_categoria=$id";
+        $query = "SELECT * FROM tiendas WHERE id_tienda=$id";
         $result = mysqli_query($conexion, $query);
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_categoria'];
-            $descripcion = $row['descripcion_categoria'];
-            $dataLogo = $row['logo_categoria'];
+            $nombre = $row['nombre_tienda'];
+            $direccion = $row['direccion_tienda'];
+            $latitud = $row['latitud_tienda'];
+            $longitud = $row['longitud_tienda'];
+            $dataFoto = $row['foto_tienda'];
         }
     }
 
     if (isset($_POST['actualizar'])) {
         $id = $_GET['id'];
         $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $dataLogo = $_POST['lgCat22'];
+        $direccion = $_POST['direccion'];
+        $latitud = $_POST['latitud'];
+        $longitud = $_POST['longitud'];
+        $dataFoto = $_POST['lgTiend22'];
 
-        $query = "UPDATE categorias set nombre_categoria = '$nombre', descripcion_categoria = '$descripcion',
-        logo_categoria='$dataLogo' WHERE id_categoria=$id";
+        $query = "UPDATE tiendas set nombre_tienda = '$nombre', direccion_tienda = '$direccion',
+        latitud_tienda='$latitud',longitud_tienda='$longitud',
+        foto_tienda='$dataFoto' WHERE id_tienda=$id";
         mysqli_query($conexion, $query);
 
-        echo "<script type='text/javascript'>alert('Los cambios en la categoria han sido guardados');
-        window.location = './adminCategorias.php';
+        echo "<script type='text/javascript'>alert('Los cambios en la tienda han sido guardados');
+        window.location = './adminTiendas.php';
         </script>";
     }
 
@@ -54,16 +61,16 @@
         </div>
         <div class="col-10">
             <div class="container my-5 w-50">
-                <h2 class="text-center">Editar Categoría</h2>
+                <h2 class="text-center">Editar Tienda</h2>
 
-                <form action="editarCategoria.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                <form action="editarTienda.php?id=<?php echo $_GET['id']; ?>" method="POST">
                     <div class="form-group">
-                        <label for="nombre">Nombre de la categoría</label><br>
+                        <label for="nombre">Nombre de la Tienda</label><br>
                         <input name="nombre" type="text" class="form-control-lg w-100" value="<?php echo $nombre; ?>"></input>
                         <br><br>
                         <center>
-                            <div id="mostrarImgCat">
-                                <img id="imgEditarCat" width="150">
+                            <div id="mostrarImgTiend">
+                                <img id="imgEditarTiend" width="150">
                             </div>
                         </center>
                         <br><br>
@@ -97,11 +104,11 @@
                             var blob = dataURItoBlob(dataURI);
                             var objectURL = URL.createObjectURL(blob);
 
-                            imgEditarCat.src = objectURL;
+                            imgEditarTiend.src = objectURL;
                         </script>
-                        <label for="logocat">Logo de la Categoria</label><br>
-                        <input type="file" accept="image/*" class="localCat22" id="logocat" name="logocat">
-                        <input name="lgCat22" id="lgCat22" type="hidden" value="<?php echo $dataLogo; ?>">
+                        <label for="logotiend">Foto de la Tienda</label><br>
+                        <input type="file" accept="image/*" class="localTienda22" id="logotiend" name="logotiend">
+                        <input name="lgTiend22" id="lgTiend22" type="hidden" value="<?php echo $dataFoto; ?>">
                         &emsp13;&emsp13;&emsp13;&emsp13;&emsp13;
                         <input type="button" onclick="ponerImagenDefecto()" value="Eliminar imagen">
                         <br><br>
@@ -115,7 +122,7 @@
                                         const reader = new FileReader()
                                         //reader.onloadend = () => resolve(reader.result)
                                         reader.onloadend = () => {
-                                            const inpLogo = document.getElementById("lgCat22");
+                                            const inpLogo = document.getElementById("lgTiend22");
                                             inpLogo.value = reader.result;
                                             console.log('base64: ', reader.result);
 
@@ -128,7 +135,7 @@
                                             // var objectURL = URL.createObjectURL(blob);
 
                                             //imgEditarCat.src = objectURL;
-                                            var x = document.getElementById("mostrarImgCat")
+                                            var x = document.getElementById("mostrarImgTiend")
                                             x.style.display = "none";
                                         }
                                         // reader.onerror = reject
@@ -138,7 +145,7 @@
 
                             }
 
-                            const $file = document.querySelector(".localCat22");
+                            const $file = document.querySelector(".localTienda22");
 
 
                             // ESTA FUNCION PERMITE DETECTAR CARGADO DE IMAGEN EN INPUT
@@ -154,7 +161,7 @@
                                     fileReader.onload = () => {
                                         const srcData = fileReader.result;
                                         //console.log('base64: ', srcData);
-                                        inpLogo = document.getElementById("lgCat22");
+                                        inpLogo = document.getElementById("lgTiend22");
                                         inpLogo.value = srcData;
                                         // // prueba para mostrar imagen en tiempo real
 
@@ -173,18 +180,24 @@
                                         // imgEditarCat.src = objectURL;
 
                                         // console.log('exito enviando');
-                                        var x = document.getElementById("mostrarImgCat")
+                                        var x = document.getElementById("mostrarImgTiend")
                                         x.style.display = "none";
                                     };
                                 }
                             })
                         </script>
 
-                        <label for="descripcion">Descripción</label><br>
-                        <textarea name="descripcion" class="form-control-lg w-100" cols="100" rows="30"><?php echo $descripcion; ?></textarea>
+                        <label for="direccion">Direccion</label><br>
+                        <textarea name="direccion" class="form-control-lg w-100" cols="100" rows="30"><?php echo $direccion; ?></textarea>
+                        <br>
+                        <label for="latitud">Latitud</label><br>
+                        <input name="latitud" class="form-control-lg w-100" id="latitud" type="number" step="any" required value="<?php echo $latitud; ?>">
+                        <br>
+                        <label for="longitud">Longitud</label><br>
+                        <input name="longitud" class="form-control-lg w-100" id="longitud" type="number" step="any" required value="<?php echo $longitud; ?>">
                     </div>
 
-                    <a href="./adminCategorias.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                    <a href="./adminTiendas.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
                     <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Actualizar datos</button>
                 </form>
             </div>
