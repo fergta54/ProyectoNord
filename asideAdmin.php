@@ -5,7 +5,7 @@
 <html lang="es">
 
 <head>
-  <title>Sidebar 01</title>
+  <title>Barra de costado</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -175,7 +175,7 @@
               <a href="#inventariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cubes"></i> Gestion de inventarios</a>
               <ul class="collapse list-unstyled" id="inventariosSubmenu">
                 <li>
-                  <a href="#">◉ Ver Inventarios</a>
+                  <a href="./gestionInventarios/listaTiendasInv.php">◉ Ver Inventarios</a>
                 </li>
                 <li>
                   <a href="#">◉ Editar Inventarios</a>
