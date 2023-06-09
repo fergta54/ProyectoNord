@@ -28,10 +28,10 @@
               // include ('../incluir/asideNavAdmin.php');
 
               //query
-              $ejecutarConsulta = $conexionolap->query("SELECT `dbo.clientes`.nombre_completo as Nombre_Completo, `dbo.ventas`.monto_total as Monto_total FROM `dbo.ventas`
+              $ejecutarConsulta = $conexionolap->query("SELECT `dbo.clientes`.nombre_completo as Nombre_Completo, sum(`dbo.ventas`.monto_total) as Monto_total FROM `dbo.ventas`
               inner join `dbo.clientes` on `dbo.clientes`.id_olap =`dbo.ventas`.Clientes_id_olap   
               group by `dbo.clientes`.id_olap
-              order by `dbo.ventas`.monto_total DESC
+              order by sum(`dbo.ventas`.monto_total) DESC
               limit 10;");
               //arreglo donde guardamos las filas y columnas
               $datos_rows = array();
