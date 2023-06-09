@@ -12,10 +12,10 @@ function component($productname, $productprice, $productimg, $productid){
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">$productname</h5>
                             <p class=\"card-text\">
-                                descripcion del producto
+                                
                             </p>
                             <h5>
-                                <small><s class=\"text-secondary\">$519</s></small>
+                                <small><s class=\"text-secondary\"></s></small>
                                 <span class=\"price\">$$productprice</span>
                             </h5>
 

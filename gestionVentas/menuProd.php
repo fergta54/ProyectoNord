@@ -56,61 +56,10 @@ if (isset($_POST['add'])){
 <body>
 <?php include('navVentas.php'); ?>
 
-
-<h1>Productos</h1>
-<!-- Formulario de selección de tienda -->
-<form method="GET" action="">
-    <label for="tienda">Seleccione una tienda:</label>
-    <select name="id_tienda" id="tienda">
-        <?php
-            $ejecutarConsulta = mysqli_query(
-                $conexion,
-                "SELECT id_tienda, nombre_tienda, estado_tienda 
-                FROM tiendas 
-                WHERE estado_tienda = 1 
-                ORDER BY nombre_tienda"
-            );
-            
-            if ($ejecutarConsulta) {
-                while ($row = mysqli_fetch_assoc($ejecutarConsulta)) {
-                    $id_tienda = $row['id_tienda'];
-                    $nombre_tienda = $row['nombre_tienda'];
-                    
-                    // Generar una opción para cada tienda
-                    echo "<option value='$id_tienda'>$nombre_tienda</option>";
-                }
-            }
-        ?>
-    </select>
-    <button type="submit">Mostrar productos</button>
-</form>
-<div class="container">
-        <div class="row text-center py-5">
+<h1>Productos</h1><br>
             <?php
-            include('../conexion.php');
-           
-                /*if (isset($_GET['id_tienda'])) {
-                    $id_tienda_seleccionada = $_GET['id_tienda'];
-                    
-                    // Consulta SQL para seleccionar los productos de la tienda seleccionada
-                    $seleccionar_productos = mysqli_query(
-                        $conexion,
-                        "SELECT pr.id_prod as id, pr.nombre_prod, pr.imagen_prod, pr.precio_unit_compra, pr.estado_producto
-                        FROM productos pr
-                        WHERE pr.estado_producto = 1 AND pr.id_tienda = $id_tienda_seleccionada
-                        ORDER BY pr.id_prod"
-                    );
-                    
-                    if ($seleccionar_productos) {
-                        while ($row = mysqli_fetch_assoc($seleccionar_productos)) {
-                            component($row['nombre_prod'], $row['precio_unit_compra'], $row['imagen_prod'], $row['id']);
-                        }
-                    } else {
-                        echo "No se encontraron productos para la tienda seleccionada.";
-                    }
-                }*/
-            
-            
+            //mostar todos los productos //
+            /*include('../conexion.php');
             $seleccionar = mysqli_query(
                 $conexion,
                 "SELECT pr.id_prod as id,pr.nombre_prod,pr.imagen_prod,pr.precio_unit_compra,pr.estado_producto                        
@@ -121,10 +70,77 @@ if (isset($_POST['add'])){
                 while ($row = mysqli_fetch_assoc($seleccionar)){
                     component($row['nombre_prod'], $row['precio_unit_compra'], $row['imagen_prod'], $row['id']);
                 }
+            }*/
+
+
+            include('../conexion.php');
+
+
+            session_start();
+
+            // Verificar si se ha enviado el formulario y se ha seleccionado una tienda
+            if (isset($_POST['tienda'])) {
+                // Guardar el ID de la tienda seleccionada en la variable de sesión
+                $_SESSION['selected_tienda'] = $_POST['tienda'];
             }
-        
-            ?>
-        </div>
-</div>
+            
+            // Obtener el valor de la tienda seleccionada (si existe)
+            $tiendaSeleccionada = isset($_SESSION['selected_tienda']) ? $_SESSION['selected_tienda'] : '';
+            
+            // Obtener todas las tiendas disponibles
+            $tiendas = mysqli_query($conexion, "SELECT id_tienda, nombre_tienda FROM tiendas WHERE estado_tienda = 1 ORDER BY nombre_tienda");
+            
+            if ($tiendas) {
+                // Generar el formulario de selección de tiendas
+                echo "<form method='POST' action=''>
+                        <label for='tienda'>Seleccione una tienda:</label>
+                        <select name='tienda' id='tienda'>
+                            <option value=''>-- Seleccione una tienda --</option>";
+            
+                while ($tienda = mysqli_fetch_assoc($tiendas)) {
+                    // Verificar si la tienda seleccionada coincide con la tienda actual en el bucle
+                    $selected = '';
+                    if ($tiendaSeleccionada == $tienda['id_tienda']) {
+                        $selected = 'selected';
+                    }
+            
+                    echo "<option value='" . $tienda['id_tienda'] . "' $selected>" . $tienda['nombre_tienda'] . "</option>";
+                }
+            
+                echo "</select>
+                        <button type='submit'>Mostrar productos</button>
+                    </form>";
+            
+                echo "<div class='container'>
+                        <div class='row text-center py-5'>";
+            
+                // Verificar si se ha seleccionado una tienda y mostrar los productos correspondientes
+                if (!empty($tiendaSeleccionada)) {
+                    $productos = mysqli_query($conexion, "SELECT p.id_prod, p.nombre_prod, p.imagen_prod, p.precio_unit_compra
+                                                          FROM productos p
+                                                          INNER JOIN inventarios i ON p.id_prod = i.id_producto
+                                                          INNER JOIN tiendas t ON i.id_tienda = t.id_tienda
+                                                          WHERE t.id_tienda = " . $tiendaSeleccionada . "
+                                                          ORDER BY p.nombre_prod");
+            
+                    if ($productos) {
+                        while ($producto = mysqli_fetch_assoc($productos)) {
+                            // Mostrar los datos del producto
+                            component($producto['nombre_prod'], $producto['precio_unit_compra'], $producto['imagen_prod'], $producto['id_prod']);
+                        }
+                    } else {
+                        echo "Error en la consulta de productos: " . mysqli_error($conexion);
+                    }
+                }
+            } else {
+                echo "Error en la consulta de tiendas: " . mysqli_error($conexion);
+            }           
+            echo "</div>
+                  </div>";
+?><li class="nav-item">
+<a class="cabecera" href="./registroAzul/registrarCliente.php">
+    SIGN IN
+</a>
+</li>
 </body>
 </html>
