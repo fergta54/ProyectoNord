@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -65,43 +68,22 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>EDITAR CLIENTE</h1>
-                <div class="container p-4">
-                    <div class="row">
-                        <div class="col-md-4 mx-auto">
-                            <div class="card card-body">
-                                <form action="aditarCliente.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                                    <label>Nombre</label>
-                                    <div class="form-group">
-                                        <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Apellido</label>
-                                    <div class="form-group">
-                                        <input name="apellido" type="text" class="form-control" value="<?php echo $apellido; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Correo</label>
-                                    <div class="form-group">
-                                        <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Direccion</label>
-                                    <div class="form-group">
-                                        <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Telefono</label>
-                                    <div class="form-group">
-                                        <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Contraseña</label>
-                                    <div class="form-group">
-                                        <input name="contraseña" type="text" class="form-control" value="<?php echo $contraseña; ?>"></input>
-                                    </div>
-                                    <br>
+            <div class="container my-5 w-50">
+                <h2 class="text-center">Editar Cliente</h2>
+                <form action="editarCliente.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label><br>
+                        <input name="nombre" type="text" class="form-control-lg w-100" id="nombre" value="<?php echo $nombre; ?>"></input>
+                        <label for="apellido">Apellido</label><br>
+                        <input name="apellido" type="text" class="form-control-lg w-100" id="apellido" value="<?php echo $apellido; ?>"></input>
+                        <label for="correo">Correo</label><br>
+                        <input name="correo" type="text" class="form-control-lg w-100" id="correo" value="<?php echo $correo; ?>"></input>
+                        <label for="direccion">Direccion</label><br>
+                        <input name="direccion" type="text" class="form-control-lg w-100" id="direccion" value="<?php echo $direccion; ?>"></input>
+                        <label for="telefono">Telefono</label><br>
+                        <input name="telefono" type="text" class="form-control-lg w-100" id="telefono" value="<?php echo $telefono; ?>"></input> 
+                        <label for="contraseña">Contraseña</label><br>
+                        <input name="contraseña" type="text" class="form-control-lg w-100" id="contraseña" value="<?php echo $contraseña; ?>"></input>                            
                                     <div>
                                         <div id="mostrarImgCat">
                                             <img id="imgEditarCat" width="50">
@@ -218,16 +200,10 @@
                                             })
                                         </script>
                                     </div>
-                                    <button class="btn-success" name="actualizar">
-                                        Actualizar datos
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </center>
-            <?php //include('includes/footer.php'); 
+                                    <a href="./listarClientes.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                                    <button href="./adminClientes.php" type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Actualizar datos</button>    
+                                    </form>  
+            <?php 
             ?>
         </div>
     </div>
