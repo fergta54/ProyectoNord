@@ -127,6 +127,26 @@
                 <a href="./ReportesProductos/ReporteProductosExcel.php">Generar reporte de EXCEL</a>
             </div>
         </div>
+        <br><br>
+        <div class="dropdown w-100">
+            <button class="dropbtn w-100">Reporte Clientes</button>
+            <div class="dropdown-content w-100">
+                <form action="./ReportesClientes/ReporteClientesPDF.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <a href="./ReportesClientes/ReporteClientesExcel.php">Generar reporte de EXCEL</a>
+            </div>
+        </div>
+        <br><br>
+        <div class="dropdown w-100">
+            <button class="dropbtn w-100">Reporte Tiendas</button>
+            <div class="dropdown-content w-100">
+                <form action="./ReportesTiendas/ReporteTiendasPDF.php">
+                    <button type="submit">Generar reporte en PDF</button>
+                </form>
+                <a href="./ReportesTiendas/ReporteTiendasExcel.php">Generar reporte de EXCEL</a>
+            </div>
+        </div>
     </div>
 
         </div>
