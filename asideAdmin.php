@@ -112,13 +112,21 @@
             <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-tags"></i> Gestion de categorías</a>
             <ul class="collapse list-unstyled" id="categoriasSubmenu">
               <li>
+<<<<<<< Updated upstream
                 <a href="./gestionProductos/adminCategorias.php">◉ Listar categorías</a>
+=======
+                <a href="./gestionProductos/listarCategorias.php">Listar categorías</a>
+>>>>>>> Stashed changes
               </li>
               <li>
                 <a href="./gestionProductos/crearCategoria.php">◉ Crear categoría</a>
               </li>
               <li>
+<<<<<<< Updated upstream
                 <a href="#">◉ Editar categoría</a>
+=======
+                <a href="./gestionProductos/adminCategorias.php">Editar categoría</a>
+>>>>>>> Stashed changes
               </li>
             </ul>
           </li>
@@ -126,13 +134,21 @@
             <a href="#marcasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-barcode"></i> Gestion de marcas</a>
             <ul class="collapse list-unstyled" id="marcasSubmenu">
               <li>
+<<<<<<< Updated upstream
                 <a href="./gestionProductos/adminMarcas.php">◉ Listar marcas</a>
+=======
+                <a href="./gestionProductos/listarMarcas.php">Listar marcas</a>
+>>>>>>> Stashed changes
               </li>
               <li>
                 <a href="./gestionProductos/crearMarca.php">◉ Crear marca</a>
               </li>
               <li>
+<<<<<<< Updated upstream
                 <a href="#">◉ Editar marcas</a>
+=======
+                <a href="./gestionProductos/adminMarcas.php">Editar marcas</a>
+>>>>>>> Stashed changes
               </li>
             </ul>
           </li>
@@ -140,13 +156,21 @@
             <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Gestion de productos</a>
             <ul class="collapse list-unstyled" id="productosSubmenu">
               <li>
+<<<<<<< Updated upstream
                 <a href="./gestionProductos/adminProductos.php">◉ Listar productos</a>
+=======
+                <a href="./gestionProductos/listarProductos.php">Listar productos</a>
+>>>>>>> Stashed changes
               </li>
               <li>
                 <a href="./gestionProductos/crearProducto.php">◉ Crear producto</a>
               </li>
               <li>
+<<<<<<< Updated upstream
                 <a href="#">◉ Editar productos</a>
+=======
+                <a href="./gestionProductos/adminProductos.php">Editar productos</a>
+>>>>>>> Stashed changes
               </li>
             </ul>
           </li>
@@ -157,10 +181,17 @@
                 <a href="#">◉ Listar tiendas</a>
               </li>
               <li>
+<<<<<<< Updated upstream
                 <a href="#">◉ Crear tienda</a>
               </li>
               <li>
                 <a href="#">◉ Editar tiendas</a>
+=======
+                <a href="./gestionTiendas/crearTienda.php">Crear tienda</a>
+              </li>
+              <li>
+                <a href="./gestionTiendas/adminTiendas.php">Editar tiendas</a>
+>>>>>>> Stashed changes
               </li>
             </ul>
           </li>

@@ -22,10 +22,11 @@
         <div class="col-10">
 
             <div class="container my-5 text-center">
-                <h1>Lista de Marcas</h1>
+                <h1>Administración de Marcas</h1>
                 <br><br>
 
-                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">Mostrar inhabilitadas</button>
+                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">
+                    <a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
                 <br>
                 <br>
 
@@ -52,7 +53,7 @@
                             $ejecutarConsulta = mysqli_query(
                                 $conexion,
                                 "SELECT id_marca as Nro,nombre_marca as Marca, descripcion_marca as Descripcion
-                    ,estado_marca as Estado FROM marcas where estado_marca=1 order by id_marca"
+                    ,estado_marca as Estado FROM marcas where estado_marca=1 order by nombre_marca"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
                             //echo $_SESSION['IdRegistro'];
@@ -97,7 +98,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="6"><b>Marcas inhabilitadas</b></td>
+                            <td colspan="6" id="mostrarInhabil"><b>Marcas inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -107,7 +108,7 @@
                             $ejecutarConsulta2 = mysqli_query(
                                 $conexion,
                                 "SELECT id_marca as Nro,nombre_marca as Marca, descripcion_marca as Descripcion
-                        ,estado_marca as Estado FROM marcas where estado_marca=2 order by id_marca"
+                        ,estado_marca as Estado FROM marcas where estado_marca=2 order by nombre_marca"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
                             //echo $_SESSION['IdRegistro'];
@@ -157,7 +158,7 @@
 
             </div>
         </div>
-
+    </div>
 </body>
 
 </html>

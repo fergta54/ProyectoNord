@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTOS</title>
+    <title>TIENDAS</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -21,23 +21,22 @@
         </div>
         <div class="col-10">
             <div class="container my-5 text-center">
-                <h1>Administración de Productos</h1>
+                <h1>Administración de Tiendas</h1>
                 <br><br>
                 <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">
-                    <a href="#mostrarInhabil">Mostrar inhabilitados</a></button>
+                    <a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
                 <br>
                 <br>
 
-                <table class="tablaProductos table table-bordered">
-                    <thead class="thead-dark">
+                <table class="tablaCategorias table table-bordered">
+                    <thead class="thead thead-dark fijadorCabecera">
                         <tr>
                             <th class="td1">Nro</th>
                             <th class="td2">Nombre</th>
-                            <th class="td3">Descripcion</th>
-                            <th class="td4">Imagen</th>
-                            <th class="td5">Categoria</th>
-                            <th class="td5">Marca</th>
-                            <th class="td5">Precio compra</th>
+                            <th class="td3">Dirección</th>
+                            <th class="td4">Latitud</th>
+                            <th class="td4">Longitud</th>
+                            <th class="td4">Foto</th>
                             <th class="td5">Estado</th>
                             <th class="td6 td7" colspan="2">
                                 <center>Acción</center>
@@ -53,14 +52,13 @@
                             //session_start();
                             $ejecutarConsulta = mysqli_query(
                                 $conexion,
-                                "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_unit_compra,marcas.nombre_marca,                        
-                        pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
-                        FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
-                            inner join marcas on pr.id_marca=marcas.id_marca
-                         where estado_producto=1 order by nombre_prod"
+                                "SELECT id_tienda,nombre_tienda,direccion_tienda,latitud_tienda,longitud_tienda,
+                        foto_tienda,estado_tienda 
+                        FROM tiendas where estado_tienda=1 order by nombre_tienda"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
-
+                            //echo $_SESSION['IdRegistro'];
+                            // mysqli_close($conexion);
                             $verFilas = mysqli_num_rows($ejecutarConsulta);
                             $fila = mysqli_fetch_array($ejecutarConsulta);
                             if (!$ejecutarConsulta) {
@@ -68,17 +66,19 @@
                             } else {
 
                                 if ($verFilas < 1) {
-                                    echo "<tr><td colspan='10'>SIN REGISTROS</td></tr>";
+                                    echo "<tr><td colspan='6'>SIN REGISTROS</td></tr>";
                                 } else {
                                     for ($i = 0; $i < $verFilas; $i++) {
                                         echo '
                                 <tr>
                                     <td>' . ($i + 1) . '</td>
                                     <td>' . $fila[1] . '</td>
-                                    <td>' . $fila[5] . '</td>
-                                    <td>' ?><img id="logo3<?php echo $i ?>" width="50">
+                                    <td>' . $fila[2] . '</td>
+                                    <td>' . $fila[3] . '</td>
+                                    <td>' . $fila[4] . '</td>
+                                    <td>' ?><img id="logo<?php echo $i ?>" width="50">
                                         <script>
-                                            var data = <?php echo json_encode($fila[2]); ?>;
+                                            var data = <?php echo json_encode($fila[5]); ?>;
 
                                             function dataURItoBlob(dataURI) {
                                                 // convert base64/URLEncoded data component to raw binary data held in a string
@@ -107,26 +107,24 @@
                                             var blob = dataURItoBlob(dataURI);
                                             var objectURL = URL.createObjectURL(blob);
 
-                                            logo3<?php echo $i ?>.src = objectURL;
+                                            logo<?php echo $i ?>.src = objectURL;
                                         </script>
                                         <?php echo
-                                        '<td>' . $fila[6] . '</td>
-                                <td>' . $fila[4] . '</td>
-                                <td>' . $fila[3] . '</td>
+                                        '</td>
                                 <td>
-                                    <center>' . ($fila[7] == 1 ? "Activo" : "Inactivo") . '</center>
+                                    <center>' . ($fila[6] == 1 ? "Activo" : "Inactivo") . '</center>
                                 </td>
 
                                 ';
 
                                         ?>
                                         <td>
-                                            <center><button class="btn btn-warning"><a class="botonesProductos" href="editarProducto.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="btn btn-warning"><a class="botonesProductos" href="editarTienda.php?id=<?php echo $fila[0] ?>">
                                                         Editar
                                                     </a></button> </center>
                                         </td>
                                         <td>
-                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href="eliminarProducto.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarTienda.php?id=<?php echo $fila[0] ?>">
                                                         Inhabilitar
                                                     </a></button> </center>
                                         </td>
@@ -143,7 +141,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="10" id="mostrarInhabil"><b>Categorias inhabilitadas</b></td>
+                            <td colspan="9" id="mostrarInhabil"><b>Categorias inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -152,11 +150,9 @@
                             //session_start();
                             $ejecutarConsulta2 = mysqli_query(
                                 $conexion,
-                                "SELECT pr.id_prod as id,nombre_prod,pr.imagen_prod,pr.precio_unit_compra,marcas.nombre_marca,                        
-                        pr.descripcion_prod,cat.nombre_categoria,pr.estado_producto,pr.id_marca,pr.id_categoria                         
-                        FROM productos pr inner join categorias cat on pr.id_categoria=cat.id_categoria
-                            inner join marcas on pr.id_marca=marcas.id_marca
-                         where estado_producto=2 order by nombre_prod"
+                                "SELECT id_tienda,nombre_tienda,direccion_tienda,latitud_tienda,longitud_tienda,
+                        foto_tienda,estado_tienda 
+                        FROM tiendas where estado_tienda=2 order by nombre_tienda"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
                             //echo $_SESSION['IdRegistro'];
@@ -168,17 +164,19 @@
                             } else {
 
                                 if ($verFilas2 < 1) {
-                                    echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="10">SIN REGISTROS</td></tr>';
+                                    echo '<tr class="ElementosEliminados" style="display:none;"><td colspan="9">SIN REGISTROS</td></tr>';
                                 } else {
                                     for ($i = 0; $i < $verFilas2; $i++) {
                                         echo '
                                     <tr class="ElementosEliminados" style="display:none;">
-                                    <td>' . ($i + 1) . '</td>
-                                    <td>' . $fila2[1] . '</td>
-                                    <td>' . $fila2[5] . '</td>
+                                        <td>' . ($i + 1) . '</td>
+                                        <td>' . $fila2[1] . '</td>
+                                        <td>' . $fila2[2] . '</td>
+                                        <td>' . $fila2[3] . '</td>
+                                        <td>' . $fila2[4] . '</td>
                                         <td>' ?><img id="logo20<?php echo $i ?>" width="50">
                                         <script>
-                                            var data = <?php echo json_encode($fila2[2]); ?>;
+                                            var data = <?php echo json_encode($fila2[5]); ?>;
 
                                             function dataURItoBlob(dataURI) {
                                                 // convert base64/URLEncoded data component to raw binary data held in a string
@@ -210,22 +208,23 @@
                                             logo20<?php echo $i ?>.src = objectURL;
                                         </script>
                                         <?php echo
-                                        '<td>' . $fila2[6] . '</td>
-                                <td>' . $fila2[4] . '</td>
-                                <td>' . $fila2[3] . '</td>
+                                        '</td>
                                 <td>
-                                    <center><p class="formatoEliminado">' . ($fila2[7] == 1 ? "Activo" : "Inactivo") . '</p></center>
+                                    <center><p class="formatoEliminado">' . ($fila2[6] == 1 ? "Activo" : "Inactivo") . '</p></center>
                                 </td>                                  
      
                                 ';
+
                                         ?>
+
                                         <td colspan="2">
-                                            <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarProducto.php?id=<?php echo $fila2[0] ?>">
+                                            <center><button class="botonActivar btn btn-success"><a class="botonesProductos" href="activarTienda.php?id=<?php echo $fila2[0] ?>">
                                                         Habilitar
                                                     </a></button></center>
                                         </td>
                                         </tr>
                         <?php
+
                                         $fila2 = mysqli_fetch_array($ejecutarConsulta2);
                                     }
                                 }
@@ -237,9 +236,11 @@
                     </tbody>
                 </table>
                 <br><br>
+
             </div>
         </div>
     </div>
 </body>
+
 
 </html>

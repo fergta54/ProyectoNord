@@ -21,9 +21,9 @@
         </div>
         <div class="col-10">
             <div class="container my-5 text-center">
-                <h1>Lista de Categorías</h1>
+                <h1>Administración de Categorías</h1>
                 <br><br>
-                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">Mostrar inhabilitadas</button>
+                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados"><a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
                 <br>
                 <br>
 
@@ -52,7 +52,7 @@
                                 $conexion,
                                 "SELECT id_categoria as Nro,nombre_categoria as Categoria, descripcion_categoria as Descripcion,
                         logo_categoria as Logo,estado_categoria as Estado 
-                        FROM categorias where estado_categoria=1 order by id_categoria"
+                        FROM categorias where estado_categoria=1 order by nombre_categoria"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
                             //echo $_SESSION['IdRegistro'];
@@ -137,7 +137,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="7"><b>Categorias inhabilitadas</b></td>
+                            <td colspan="7" id="mostrarInhabil"><b>Categorias inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
@@ -148,7 +148,7 @@
                                 $conexion,
                                 "SELECT id_categoria as Nro,nombre_categoria as Categoria, descripcion_categoria as Descripcion,
                         logo_categoria as Logo,estado_categoria as Estado 
-                        FROM categorias where estado_categoria=2 order by id_categoria"
+                        FROM categorias where estado_categoria=2 order by nombre_categoria"
                             )
                                 or die("Problemas en la inserción" . mysqli_error($conexion));
                             //echo $_SESSION['IdRegistro'];
@@ -233,7 +233,7 @@
 
             </div>
         </div>
-
+    </div>
 </body>
 
 

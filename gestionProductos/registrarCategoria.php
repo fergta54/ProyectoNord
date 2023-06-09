@@ -22,5 +22,5 @@ mysqli_close($conexion);
 
 
 echo "<script type='text/javascript'>alert('Categoría registrada con éxito');
-        window.location = './adminCategorias.php';
+        window.location = './listarCategorias.php';
         </script>";

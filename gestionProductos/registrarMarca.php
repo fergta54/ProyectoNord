@@ -12,5 +12,5 @@ mysqli_close($conexion);
 
 
 echo "<script type='text/javascript'>alert('Marca registrada con éxito');
-        window.location = './adminMarcas.php';
+        window.location = './listarMarcas.php';
         </script>";
