@@ -18,6 +18,11 @@ $varRol = null;
     <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
     <script src="./recursos/js/jquery-3.7.0.min.js"></script>
     <script src="./recursos/js/bootstrap.min.js"></script>
+    <style>
+    .nav-item {
+    margin-right: 10px;
+    }
+    </style>
 </head>
 
 <header class="navbar">
