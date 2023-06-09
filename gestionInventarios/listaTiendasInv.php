@@ -25,7 +25,6 @@
 
                 <h2 class="text-center">Seleccione una tienda</h2>
 
-
                 <hr class="my-4">
                 <br><br>
                 <table class="tablaTiendInv table table-bordered">
@@ -121,10 +120,7 @@
                                 }
                             }
                         }
-
                         ?>
-
-
                     </tbody>
                 </table>
                 <br><br>

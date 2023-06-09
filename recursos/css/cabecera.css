@@ -244,3 +244,12 @@ header {
   top: 0;
   z-index: 1;
 }
+.tablaAgrProductos {
+  overflow: auto;
+  height: 100px;
+}
+.tablaAgrProductos {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

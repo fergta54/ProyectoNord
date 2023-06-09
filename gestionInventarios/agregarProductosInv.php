@@ -47,21 +47,21 @@
             <div class="container my-5 text-center">
                 <h1>Inventario</h1>
                 <h2 id="tituloInvTienda"><?php echo $tienda[1] ?></h2>
+                <h3>Agregar productos al inventario</h3>
                 <br><br>
                 <button id="agregarProdInv" class="botonMostrarOcultos">
-                    <a href="agregarProductosInv.php?id=<?php echo $tienda[0] ?>">Agregar Productos</a></button>
+                    <a href="agregarProductosInv.php?id=<?php echo $fila[5] ?>&">Agregar Productos</a></button>
                 <br>
                 <br>
 
-                <table class="tablaInvProductos table table-bordered">
+                <table class="tablaAgrProductos table table-bordered">
                     <thead class="thead-dark">
                         <tr>
                             <th class="td1">Nro</th>
                             <th class="td2">Nombre</th>
                             <th class="td3">Descripcion</th>
                             <th class="td4">Imagen</th>
-                            <th class="td5">Stock</th>
-                            <th class="td6">
+                            <th class="td5">
                                 <center>Acción</center>
                             </th>
                         </tr>
@@ -74,16 +74,17 @@
                         } else {
                             //session_start();
                             if (isset($_GET['id'])) {
-                                $id = $_GET['id'];
+                                $idTiend = $_GET['id'];
 
                                 $ejecutarConsulta = mysqli_query(
                                     $conexion,
-                                    "SELECT productos.id_prod,nombre_prod, imagen_prod, descripcion_prod,
-                                stock_inventario,id_inventario,inventarios.id_tienda,tiendas.nombre_tienda
-                                FROM inventarios inner join tiendas on inventarios.id_tienda=tiendas.id_tienda
-                                inner join productos on inventarios.id_producto=productos.id_prod 
-                                WHERE inventarios.id_tienda=$id and estado_producto=1 and estado_inventario=1
-                                order by nombre_prod"
+                                    "SELECT id_prod, nombre_prod, imagen_prod, descripcion_prod
+                                    from productos
+                                    where id_prod not in (SELECT productos.id_prod
+                                        FROM inventarios inner join tiendas on inventarios.id_tienda=tiendas.id_tienda
+                                        inner join productos on inventarios.id_producto=productos.id_prod 
+                                        WHERE inventarios.id_tienda=$idTiend)
+                                    order by nombre_prod"
                                 )
                                     or die("Problemas en la inserción" . mysqli_error($conexion));
 
@@ -136,14 +137,9 @@
 
                                                 logo3<?php echo $i ?>.src = objectURL;
                                             </script>
-                                            <?php echo
-                                            '<td>' . $fila[4] . '</td>
-                                    ';
-
-                                            ?>
                                             <td>
-                                                <center><button class="btn btn-warning"><a class="botonesProductos" href="modificarStockProducto.php?id_inv=<?php echo $fila[5] ?>">
-                                                            Modificar Stock
+                                                <center><button class="btn btn-warning"><a class="botonesProductos" href="agrProdEspec.php?id_pr=<?php echo $fila[0] ?>&id_tiend=<?php echo $idTiend ?>">
+                                                            Agregar al inventario
                                                         </a></button> </center>
                                             </td>
                                             </tr>
