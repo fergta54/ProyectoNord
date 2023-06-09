@@ -28,7 +28,7 @@
                 <br>
                 <br>
 
-                <table class="tablaCategorias table table-bordered">
+                <table class="tablaTiendas table table-bordered">
                     <thead class="thead thead-dark fijadorCabecera">
                         <tr>
                             <th class="td1">Nro</th>
@@ -124,7 +124,7 @@
                                                     </a></button> </center>
                                         </td>
                                         <td>
-                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarTienda.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href="eliminarTienda.php?id=<?php echo $fila[0] ?>">
                                                         Inhabilitar
                                                     </a></button> </center>
                                         </td>

@@ -19,14 +19,14 @@
       padding-left: 20px;
       /* Agrega sangría a las opciones principales */
       display: block;
-      color: #F47A1A;
+      color: #F6DDC8;
       /* Color de texto para opciones no seleccionadas */
     }
 
     #sidebar ul.list-unstyled.components li>a.selected {
       background-color: #004B99;
       /* Color de fondo para opciones seleccionadas */
-      color: #fff;
+      color: #F58A2C;
       /* Color de texto para opciones seleccionadas */
     }
 
@@ -119,13 +119,13 @@
               <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-tags"></i> Gestion de categorías</a>
               <ul class="collapse list-unstyled" id="categoriasSubmenu">
                 <li>
-                  <a href="./gestionProductos/listarCategorias.php">Listar categorías</a>
+                  <a href="./gestionProductos/listarCategorias.php">◉ Listar categorías</a>
                 </li>
                 <li>
                   <a href="./gestionProductos/crearCategoria.php">◉ Crear categoría</a>
                 </li>
                 <li>
-                  <a href="./gestionProductos/adminCategorias.php">Editar categoría</a>
+                  <a href="./gestionProductos/adminCategorias.php">◉ Editar categoría</a>
                 </li>
               </ul>
             </li>
@@ -133,13 +133,13 @@
               <a href="#marcasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-barcode"></i> Gestion de marcas</a>
               <ul class="collapse list-unstyled" id="marcasSubmenu">
                 <li>
-                  <a href="./gestionProductos/listarMarcas.php">Listar marcas</a>
+                  <a href="./gestionProductos/listarMarcas.php">◉ Listar marcas</a>
                 </li>
                 <li>
                   <a href="./gestionProductos/crearMarca.php">◉ Crear marca</a>
                 </li>
                 <li>
-                  <a href="./gestionProductos/adminMarcas.php">Editar marcas</a>
+                  <a href="./gestionProductos/adminMarcas.php">◉ Editar marcas</a>
                 </li>
               </ul>
             </li>
@@ -147,13 +147,13 @@
               <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Gestion de productos</a>
               <ul class="collapse list-unstyled" id="productosSubmenu">
                 <li>
-                  <a href="./gestionProductos/listarProductos.php">Listar productos</a>
+                  <a href="./gestionProductos/listarProductos.php">◉ Listar productos</a>
                 </li>
                 <li>
                   <a href="./gestionProductos/crearProducto.php">◉ Crear producto</a>
                 </li>
                 <li>
-                  <a href="./gestionProductos/adminProductos.php">Editar productos</a>
+                  <a href="./gestionProductos/adminProductos.php">◉ Editar productos</a>
                 </li>
               </ul>
             </li>
@@ -161,13 +161,13 @@
               <a href="#tiendasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> Gestion de tiendas</a>
               <ul class="collapse list-unstyled" id="tiendasSubmenu">
                 <li>
-                  <a href="#">◉ Listar tiendas</a>
+                  <a href="./gestionTiendas/listarTiendas.php">◉ Listar tiendas</a>
                 </li>
                 <li>
-                  <a href="./gestionTiendas/crearTienda.php">Crear tienda</a>
+                  <a href="./gestionTiendas/crearTienda.php">◉ Crear tienda</a>
                 </li>
                 <li>
-                  <a href="./gestionTiendas/adminTiendas.php">Editar tiendas</a>
+                  <a href="./gestionTiendas/adminTiendas.php">◉ Editar tiendas</a>
                 </li>
               </ul>
             </li>

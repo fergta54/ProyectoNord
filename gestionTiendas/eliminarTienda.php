@@ -2,11 +2,11 @@
 if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
     include('../conexion.php');
     $id = $_GET['id'];
-    $query2 = "UPDATE categorias set estado_categoria = 2 WHERE id_categoria=$id";
+    $query2 = "UPDATE tiendas set estado_tienda = 2 WHERE id_tienda=$id";
     mysqli_query($conexion, $query2);
 
-    echo "<script type='text/javascript'>alert('La categoría ha sido desactivada');
-    window.location = './adminCategorias.php';
+    echo "<script type='text/javascript'>alert('La tienda ha sido desactivada');
+    window.location = './adminTiendas.php';
     </script>";
 }
 ?>
@@ -22,7 +22,7 @@ if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
 </head>
 
 <body>
-    <form action="eliminarCategoria.php?id=<?php echo $_GET['id']; ?>" method="POST">
+    <form action="eliminarTienda.php?id=<?php echo $_GET['id']; ?>" method="POST">
         <button type="submit" id="botonOcultoEliminar" name="botonOcultoEliminar" hidden></button>
     </form>
 </body>
@@ -32,12 +32,12 @@ if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
     if (verificarEliminacion()) {
         document.getElementById("botonOcultoEliminar").click();
     } else {
-        alert("La categoria sigue activa");
-        window.location = './adminCategorias.php'
+        alert("La tienda sigue activa");
+        window.location = './adminTiendas.php'
     }
 
     function verificarEliminacion() {
-        let texto = "¿Está seguro de desactivar la categoria?";
+        let texto = "¿Está seguro de desactivar la tienda?";
         if (confirm(texto) == true) {
             return true;
         } else {
