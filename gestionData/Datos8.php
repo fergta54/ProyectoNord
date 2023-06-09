@@ -28,10 +28,9 @@
               // include ('../incluir/asideNavAdmin.php');
 
               //query
-              $ejecutarConsulta = $conexionolap->query("SELECT `dbo.calendario`.nombre_mes as Mes, sum(`dbo.ventas`.monto_total) as Monto_total FROM `dbo.ventas`
-              inner join `dbo.calendario` on `dbo.calendario`.id_olap =`dbo.ventas`.Calendario_id_olap   
-              group by `dbo.calendario`.id_mes
-              order by `dbo.calendario`.id_mes asc;");
+              $ejecutarConsulta = $conexionolap->query("SELECT T.descripcion nombre, `cant_adhesivos` total FROM `dbo.ventas` INNER JOIN `dbo.adhesivos` as T ON `dbo.ventas`.`Adhesivos_id_olap` = T.id_olap 
+              ORDER BY `cant_adhesivos` DESC LIMIT 10;
+              ");
               //arreglo donde guardamos las filas y columnas
               $datos_rows = array();
               $datos_table = array();
@@ -39,8 +38,8 @@
               $datos_table['cols'] = array(
 
                   //array('label' => 'Tienda_id_olap', 'type' => 'string'), //para especificar que es un string
-                  array('label' => 'Mes', 'type' => 'string'), //para especificar que es un numero
-                  array('label' => 'Monto Total', 'type' => 'number'), //para especificar que es un numero
+                  array('label' => 'Producto', 'type' => 'string'), //para especificar que es un numero
+                  array('label' => 'Cantidad Total', 'type' => 'number'), //para especificar que es un numero
                   
               );             
 
@@ -49,9 +48,9 @@
                   $pastel_temp = array();
 
                   //$pastel_temp[] = array('v' => (string) $p['idTiend']);
-                  $pastel_temp[] = array('v' => (string) $p['Mes']);
+                  $pastel_temp[] = array('v' => (string) $p['nombre']);
 
-                  $pastel_temp[] = array('v' => (double) $p['Monto_total']);
+                  $pastel_temp[] = array('v' => (double) $p['total']);
 
                   $pastel_rows[] = array('c' => $pastel_temp);
               }
@@ -64,7 +63,7 @@
             <button onClick="mostrarGrafico1()">Mostrar primer grafico</button> -->
 
               <div class="container">
-                  <h1>Consulta 3: Montos vendidos por mes</h1>
+                  <h1>Consulta 8: Productos mas vendidos por cantidad de la categoria Adhesivos</h1>
 
                   <div id="graficoMontos" style="width:1200px;height:800px;"></div>
                   <!-- <button onClick="mostrarMontos1()">Mostrar segundo grafico</button> -->
@@ -100,7 +99,7 @@
     // }    
     
         //google.charts.load('current', {'packages':['bar']});
-        google.charts.load('current', {'packages':['corechart']});
+        google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart22);
         //google.charts.setOnLoadCallback(drawChartPastel);
 
@@ -108,40 +107,19 @@
             var data3 = new google.visualization.DataTable(<?=$pastel_jsonTable?>);
             var options3 = 
             {
-              
-                  title: 'Montos por mes',
-                  hAxis: {title: 'Mes',  titleTextStyle: {color: '#333'}},
-                  vAxis: {minValue: 0}                  
-                
+              chart: {
+                  title: 'Clientes por Monto',
+                  
+                },
+                bars: 'horizontal' // Required for Material Bar Charts.
             };
 
-            var chart3 = new google.visualization.AreaChart(document.getElementById('graficoMontos'));
-            chart3.draw(data3, options3);
+            var chart3 = new google.charts.Bar(document.getElementById('graficoMontos'));
+            chart3.draw(data3, google.charts.Bar.convertOptions(options3));
             
         }
     
       
-
-      //   google.charts.load('current', {'packages':['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
-
-      // function drawChart() {
-      //   var data = google.visualization.arrayToDataTable([
-      //     ['Year', 'Sales', 'Expenses'],
-      //     ['2013',  1000,      400],
-      //     ['2014',  1170,      460],
-      //     ['2015',  660,       1120],
-      //     ['2016',  1030,      540]
-      //   ]);
-
-      //   var options = {
-      //     title: 'Company Performance',
-      //     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-      //     vAxis: {minValue: 0}
-      //   };
-
-      //   var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-      //   chart.draw(data, options);
 
     // function mostrarGrafico3(){
     //     //google.charts.load('current', {'packages':['bar']});

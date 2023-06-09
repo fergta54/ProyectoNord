@@ -28,10 +28,8 @@
               // include ('../incluir/asideNavAdmin.php');
 
               //query
-              $ejecutarConsulta = $conexionolap->query("SELECT `dbo.calendario`.nombre_mes as Mes, sum(`dbo.ventas`.monto_total) as Monto_total FROM `dbo.ventas`
-              inner join `dbo.calendario` on `dbo.calendario`.id_olap =`dbo.ventas`.Calendario_id_olap   
-              group by `dbo.calendario`.id_mes
-              order by `dbo.calendario`.id_mes asc;");
+              $ejecutarConsulta = $conexionolap->query("SELECT `dbo.ventas`.Tiendas_id_olap as idTiend,`dbo.tiendas`.nombre_tienda as nombreTiend, sum(monto_total) as MontoTotal 
+              FROM `dbo.ventas` inner join `dbo.tiendas` on `dbo.ventas`.Tiendas_id_olap=`dbo.tiendas`.id_olap group by `dbo.ventas`.Tiendas_id_olap;");
               //arreglo donde guardamos las filas y columnas
               $datos_rows = array();
               $datos_table = array();
@@ -39,7 +37,7 @@
               $datos_table['cols'] = array(
 
                   //array('label' => 'Tienda_id_olap', 'type' => 'string'), //para especificar que es un string
-                  array('label' => 'Mes', 'type' => 'string'), //para especificar que es un numero
+                  array('label' => 'Tienda', 'type' => 'string'), //para especificar que es un numero
                   array('label' => 'Monto Total', 'type' => 'number'), //para especificar que es un numero
                   
               );             
@@ -49,9 +47,9 @@
                   $pastel_temp = array();
 
                   //$pastel_temp[] = array('v' => (string) $p['idTiend']);
-                  $pastel_temp[] = array('v' => (string) $p['Mes']);
+                  $pastel_temp[] = array('v' => (string) $p['nombreTiend']);
 
-                  $pastel_temp[] = array('v' => (double) $p['Monto_total']);
+                  $pastel_temp[] = array('v' => (double) $p['MontoTotal']);
 
                   $pastel_rows[] = array('c' => $pastel_temp);
               }
@@ -64,7 +62,7 @@
             <button onClick="mostrarGrafico1()">Mostrar primer grafico</button> -->
 
               <div class="container">
-                  <h1>Consulta 3: Montos vendidos por mes</h1>
+                  <h1>Consulta 4: Montos vendidos por tienda</h1>
 
                   <div id="graficoMontos" style="width:1200px;height:800px;"></div>
                   <!-- <button onClick="mostrarMontos1()">Mostrar segundo grafico</button> -->
@@ -109,17 +107,31 @@
             var options3 = 
             {
               
-                  title: 'Montos por mes',
-                  hAxis: {title: 'Mes',  titleTextStyle: {color: '#333'}},
-                  vAxis: {minValue: 0}                  
+                  title: 'Montos por tienda',
+                  id3D: 'true',                 
                 
             };
 
-            var chart3 = new google.visualization.AreaChart(document.getElementById('graficoMontos'));
+            var chart3 = new google.visualization.PieChart(document.getElementById('graficoMontos'));
             chart3.draw(data3, options3);
             
         }
-    
+        //  google.load('visualization','1',{'packages':['corechart']});
+        // google.setOnLoadCallback(drawChartPastel);
+        // //google.charts.setOnLoadCallback(drawChartPastel);
+
+        // function drawChartPastel() {
+        //     var data2 = new google.visualization.DataTable();
+        //     var options2 = 
+        //     {
+        //         title: 'Titulo del grafico',
+        //         id3D: 'true',
+        //         width: 900,
+        //         heigth: 700
+        //     };
+        //     var chart2 = new google.visualization.PieChart(document.getElementById('grafico_Pastel')
+        //     );
+        //     chart2.draw(data2, options2);
       
 
       //   google.charts.load('current', {'packages':['corechart']});
