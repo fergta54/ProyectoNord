@@ -224,3 +224,23 @@ header {
   top: 0;
   z-index: 1;
 }
+
+.tablaInvProductos {
+  overflow: auto;
+  height: 100px;
+}
+.tablaInvProductos thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.tablaTiendInv {
+  overflow: auto;
+  height: 100px;
+}
+
+.tablaTiendInv thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

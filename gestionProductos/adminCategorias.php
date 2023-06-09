@@ -23,7 +23,8 @@
             <div class="container my-5 text-center">
                 <h1>Administración de Categorías</h1>
                 <br><br>
-                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados"><a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
+                <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">
+                    <a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
                 <br>
                 <br>
 
