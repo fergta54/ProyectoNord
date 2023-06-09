@@ -39,9 +39,9 @@
                 <h1>Lista de Proveedores</h1>
                 <br><br>
                 <div class="table-responsive">
-                    <table class="tablaProveedores table table-bordered">
-                        <thead class="thead thead-dark">
-                            <tr>
+                    <table class="tablaMarcas table table-bordered">
+                            <thead class="thead thead-dark">
+                                <tr>
                                 <th class="td1">Nro</th>
                                 <th class="td2">Razon Social</th>
                                 <th class="td3">Correo</th>
