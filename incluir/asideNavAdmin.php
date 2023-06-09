@@ -14,7 +14,7 @@ include('verificarSesionAdminNav.php');
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../recursos/css/asideAdmin.css">
   <style>
-    #sidebar ul.list-unstyled.components li>a {
+    /* #sidebar ul.list-unstyled.components li>a {
       padding-left: 20px;
       display: block;
       color: #F6DDC8;
@@ -41,7 +41,7 @@ include('verificarSesionAdminNav.php');
 
     #sidebar::-webkit-scrollbar-thumb {
       background-color: transparent;
-    }
+    } */
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -200,6 +200,42 @@ include('verificarSesionAdminNav.php');
                 <li>
                   <a href="#">◉ Crear pedido</a>
                 </li>
+                <li>
+                  <a href="#">◉ Editar pedidos</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
+              <ul class="collapse list-unstyled" id="dataSubmenu">
+                <li>
+                  <a href="../gestionData/AnaliticaDeDatos.php">◉ Analitica 1</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos1.php">◉ Datos 1</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos2.php">◉ Datos 2</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos3.php">◉ Datos 3</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos4.php">◉ Datos 4</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos5.php">◉ Datos 5</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos6.php">◉ Datos 6</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos7.php">◉ Datos 7</a>
+                </li>
+                <li>
+                  <a href="../gestionData/Datos8.php">◉ Datos 8</a>
+                </li>
+
                 <li>
                   <a href="#">◉ Editar pedidos</a>
                 </li>
