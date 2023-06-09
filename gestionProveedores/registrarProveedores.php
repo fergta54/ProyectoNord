@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATEGORIAS</title>
+    <title>PROVEEDORES</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -15,66 +15,38 @@
 <body>
     <div class="row">
         <div class="col-2">
-            <?php include('../incluir/asideNavAdmin.php') ?>
+            <?php include('../incluir/asideNavAdmin.php');?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>REGISTRO DE PROVEEDORES</h1><br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="jumbotron">
-                                <p classs="lead text-center">Inserta todos los datos para registrar un Proveedor</p>
-                                <hr class="my-4">
-                                <div class="section-center">
-                                    <div class="container">
-                                        <div class="row">
-                                            <form action="./crearProveedor.php" method="post">
-                                                <div class="row">
-                                                    <div>
-                                                        <label>Razon Social</label>
-                                                        <textarea name="razonsocialProveedor" class="form-control" id="razonsocialProveedor" required></textarea>
-                                                        <label>Correo</label>
-                                                        <input name="correoProveedor" class="form-control" id="correoProveedor" type="email" required>
-                                                        <label>Telefono</label>
-                                                        <input name="telefonoProveedor" class="form-control" id="telefonoProveedor" type="text" required>
-                                                        <label>Direccion</label>
-                                                        <input name="direccionProveedor" class="form-control" id="direccionProveedor" type="text" required>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <div class="form-btn">
-                                                            <button class="submit-btn">Registrar Proveedores</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <?php include('../conexion.php');?>
+            <div class="container my-5 w-50">
+                <h2 class="text-center">Registro de Proveedor</h2>
+                <p classs="lead text-center">Registra los nuevos proveedores de la empresa</p>
+                <hr class="my-4">
+                <form action="./crearProveedor.php" method="post">
+                    <div class="form-group">
+                        <label for="razonsocialProveedor">Razon Social</label><br>
+                        <input name="razonsocialProveedor" class="form-control-lg w-100" id="razonsocialProveedor" type="text" required>
+                        <br><br>
+                        <label for="correoProveedor">Correo</label><br>
+                        <input name="correoProveedor" class="form-control-lg w-100" id="correoProveedor" type="email" required>
+                        <br><br>
+                        <label for="razonsocialProveedor">Razon Social</label><br>
+                        <input name="razonsocialProveedor" class="form-control-lg w-100" id="razonsocialProveedor" type="text" required>
+                        <br><br>
+                        <label for="telefonoProveedor">Telefono</label><br>
+                        <input name="telefonoProveedor" class="form-control-lg w-100" id="telefonoProveedor" type="text" required>
+                        <br><br>
+                        <label for="direccionProveedor">Direccion</label><br>
+                        <input name="direccionProveedor" class="form-control-lg w-100" id="direccionProveedor" type="`dirrection`" required>
+                        <br><br>
+                        <br>
+                        <a href="./listarProveedores.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                        <button type="submit" class="btn btn-primary btn-success btn-lg w-100">Registrar Proveedores</button>
                     </div>
-                </div>
-                <br><br>
-                <?php
-                include("../conexion.php");
-                if (!$conexion) {
-                    echo "Error en la conexion";
-                } else {
-                    $consulta = mysqli_query($conexion, "SELECT COUNT(*) FROM  marcas")
-                        or die("Problemas en la inserción" . mysqli_error($conexion));
-                    $totalRegistros = mysqli_fetch_array($consulta);
-                    echo "Cantidad de pasajeros en Objeto JSON: " . json_encode($totalRegistros);
-                    //echo "<script type='text/javascript'>alert(".json_encode($totalRegistros).");</script>";
-                }
-                ?>
-            </center>
+                </form>                            
+            </div>
         </div>
     </div>
 </body>
-
 </html>

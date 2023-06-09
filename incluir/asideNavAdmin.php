@@ -181,10 +181,10 @@ include('verificarSesionAdminNav.php');
                   <a href="../gestionProveedores/listarProveedores.php">◉ Listar proveedores</a>
                 </li>
                 <li>
-                  <a href="../gestionProveedores/crearProveedor.php">◉ Crear proveedor</a>
+                  <a href="../gestionProveedores/registrarProveedores.php">◉ Crear proveedor</a>
                 </li>
                 <li>
-                  <a href="#">◉ Editar proveedores</a>
+                  <a href="../gestionProveedores/adminProveedores.php">◉ Editar proveedores</a>
                 </li>
               </ul>
             </li>

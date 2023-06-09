@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -54,44 +57,23 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <center>
-                <h1>EDITAR PROVEEDOR</h1>
-                <div class="container p-4">
-                    <div class="row">
-                        <div class="col-md-4 mx-auto">
-                            <div class="card card-body">
-                                <form action="editarProveedor.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                                    <label>Razon Social</label>
-                                    <div class="form-group">
-                                        <input name="razon" type="text" class="form-control" value="<?php echo $razonSocial; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Correo</label>
-                                    <div class="form-group">
-                                        <input name="correo" type="text" class="form-control" value="<?php echo $correo; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Telefono</label>
-                                    <div class="form-group">
-                                        <input name="telefono" type="text" class="form-control" value="<?php echo $telefono; ?>"></input>
-                                    </div>
-                                    <br>
-                                    <label>Direccion</label>
-                                    <div class="form-group">
-                                        <input name="direccion" type="text" class="form-control" value="<?php echo $direccion; ?>"></input>
-                                    </div>
-                                    <br>
-
-                                    <button class="btn-success" name="actualizar">
-                                        Actualizar datos
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+            <div class="container my-5 w-50">
+                <h2 class="text-center">Editar Proveedor</h2>
+                <form action="editarProveedor.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                    <div class="form-group">
+                        <label for="razon">Razon Social</label><br>
+                        <input name="razon" type="text" class="form-control-lg w-100" id="razon" value="<?php echo $razonSocial; ?>"></input>
+                        <label for="correo">Correo</label><br>
+                        <input name="correo" type="text" class="form-control-lg w-100" id="correo" value="<?php echo $correo; ?>"></input>
+                        <label for="telefono">Telefono</label><br>
+                        <input name="telefono" type="text" class="form-control-lg w-100" id="telefono" value="<?php echo $telefono; ?>"></input>
+                        <label for="direccion">Direccion</label><br>
+                        <input name="direccion" type="text" class="form-control-lg w-100" id="direccion" value="<?php echo $direccion; ?>"></input>
                     </div>
-                </div>
-            </center>
-            <?php //include('includes/footer.php'); 
+                    <a href="./listarProveedores.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                    <button href="./adminProveedores.php" type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Actualizar datos</button>
+                </form>  
+            <?php 
             ?>
         </div>
     </div>
