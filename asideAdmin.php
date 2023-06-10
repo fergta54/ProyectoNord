@@ -177,20 +177,7 @@
                 </li>
               </ul>
             </li>
-            <li>
-              <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
-              <ul class="collapse list-unstyled" id="dataSubmenu">
-                <li>
-                  <a href="./gestionData/AnaliticaDeDatos.php">◉ Analitica 1</a>
-                </li>
-                <li>
-                  <a href="./gestionData/Datos1.php">◉ Datos 1</a>
-                </li>
-                <li>
-                  <a href="#">◉ Editar pedidos</a>
-                </li>
-              </ul>
-            </li>
+
             <li>
               <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
               <ul class="collapse list-unstyled" id="dataSubmenu">
@@ -207,31 +194,31 @@
                   <a href="../gestionData/Datos4.php">◉ Montos por tienda</a>
                 </li>
                 <li>
-                      <a href="#cantPorCatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Categorias por cantidad</a>
-                      <ul class="collapse list-unstyled" id="cantPorCatSubmenu">
-                        <li>
-                          <a href="../gestionData/Datos5.php">◉ Redes</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos6.php">◉ Herramientas</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos7.php">◉ Electricos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos8.php">◉ Adhesivos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos9.php">◉ Aparatos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos10.php">◉ Cables</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos11.php">◉ Otros</a>
-                        </li>
-                     </ul>
-                </li>  
+                  <a href="#cantPorCatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Categorias por cantidad</a>
+                  <ul class="collapse list-unstyled" id="cantPorCatSubmenu">
+                    <li>
+                      <a href="../gestionData/Datos5.php">◉ Redes</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos6.php">◉ Herramientas</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos7.php">◉ Electricos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos8.php">◉ Adhesivos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos9.php">◉ Aparatos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos10.php">◉ Cables</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos11.php">◉ Otros</a>
+                    </li>
+                  </ul>
+                </li>
             </li>
 
             <br>
