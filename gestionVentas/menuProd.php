@@ -4,8 +4,16 @@ session_start();
 include('../conexion.php');
 require_once ('tarjetas.php');
 
+
+
 if (isset($_POST['add'])){
     if(isset($_SESSION['cart'])){
+
+        /*if (!isset($_SESSION['cliente_id'])) {
+    // Si el cliente no ha iniciado sesión, redirigir al formulario de registro de clientes
+    header('Location: /ProyectoNord/registroAzul/registrarCliente.php');
+    exit; // Terminar la ejecución del script}*/
+
 
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
 
@@ -137,10 +145,6 @@ if (isset($_POST['add'])){
             }           
             echo "</div>
                   </div>";
-?><li class="nav-item">
-<a class="cabecera" href="./registroAzul/registrarCliente.php">
-    SIGN IN
-</a>
-</li>
+?>
 </body>
 </html>
