@@ -72,7 +72,7 @@
                         }
             
                     echo "
-                    <a class='btn btn-primary btn-info btn-sm' href='./editarRol.php?id_rol=$row[id_usuario]'>Editar</a>
+                    <a class='btn btn-primary btn-info btn-sm' href='./editarUsuarios.php?id_usuario=$row[id_usuario]'>Editar</a>
                         </td>
                     </tr>";
                 }

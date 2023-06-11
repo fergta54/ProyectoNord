@@ -102,7 +102,7 @@ include('verificarSesionAdminNav.php');
                   <a href="../gestionUsuarios/crearRol.php">◉ Crear rol</a>
                 </li>
                 <li>
-                  <a href="../gestionUsuarios/editarRol.php">◉ Editar roles</a>
+                  <a href="../gestionUsuarios/pantallaListarEditarRol.php">◉ Editar roles</a>
                 </li>
               </ul>
             </li>

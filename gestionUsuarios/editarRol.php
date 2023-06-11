@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <div class="col-10">
             <div class="container my-5 w-50">
-                <h2 class="text-center">Crear Rol</h2>
+                <h2 class="text-center">Editar Rol</h2>
 
                 <?php
                 if (!empty($errorMessage)) {
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     ?>
 
                     <a href="../gestionUsuarios/listarRoles.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
-                    <button type="submit" class="btn btn-primary btn-success btn-lg w-100">Crear</button>
+                    <button type="submit" class="btn btn-primary btn-success btn-lg w-100">Editar</button>
                 </form>
 
             </div>
