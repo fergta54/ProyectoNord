@@ -76,7 +76,7 @@ include('verificarSesionAdminNav.php');
                   <a href="../gestionUsuarios/registrarUsuario.php">◉ Crear usuario</a>
                 </li>
                 <li>
-                  <a href="#">◉ Editar usuarios</a>
+                  <a href="../gestionUsuarios/pantallaListarEditarUsuario.php">◉ Editar usuarios</a>
                 </li>
               </ul>
             </li>

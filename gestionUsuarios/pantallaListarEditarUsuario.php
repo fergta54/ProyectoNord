@@ -22,7 +22,7 @@
             <div class="col-10">
 
             <div class="container my-5 text-center">
-        <h1>Lista de Usuarios</h1>
+        <h1>Editar Usuarios</h1>
         <br><br>
         <table class="table">
             <thead class="thead thead-dark">
@@ -62,16 +62,8 @@
                         <td>$row[nombre_rol]</td>
                         <td>$row[estado_descripcion]</td>
                         
-                        <td>";
-            
-                        if($row['estado_usuario'] === '1'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivarUsuario.php?id_usuario=$row[id_usuario]'>Desactivar</a>";
-                        }
-                        if($row['estado_usuario'] === '2'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarUsuario.php?id_usuario=$row[id_usuario]'>Activar</a>";
-                        }
-            
-                    echo "
+                        <td>
+                            <a class='btn btn-primary btn-info btn-sm' href='./editarUsuarios.php?id_usuario=$row[id_usuario]'>Editar</a>
                         </td>
                     </tr>";
                 }

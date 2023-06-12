@@ -10,8 +10,8 @@ $estadoUsuario = 0;
 include('../conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (!isset($_GET["id_rol"])) {
-        header("location: ../gestionUsuarios/listarUsuarios");
+    if (!isset($_GET["id_usuario"])) {
+        header("location: ../gestionUsuarios/listarUsuarios.php");
         exit;
     }
 
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $errorMessage = "Todos los campos deben ser llenados";
             break;
         }
-        $sql = "UPDATE usuarios SET nombre_completo = '$nombre_completo', nombre_usuario = '$nombre_usuario', correo_usuario = '$correo_usuario', contrasenia = '$contrasenia', id_rol = '$id_rol', estado_usuario = '$estadoUsuario' WHERE id_usuario = $id_usuario";
+        $sql = "UPDATE usuarios SET nombre_completo = '$nombre_completo', nombre_usuario = '$nombre_usuario', correo_usuario = '$correo_usuario', contrasenia = MD5('$contrasenia'), id_rol = '$id_rol', estado_usuario = '$estadoUsuario' WHERE id_usuario = $id_usuario";
         $result = $conexion->query($sql);
 
         if (!$result) {
@@ -111,16 +111,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <input name="id_usuario" type="hidden" value="<?php echo $id_usuario; ?>">
 
                         <label for="exampleInputEmail1">Nombre Completo</label><br>
-                        <input name="nombre" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del usuario" value="<?php echo $nombreUsuario; ?>">
+                        <input name="nombre" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el nombre del usuario" value="<?php echo $nombre_completo; ?>">
 
                         <label for="exampleInputEmail1">Nombre de Usuario</label><br>
-                        <input name="usuario" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el usuario" value="<?php echo $usuarioUsuario; ?>">
+                        <input name="usuario" type="text" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el usuario" value="<?php echo $nombre_usuario; ?>">
 
                         <label for="exampleInputEmail1">Correo Electronico</label><br>
-                        <input name="correo" type="email" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el correo electronico" value="<?php echo $correoUsuario; ?>">
+                        <input name="correo" type="email" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el correo electronico" value="<?php echo $correo_usuario; ?>">
 
                         <label for="exampleInputEmail1">Contraseña</label><br>
-                        <input name="contrasenia" type="password" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la contraseña" value="<?php echo $contraseniaUsuario; ?>">
+                        <input name="contrasenia" type="password" class="form-control-lg w-100 " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa la contraseña" value="<?php echo $contrasenia; ?>">
                     </div>
                     <div class="form-group">
                         <label for="rol">Rol</label>
