@@ -4,17 +4,190 @@ require_once ("tarjetas.php");
 include('../conexion.php');
 
 
-if (isset($_POST['remove'])){
-  if ($_GET['action'] == 'remove'){
-      foreach ($_SESSION['cart'] as $key => $value){
-          if($value["id_prod"] == $_GET['id']){
-              unset($_SESSION['cart'][$key]);
-              echo "<script>alert('Producto eliminado')</script>";
-              echo "<script>window.location = 'cart.php'</script>";
-          }
-      }
-  }
+//este codigo limpia el carrito una vez agregado a la base de datos
+/*
+session_start();
+include('../conexion.php');
+require_once('tarjetas.php');
+
+if (isset($_POST['guardar'])) {
+    $id_cliente = 1; // Asignar el id_cliente directamente como 1
+    $id_tienda = $_SESSION['selected_tienda']; // Obtener el ID de tienda seleccionado del formulario
+
+    // Conecta a la base de datos utilizando la lógica definida en el archivo de conexión (conexion.php)
+    // ...
+
+    // Inserta un nuevo registro en la tabla ventas para almacenar la información general de la venta
+    $sql_insert_venta = "INSERT INTO ventas (fecha_venta, id_cliente, id_tienda, id_situacion_venta, estado_venta)
+                         VALUES (CURDATE(), $id_cliente, $id_tienda, 7, 1)";
+    $result_insert_venta = mysqli_query($conexion, $sql_insert_venta);
+
+    if ($result_insert_venta) {
+        // Si la inserción en la tabla ventas fue exitosa, procede con la inserción en la tabla ventas_items
+        $id_venta = mysqli_insert_id($conexion);
+
+        foreach ($_SESSION['cart'] as $item) {
+            $id_prod = $item['id_prod'];
+
+            // Obtén la información del producto desde la tabla "productos"
+            $sql_select_producto = "SELECT * FROM productos WHERE id_prod = $id_prod";
+            $result_select_producto = mysqli_query($conexion, $sql_select_producto);
+            $row_producto = mysqli_fetch_assoc($result_select_producto);
+
+            $precio_unidad_venta = $row_producto['precio_unit_compra']; // Obtén el precio del producto desde la tabla "productos"
+
+            // Inserta un nuevo registro en la tabla ventas_items para cada producto del carrito
+            $sql_insert_venta_item = "INSERT INTO ventas_items (id_venta, id_prod, precio_unidad_venta, cantidad_venta, estado_venta)
+                                      VALUES ($id_venta, $id_prod, $precio_unidad_venta, 1, 1)";
+            $result_insert_venta_item = mysqli_query($conexion, $sql_insert_venta_item);
+
+            if (!$result_insert_venta_item) {
+                // Maneja el error en caso de que la inserción en la tabla ventas_items falle
+                echo "Error al insertar el producto con id_prod $id_prod en la tabla ventas_items.";
+                // Puedes hacer un rollback de las inserciones anteriores si es necesario
+                // También puedes agregar lógica adicional para manejar el error de forma adecuada
+            }
+        }
+
+        $_SESSION['cart'] = array();
+
+        header("Location: menuProd.php");
+        exit();
+    } else {
+        // Maneja el error en caso de que la inserción en la tabla ventas falle
+        echo "Error al insertar la venta en la tabla ventas.";
+        // Puedes agregar lógica adicional para manejar el error de forma adecuada
+    }
+}*/
+
+
+//este codigo funciona con un id_clinete ne especifico!!
+session_start();
+include('../conexion.php');
+require_once('tarjetas.php');
+
+if (isset($_POST['guardar'])) {
+    $id_cliente = 1; // Asignar el id_cliente directamente como 1
+    $id_tienda = $_SESSION['selected_tienda']; // Obtener el ID de tienda seleccionado del formulario
+
+    // Conecta a la base de datos utilizando la lógica definida en el archivo de conexión (conexion.php)
+    // ...
+
+    // Inserta un nuevo registro en la tabla ventas para almacenar la información general de la venta
+    $sql_insert_venta = "INSERT INTO ventas (fecha_venta, id_cliente, id_tienda, id_situacion_venta, estado_venta)
+                         VALUES (CURDATE(), $id_cliente, $id_tienda, 7, 1)";
+    $result_insert_venta = mysqli_query($conexion, $sql_insert_venta);
+
+    if ($result_insert_venta) {
+        // Si la inserción en la tabla ventas fue exitosa, procede con la inserción en la tabla ventas_items
+        $id_venta = mysqli_insert_id($conexion);
+
+        foreach ($_SESSION['cart'] as $item) {
+            $id_prod = $item['id_prod'];
+
+            // Obtén la información del producto desde la tabla "productos"
+            $sql_select_producto = "SELECT * FROM productos WHERE id_prod = $id_prod";
+            $result_select_producto = mysqli_query($conexion, $sql_select_producto);
+            $row_producto = mysqli_fetch_assoc($result_select_producto);
+
+            $precio_unidad_venta = $row_producto['precio_unit_compra']; // Obtén el precio del producto desde la tabla "productos"
+
+            // Inserta un nuevo registro en la tabla ventas_items para cada producto del carrito
+            $sql_insert_venta_item = "INSERT INTO ventas_items (id_venta, id_prod, precio_unidad_venta, cantidad_venta, estado_venta)
+                                      VALUES ($id_venta, $id_prod, $precio_unidad_venta, 1, 1)";
+            $result_insert_venta_item = mysqli_query($conexion, $sql_insert_venta_item);
+
+            if (!$result_insert_venta_item) {
+                // Maneja el error en caso de que la inserción en la tabla ventas_items falle
+                echo "Error al insertar el producto con id_prod $id_prod en la tabla ventas_items.";
+                // Puedes hacer un rollback de las inserciones anteriores si es necesario
+                // También puedes agregar lógica adicional para manejar el error de forma adecuada
+            }
+        }
+
+        header("Location: cart.php");
+        exit();
+    } else {
+        // Maneja el error en caso de que la inserción en la tabla ventas falle
+        echo "Error al insertar la venta en la tabla ventas.";
+        // Puedes agregar lógica adicional para manejar el error de forma adecuada
+    }
 }
+
+/*
+//este codigo verifica el id_cliente
+session_start();
+include('../conexion.php');
+require_once('tarjetas.php');
+
+if (isset($_POST['guardar'])) {
+    if (isset($_SESSION['id_cliente'])) {
+        $id_cliente = $_SESSION['id_cliente'];
+        $id_tienda = $_SESSION['selected_tienda']; // Obtener el ID de tienda seleccionado del formulario
+
+        // Conecta a la base de datos utilizando la lógica definida en el archivo de conexión (conexion.php)
+        // ...
+
+        // Inserta un nuevo registro en la tabla ventas para almacenar la información general de la venta
+        $sql_insert_venta = "INSERT INTO ventas (fecha_venta, id_cliente, id_tienda, id_situacion_venta, estado_venta)
+                             VALUES (CURDATE(), $id_cliente, $id_tienda, 7, 1)";
+        $result_insert_venta = mysqli_query($conexion, $sql_insert_venta);
+
+        if ($result_insert_venta) {
+            // Si la inserción en la tabla ventas fue exitosa, procede con la inserción en la tabla ventas_items
+            $id_venta = mysqli_insert_id($conexion);
+
+            foreach ($_SESSION['cart'] as $item) {
+                $id_prod = $item['id_prod'];
+
+                // Obtén la información del producto desde la tabla "productos"
+                $sql_select_producto = "SELECT * FROM productos WHERE id_prod = $id_prod";
+                $result_select_producto = mysqli_query($conexion, $sql_select_producto);
+                $row_producto = mysqli_fetch_assoc($result_select_producto);
+
+                $precio_unidad_venta = $row_producto['precio_unit_compra']; // Obtén el precio del producto desde la tabla "productos"
+
+                // Inserta un nuevo registro en la tabla ventas_items para cada producto del carrito
+                $sql_insert_venta_item = "INSERT INTO ventas_items (id_venta, id_prod, precio_unidad_venta, cantidad_venta, estado_venta)
+                                          VALUES ($id_venta, $id_prod, $precio_unidad_venta, 1, 1)";
+                $result_insert_venta_item = mysqli_query($conexion, $sql_insert_venta_item);
+
+                if (!$result_insert_venta_item) {
+                    // Maneja el error en caso de que la inserción en la tabla ventas_items falle
+                    echo "Error al insertar el producto con id_prod $id_prod en la tabla ventas_items.";
+                    // Puedes hacer un rollback de las inserciones anteriores si es necesario
+                    // También puedes agregar lógica adicional para manejar el error de forma adecuada
+                }
+            }
+
+            header("Location: menuProd.php");
+            exit();
+        } else {
+            // Maneja el error en caso de que la inserción en la tabla ventas falle
+            echo "Error al insertar la venta en la tabla ventas.";
+            // Puedes agregar lógica adicional para manejar el error de forma adecuada
+        }
+    } else {
+        header("Location: registrarCliente.php");
+        exit();
+    }
+}*/
+
+
+
+if (isset($_POST['remove'])){
+    if ($_GET['action'] == 'remove'){
+        foreach ($_SESSION['cart'] as $key => $value){
+            if($value["id_prod"] == $_GET['id']){
+                unset($_SESSION['cart'][$key]);
+                echo "<script>alert('Producto eliminado')</script>";
+                echo "<script>window.location = 'cart.php'</script>";
+            }
+        }
+    }
+  }
+  
+  
 ?>
 
 <!doctype html>

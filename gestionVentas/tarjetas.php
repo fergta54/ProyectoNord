@@ -21,6 +21,9 @@ function component($productname, $productprice, $productimg, $productid){
 
                             <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\"></i></button>
                              <input type='hidden' name='id_prod' value='$productid'>
+
+                             <button type=\"submit\" class=\"btn btn-info my-3\"> Detalles </button>
+                             <input type='hidden' name='id_prod' value='$productid'>
                         </div>
                     </div>
                 </form>
@@ -40,10 +43,10 @@ function cartElement($productimg, $productname, $productprice, $productid){
                             </div>
                             <div class=\"col-md-6\">
                                 <h5 class=\"pt-2\">$productname</h5>
-                                <small class=\"text-secondary\">Seller: dailytuition</small>
-                                <h5 class=\"pt-2\">$$productprice</h5>
-                                <button type=\"submit\" class=\"btn btn-warning\">Save for Later</button>
-                                <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
+                                <small class=\"text-secondary\"></small>
+                                <h5 class=\"pt-2\">Bs. $productprice</h5>
+                                <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar</button>
+                                <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Quitar</button>
                             </div>
                             <div class=\"col-md-3 py-5\">
                                 <div>
