@@ -39,6 +39,7 @@
         <div id="menu-container">
           <ul class="list-unstyled components mb-5">
             <!-- <li class="active"> -->
+            
             <li>
               <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa fa-users"></i> Gestion de usuarios
@@ -55,6 +56,7 @@
                 </li>
               </ul>
             </li>
+            
             <li>
               <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa fa-address-book"></i> Gestion de Clientes

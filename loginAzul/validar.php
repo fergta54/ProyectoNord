@@ -23,7 +23,7 @@ $filas = mysqli_num_rows($resultado);
 
 if ($filas) {
     $filas2 = mysqli_fetch_array($resultado);
-    if ($filas2['id_rol'] == 1) { // administrador
+    if ($filas2) { // administrador
         header("location:../admin.php");
         $_SESSION['rol'] = 'admin';
     } elseif ($filas2['id_rol'] == 2) {
@@ -35,6 +35,9 @@ if ($filas) {
         window.location = './login.php';
         </script>";
     }
+
+    // header("location:../admin.php");
+    // $_SESSION['rol'] = $filas[5];
 } else {
     sleep(2);
     echo "<script type='text/javascript'>alert('Error en la autenticación');    
