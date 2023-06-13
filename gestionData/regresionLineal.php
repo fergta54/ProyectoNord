@@ -234,7 +234,7 @@
                     echo '
                                 <tr>
                                     <td>' . ($i + 1) . '</td>
-                                    <td>' . $fila3[1] . '</td>
+                                    <td>' . $fila3[0] . '</td>
                                     <td>' . $fila3[2] . '</td></tr>                                     
                             ';
                     $fila3 = mysqli_fetch_array($ejecutarConsulta3);
