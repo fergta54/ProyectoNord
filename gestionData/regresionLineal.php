@@ -26,7 +26,35 @@
       <div class="container my-5 w-50">
         <h2 class="text-center">ESTIMACION DE VENTAS</h2>
         <div>
+          <form action="" method="GET">
+            <div class="form-group">
+              <!-- <label for="valX">Valor del mes</label><br>
+            <input name="valX" type="text" class="form-control-lg w-100" id="valX">
+            <br><br> -->
+              <label for="valX">Elegir mes</label><br>
+              <select style="width:600px;" class="form-control-lg w-100" name="valX" required>
+                <option value="1" selected> Marzo-23 (mes 1)</option>
+                <option value="2"> Abril-23 (mes 2)</option>
+                <option value="3"> Mayo-23 (mes 3)</option>
+                <option value="4"> Junio-23 (mes 4)</option>
+                <option value="5"> Julio-23 (mes 5)</option>
+                <option value="6"> Agosto-23 (mes 6)</option>
+                <option value="7"> Septiembre-23 (mes 7)</option>
+                <option value="8"> Octubre-23 (mes 8)</option>
+                <option value="9"> Noviembre-23 (mes 9)</option>
+                <option value="10"> Diciembre-23 (mes 10)</option>
+                <option value="11"> Enero-24 (mes 11)</option>
+                <option value="12"> Febrero-24 (mes 12)</option>
+                <option value="13"> Marzo-24 (mes 13)</option>
+                <option value="14"> Abril-24 (mes 14)</option>
+                <option value="15"> Mayo-24 (mes 15)</option>
+              </select>
+            </div>
 
+            <a href="./regresionLineal.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+            <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="definirX">Calcular</button>
+
+          </form>
 
           <?php
           include('../conexionOlap.php');
@@ -92,16 +120,19 @@
             $sumY = array_sum($y);
             $sumXX = 0;
             $sumXY = 0;
+            $sumYY = 0;
 
             for ($i = 0; $i < $n; $i++) {
               $sumXX += $x[$i] * $x[$i];
               $sumXY += $x[$i] * $y[$i];
+              $sumYY += $y[$i] * $y[$i];
             }
 
             $m = ($n * $sumXY - $sumX * $sumY) / ($n * $sumXX - $sumX * $sumX);
-            $b = ($sumY - $m * $sumX) / $n;
-
-            return [$m, $b];
+            $a = ($sumY - $m * $sumX) / $n;
+            $corr = ($n * $sumXY - $sumX * $sumY) / (sqrt(($n * $sumXX - pow($sumX, 2)) * ($n * $sumYY - pow($sumY, 2))));
+            $r2 = pow($corr, 2);
+            return [$m, $a, $r2];
           }
 
           // Calcula los coeficientes de la regresión lineal
@@ -109,7 +140,9 @@
 
           // Imprime los coeficientes
           echo "Pendiente (m): " . $coeficientes[0] . "<br>";
-          echo "Intersección con el eje y (b): " . $coeficientes[1] . "<br>";
+          echo "Intersección con el eje y (a): " . $coeficientes[1] . "<br>";
+          echo "El coeficiente de correlación r2 es: " . $coeficientes[2] . "<br>";
+
           if (isset($_GET['valX'])) {
 
             $valorX = $_GET['valX'];
@@ -145,29 +178,23 @@
             //codificar a json
             $valoresXY['rows'] = $valoresXY_rows;
             $valoresRegr_jsonTable = json_encode($valoresXY);
+            // $puntosRegr[1][0] = $valorX;
+            // $puntosRegr[1][1] = $valorY;
+            $_COOKIE['valX'] = $puntosRegr[1][0];
+            $_COOKIE['valY'] = $puntosRegr[1][1];
 
-            // $valoresRegr_jsonTable = json_encode($puntosRegr);
-
-            //     echo "<script type='text/javascript'>alert('Se ha estimado el valor');              
-            // </script>";
-
-            echo '<script type="text/javascript">alert("El valor estimado de ventas\n para mes ' . $valorX . ' es : ' . $valorY . '");              
+            echo '<script type="text/javascript">alert("El valor estimado de ventas\n para mes ' . $valorX . ' es : ' . $valorY . ' Bs.");              
         </script>';
+            // el valor calculado
+            echo 'El valor estimado de ventas para mes ' . $valorX . ' es : ' . $valorY . ' Bs.';
+            // echo '<br>';
+            // echo $_COOKIE['valX'];
+            // echo '<br>';
+            // echo $_COOKIE['valY'];
           }
 
           ?>
         </div>
-
-        <form action="" method="GET">
-          <div class="form-group">
-            <label for="valX">Valor del mes</label><br>
-            <input name="valX" type="text" class="form-control-lg w-100" id="valX">
-          </div>
-
-          <a href="./regresionLineal.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
-          <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="definirX">Graficar</button>
-
-        </form>
         <br>
         <table class="tablaMarcas table table-bordered">
           <thead class="thead thead-dark">
@@ -208,10 +235,8 @@
                                 <tr>
                                     <td>' . ($i + 1) . '</td>
                                     <td>' . $fila3[1] . '</td>
-                                    <td>' . $fila3[2] . '</td></tr>
-                                     
+                                    <td>' . $fila3[2] . '</td></tr>                                     
                             ';
-
                     $fila3 = mysqli_fetch_array($ejecutarConsulta3);
                   }
                 }
@@ -224,7 +249,7 @@
       <div class="container">
         <h2>Gráfica de tendencia</h2>
 
-        <div id="graficoMontos" style="width:1200px;height:600px;"></div>
+        <div id="graficoMontos" style="width:1200px;height:800px;"></div>
         <!-- <button onClick="mostrarMontos1()">Mostrar segundo grafico</button> -->
       </div>
     </div>
@@ -239,11 +264,40 @@
     google.charts.setOnLoadCallback(drawChart22);
     //google.charts.setOnLoadCallback(drawChartPastel);
 
+    valX = 0;
+    valY = 0;
+
     function drawChart22() {
       var data3 = new google.visualization.DataTable(<?= $pastel_jsonTable ?>);
 
+      function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+          c_start = document.cookie.indexOf(c_name + "=");
+          if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+              c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+          }
+        }
+        return "";
+      }
+      // var valX = getCookie("valX")
+      // var valY = getCookie("valY")
+      valX = <?= json_encode($valorX); ?>;
+      valY = <?= json_encode($valorY); ?>;
+      console.log(valX)
+      console.log(valY)
+      console.log(<?= $pastel_jsonTable ?>);
 
-      var puntosRecta = new google.visualization.DataTable(<?= $valoresRegr_jsonTable ?>);
+
+
+      // var puntosRecta = new google.visualization.DataTable(<?= $valoresRegr_jsonTable ?>);
+      // //data3.addRow([valX, valY, 'point {size: 8; shape-type: circle; fill-color: red;}']);
+      // // data3.addRows(puntosRecta);
+      // var tablaUnida = new google.visualization.data.join(data3, puntosRecta)
 
       console.log(<?= $pastel_jsonTable ?>);
       console.log(<?= $valoresRegr_jsonTable ?>);
@@ -270,6 +324,13 @@
           }
         }
       };
+
+      if (valX > 5) {
+        options3['hAxis']['maxValue'] = valX;
+        options3['vAxis']['maxValue'] = valY;
+      }
+
+      // chart.draw(data, options);
 
       var chart3 = new google.visualization.ScatterChart(document.getElementById('graficoMontos'));
       //var chart4 = new google.visualization.LineChart(document.getElementById('graficoMontos'));
