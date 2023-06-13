@@ -130,6 +130,10 @@
               </ul>
             </li>
             <li>
+              <a href="../reportes/indexReportes.php" class=""><i class="fa fa-line-chart"></i> Reportes</a>
+
+            </li>
+            <li>
               <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-tags"></i> Gestion de categorías</a>
               <ul class="collapse list-unstyled" id="categoriasSubmenu">
                 <li>

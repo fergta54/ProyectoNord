@@ -14,6 +14,8 @@
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -182,9 +184,19 @@
             // $puntosRegr[1][1] = $valorY;
             $_COOKIE['valX'] = $puntosRegr[1][0];
             $_COOKIE['valY'] = $puntosRegr[1][1];
-
-            echo '<script type="text/javascript">alert("El valor estimado de ventas\n para mes ' . $valorX . ' es : ' . $valorY . ' Bs.");              
-        </script>';
+            ?>
+                  <script>
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'Estimacion de ventas',
+                      text: '<?php echo 'El valor estimado de ventas\n para el mes ' .$valorX . ' es : ' .$valorY. ' Bs.'; ?>',
+                    })
+                  </script>
+            <?php
+            // echo '<script type="text/javascript">
+            //         alert("El valor estimado de ventas\n para mes ' . $valorX . ' es : ' . $valorY . ' Bs.");              
+            //       </script>
+            //       ';
             // el valor calculado
             echo 'El valor estimado de ventas para mes ' . $valorX . ' es : ' . $valorY . ' Bs.';
             // echo '<br>';
@@ -247,7 +259,7 @@
         </table>
       </div>
       <div class="container">
-        <h2>Gráfica de tendencia</h2>
+        <h2 class="text-center">Gráfica de tendencia</h2>
 
         <div id="graficoMontos" style="width:1200px;height:800px;"></div>
         <!-- <button onClick="mostrarMontos1()">Mostrar segundo grafico</button> -->

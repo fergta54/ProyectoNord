@@ -15,3 +15,5 @@ $conexion = mysqli_connect($servidor, $usu, $password, $bd);
 // $conexion = mysqli_connect('localhost', 'root', '', 'nordsternazul');
 
 
+?>
+
