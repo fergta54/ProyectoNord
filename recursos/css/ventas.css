@@ -15,3 +15,13 @@
 .price-details h6 {
   padding: 3% 2%;
 }
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #2f133ecd; /* Color rojo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+  background-color: #f8f8f8; /* Color de fondo */
+  padding: 20px; /* Relleno interno */
+  border-radius: 10px; /* Borde redondeado */
+}

@@ -9,12 +9,6 @@ require_once ('tarjetas.php');
 if (isset($_POST['add'])){
     if(isset($_SESSION['cart'])){
 
-        /*if (!isset($_SESSION['cliente_id'])) {
-    // Si el cliente no ha iniciado sesión, redirigir al formulario de registro de clientes
-    header('Location: /ProyectoNord/registroAzul/registrarCliente.php');
-    exit; // Terminar la ejecución del script}*/
-
-
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
 
         if(in_array($_POST['id_prod'], $item_array_id)){
@@ -51,12 +45,14 @@ if (isset($_POST['add'])){
     <title>menuProd</title>
     <link rel="stylesheet" href="../recursos/css/ventas.css">
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <!-- Font Awesome carrito -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 
@@ -64,7 +60,8 @@ if (isset($_POST['add'])){
 <body>
 <?php include('navVentas.php'); ?>
 
-<h1>Productos</h1><br>
+    ,<h1>PRODUCTOS</h1>
+
             <?php
             //mostar todos los productos //
             /*include('../conexion.php');
@@ -101,9 +98,9 @@ if (isset($_POST['add'])){
             if ($tiendas) {
                 // Generar el formulario de selección de tiendas
                 echo "<form method='POST' action=''>
-                        <label for='tienda'>Seleccione una tienda:</label>
+                        <label for='tienda'>Seleccione una sucursal:</label>
                         <select name='tienda' id='tienda'>
-                            <option value=''>-- Seleccione una tienda --</option>";
+                            <option value=''>-- Seleccione una sucursal --</option>";
             
                 while ($tienda = mysqli_fetch_assoc($tiendas)) {
                     // Verificar si la tienda seleccionada coincide con la tienda actual en el bucle
@@ -116,7 +113,7 @@ if (isset($_POST['add'])){
                 }
             
                 echo "</select>
-                        <button type='submit'>Mostrar productos</button>
+                        <button type='submit' class=\"btn btn-info my-3 \">Mostrar productos</button>
                     </form>";
             
                 echo "<div class='container'>
@@ -146,5 +143,7 @@ if (isset($_POST['add'])){
             echo "</div>
                   </div>";
 ?>
+
+ <?php include('../incluir/footer.php'); ?>
 </body>
 </html>

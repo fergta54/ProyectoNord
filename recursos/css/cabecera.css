@@ -50,7 +50,7 @@ header {
   /* color: #fff; */
   /* cursor: pointer; */
   display: inline-block;
-  font-family: system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-family: system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.15385;
@@ -124,7 +124,7 @@ header {
   /* color: #fff; */
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans',
     sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -161,7 +161,7 @@ header {
   /* color: #fff; */
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans',
     sans-serif;
   font-size: 13px;
   font-weight: 400;

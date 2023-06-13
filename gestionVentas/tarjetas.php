@@ -22,7 +22,7 @@ function component($productname, $productprice, $productimg, $productid){
                             <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\"></i></button>
                              <input type='hidden' name='id_prod' value='$productid'>
 
-                             <button type=\"submit\" class=\"btn btn-info my-3\"> Detalles </button>
+                             <button type=\"submit\" class=\"btn btn-dark my-3\"> Detalles </button>
                              <input type='hidden' name='id_prod' value='$productid'>
                         </div>
                     </div>

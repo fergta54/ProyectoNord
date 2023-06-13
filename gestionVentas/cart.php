@@ -216,7 +216,7 @@ if (isset($_POST['remove'])){
     <div class="row px-5">
         <div class="col-md-7">
             <div class="shopping-cart">
-                <h6>Mi Carrito</h6>
+                <h3>MI CARRITO</h3>
                 <hr>
                 <?php
                 $subtotal = 0;
@@ -282,4 +282,5 @@ if (isset($_POST['remove'])){
 <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
 </body>
+<?php include('../incluir/footer.php'); ?>
 </html>

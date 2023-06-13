@@ -13,8 +13,9 @@ $varRol = null;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NORDSTERN</title>
-    <link rel="stylesheet" href="./recursos/css/index.css">
+    
     <link rel="stylesheet" href="./recursos/css/cabecera.css">
+    <link rel="stylesheet" href="./recursos/css/index.css">
     <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
     <script src="./recursos/js/jquery-3.7.0.min.js"></script>
     <script src="./recursos/js/bootstrap.min.js"></script>
@@ -121,18 +122,33 @@ $varRol = null;
 </header>
 
 <body>
-    <p>Nordstern</p>
-</body>
+<h1 class="heading">
+        <span>d</span>
+        <span>e</span>
+        <span>s</span>
+        <span>t</span>
+        <span>i</span>
+        <span>n</span>
+        <span>o</span>
+        <span>s</span>
+        
+    </h1>
 
-<footer class="footer">
-    <div class="box-container">
+<div class="wrapper">
+        <div class="content">
+             <p>Nordstern</p>
 
-        <div class="box">
-            <h3>Copyright Nordstern</h3>
-            <p></p>
+
+
+<section>
+
+    
+</section>
+
+             
+            <!-- Aquí va el contenido -->
         </div>
-
-    </div>
-</footer>
-
+    <?php include('./incluir/footer.php'); ?>
+</div>
+</body>
 </html>
