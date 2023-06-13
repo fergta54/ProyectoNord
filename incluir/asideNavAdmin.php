@@ -152,6 +152,8 @@ include('verificarSesionAdminNav.php');
                 </li>
               </ul>
             </li>
+
+
             <li>
               <a href="#tiendasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> Gestion de tiendas</a>
               <ul class="collapse list-unstyled" id="tiendasSubmenu">
@@ -209,6 +211,9 @@ include('verificarSesionAdminNav.php');
               <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
               <ul class="collapse list-unstyled" id="dataSubmenu">
                 <li>
+                  <a href="../gestionData/regresionLineal.php?valX=0">◉ Estimación de ventas </a>
+                </li>
+                <li>
                   <a href="../gestionData/Datos1.php">◉ Montos por categoria </a>
                 </li>
                 <li>
@@ -221,67 +226,67 @@ include('verificarSesionAdminNav.php');
                   <a href="../gestionData/Datos4.php">◉ Montos por tienda</a>
                 </li>
                 <li>
-                      <a href="#cantPorCatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Categorias por cantidad</a>
-                      <ul class="collapse list-unstyled" id="cantPorCatSubmenu">
-                        <li>
-                          <a href="../gestionData/Datos5.php">◉ Redes</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos6.php">◉ Herramientas</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos7.php">◉ Electricos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos8.php">◉ Adhesivos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos9.php">◉ Aparatos</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos10.php">◉ Cables</a>
-                        </li>
-                        <li>
-                          <a href="../gestionData/Datos11.php">◉ Otros</a>
-                        </li>
-                     </ul>
-                </li>  
+                  <a href="#cantPorCatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Categorias por cantidad</a>
+                  <ul class="collapse list-unstyled" id="cantPorCatSubmenu">
+                    <li>
+                      <a href="../gestionData/Datos5.php">◉ Redes</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos6.php">◉ Herramientas</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos7.php">◉ Electricos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos8.php">◉ Adhesivos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos9.php">◉ Aparatos</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos10.php">◉ Cables</a>
+                    </li>
+                    <li>
+                      <a href="../gestionData/Datos11.php">◉ Otros</a>
+                    </li>
+                  </ul>
+                </li>
             </li>
           </ul>
-              
 
-            <br><br><br>
-            <?php
-            if ($_SESSION['usuario']) {
-              // echo '<script>Console.log("LLEGA")</script>';
-              $usuario = $_SESSION['usuario'];
-              $varRol = $_SESSION['rol'];
-            }
-            if ($varRol === 'admin') {
-            ?>
-              <li>
-                Bienvenido <?php
-                            echo 'Administrador ';
-                            // echo $_SESSION['usuario'];
-                            ?> !
-              </li>
-              <li>
-                <a class="cabecera" href="../loginAzul/cerrarSesion.php">
-                  Cerrar Sesion
-                </a>
-              </li>
-            <?php
-            } // 
-            else {
-            ?>
-              <li class="nav-item pl-4">
-                <a class="cabecera" href="../loginAzul/login.php">
-                  Login
-                </a>
-              </li>
-            <?php
-            }
-            ?>
+
+          <br><br><br>
+          <?php
+          if ($_SESSION['usuario']) {
+            // echo '<script>Console.log("LLEGA")</script>';
+            $usuario = $_SESSION['usuario'];
+            $varRol = $_SESSION['rol'];
+          }
+          if ($varRol === 'admin') {
+          ?>
+            <li>
+              Bienvenido <?php
+                          echo 'Administrador ';
+                          // echo $_SESSION['usuario'];
+                          ?> !
+            </li>
+            <li>
+              <a class="cabecera" href="../loginAzul/cerrarSesion.php">
+                Cerrar Sesion
+              </a>
+            </li>
+          <?php
+          } // 
+          else {
+          ?>
+            <li class="nav-item pl-4">
+              <a class="cabecera" href="../loginAzul/login.php">
+                Login
+              </a>
+            </li>
+          <?php
+          }
+          ?>
           </ul>
         </div>
         <div class="footer">

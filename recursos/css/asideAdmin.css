@@ -35,7 +35,7 @@
 #sidebar {
   float: left;
   position: fixed;
-
+  height: 2500px;
   min-width: 300px;
   max-width: 300px;
   background: #1d1919;
@@ -43,8 +43,6 @@
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-
-
 }
 #sidebar.active {
   margin-left: -300px;

@@ -39,7 +39,7 @@
         <div id="menu-container">
           <ul class="list-unstyled components mb-5">
             <!-- <li class="active"> -->
-            
+
             <li>
               <a href="#usuarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa fa-users"></i> Gestion de usuarios
@@ -56,7 +56,7 @@
                 </li>
               </ul>
             </li>
-            
+
             <li>
               <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fa fa-address-book"></i> Gestion de Clientes
@@ -112,6 +112,7 @@
                 </li>
               </ul>
             </li>
+
             <li>
               <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Gestion de productos</a>
               <ul class="collapse list-unstyled" id="productosSubmenu">
@@ -179,49 +180,52 @@
                 </li>
               </ul>
             </li>
-
             <li>
               <a href="#dataSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Data Analytics</a>
               <ul class="collapse list-unstyled" id="dataSubmenu">
                 <li>
-                  <a href="../gestionData/Datos1.php">◉ Montos por categoria </a>
+                  <a href="./gestionData/regresionLineal.php?valX=0">◉ Estimación de ventas </a>
                 </li>
                 <li>
-                  <a href="../gestionData/Datos2.php">◉ Mejores clientes </a>
+                  <a href="./gestionData/Datos1.php">◉ Montos por categoria </a>
                 </li>
                 <li>
-                  <a href="../gestionData/Datos3.php">◉ Montos por mes</a>
+                  <a href="./gestionData/Datos2.php">◉ Mejores clientes </a>
                 </li>
                 <li>
-                  <a href="../gestionData/Datos4.php">◉ Montos por tienda</a>
+                  <a href="./gestionData/Datos3.php">◉ Montos por mes</a>
+                </li>
+                <li>
+                  <a href="./gestionData/Datos4.php">◉ Montos por tienda</a>
                 </li>
                 <li>
                   <a href="#cantPorCatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Categorias por cantidad</a>
                   <ul class="collapse list-unstyled" id="cantPorCatSubmenu">
                     <li>
-                      <a href="../gestionData/Datos5.php">◉ Redes</a>
+                      <a href="./gestionData/Datos5.php">◉ Redes</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos6.php">◉ Herramientas</a>
+                      <a href="./gestionData/Datos6.php">◉ Herramientas</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos7.php">◉ Electricos</a>
+                      <a href="./gestionData/Datos7.php">◉ Electricos</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos8.php">◉ Adhesivos</a>
+                      <a href="./gestionData/Datos8.php">◉ Adhesivos</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos9.php">◉ Aparatos</a>
+                      <a href="./gestionData/Datos9.php">◉ Aparatos</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos10.php">◉ Cables</a>
+                      <a href="./gestionData/Datos10.php">◉ Cables</a>
                     </li>
                     <li>
-                      <a href="../gestionData/Datos11.php">◉ Otros</a>
+                      <a href="./gestionData/Datos11.php">◉ Otros</a>
                     </li>
                   </ul>
                 </li>
             </li>
+
 
             <br>
             <?php
