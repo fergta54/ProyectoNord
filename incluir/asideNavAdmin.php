@@ -218,11 +218,11 @@ include('verificarSesionAdminNav.php');
               <a href="#inventariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cubes"></i> Gestion de inventarios</a>
               <ul class="collapse list-unstyled" id="inventariosSubmenu">
                 <li>
-                  <a href="../gestionInventarios/listaTiendasInv.php">◉ Ver Inventarios</a>
+                  <a href="../gestionInventarios/listaTiendasInv.php">◉ Editar Inventarios</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="#">◉ Editar Inventarios</a>
-                </li>
+                </li> -->
               </ul>
             </li>
             <li>
