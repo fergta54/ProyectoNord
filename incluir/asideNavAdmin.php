@@ -243,16 +243,23 @@ include('verificarSesionAdminNav.php');
               <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Gestion de pedidos</a>
               <ul class="collapse list-unstyled" id="pedidosSubmenu">
                 <li>
-                  <a href="#">◉ Listar pedidos</a>
+                  <a href="../gestionPedidos/listarPedidos.php">◉ Listar pedidos</a>
                 </li>
                 <li>
-                  <a href="#">◉ Crear pedido</a>
+                  <a href="../gestionPedidos/crearPedido.php">◉ Crear pedido</a>
                 </li>
                 <li>
-                  <a href="#">◉ Editar pedidos</a>
+                  <a href="../gestionPedidos/crearPedidoItem.php">◉ Crear Item pedidos</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/adminPedidos.php">◉ Editar pedidos</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/adminPedidosItem.php">◉ Editar Items pedidos</a>
                 </li>
               </ul>
             </li>
+
 
 
 
