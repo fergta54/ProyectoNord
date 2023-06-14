@@ -67,11 +67,6 @@ $varRol = null;
                             Contacto
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="AnaliticaDeDatos.php">
-                            Analitica
-                        </a>
-                    </li>
 
                     <?php
 

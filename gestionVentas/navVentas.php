@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<style>
+    .nav-item {
+    margin-right: 15px;
+    }
+    </style>
+</head>
 <header class="navbar">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container px-4 px-lg-5">
@@ -49,6 +56,7 @@
                         }
                         ?>             
                 </a>
+                
         </div>
     </nav>
 </header>
