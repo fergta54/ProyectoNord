@@ -19,11 +19,12 @@ function component($productname, $productprice, $productimg, $productid){
                                 <span class=\"price\">Bs. $productprice</span>
                             </h5>
 
-                            <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\"></i></button>
+                            <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\" style=\"color: black\"></i></button>
                              <input type='hidden' name='id_prod' value='$productid'>
 
-                             <button type=\"submit\" class=\"btn btn-dark my-3\"> Detalles </button>
-                             <input type='hidden' name='id_prod' value='$productid'>
+                        
+                             <a href=\"prodIndvl.php?id_prod=$productid\" class=\"btn btn-dark my-3\">Detalles</a>
+
                         </div>
                     </div>
                 </form>
@@ -62,3 +63,10 @@ function cartElement($productimg, $productname, $productprice, $productid){
     ";
     echo  $element;
 }
+
+
+
+
+
+
+

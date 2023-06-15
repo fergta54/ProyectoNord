@@ -16,12 +16,20 @@
   padding: 3% 2%;
 }
 
+.fa-shopping-cart {
+  color: white;
+}
+.fa-shopping-cart:hover {
+  color: orange;
+}
+
 h1 {
   font-size: 48px;
   font-weight: bold;
-  color: #bf760acd; /* Color rojo */
-  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); /* Sombra de texto */
+  color: black; /* Color rojo */
+  text-shadow: 2px 2px 4px rgb(4, 111, 104); /* Sombra de texto */
   background-color: #f8f8f8; /* Color de fondo */
   padding: 20px; /* Relleno interno */
   border-radius: 10px; /* Borde redondeado */
+  text-align: center;
 }
