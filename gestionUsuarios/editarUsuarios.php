@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <div class="col-10">
 
             <div class="container my-5 w-50">
-                <h2 class="text-center">Crear Usuario</h2>
+                <h2 class="text-center">Editar Usuario</h2>
 
                 <?php
                 if (!empty($errorMessage)) {

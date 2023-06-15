@@ -130,7 +130,7 @@
               </ul>
             </li>
             <li>
-              <a href="../reportes/indexReportes.php" class=""><i class="fa fa-line-chart"></i> Reportes</a>
+              <a href="./reportes/indexReportes.php" class=""><i class="fa fa-line-chart"></i> Reportes</a>
 
             </li>
             <li>

@@ -42,7 +42,8 @@
                         <a class="cabecera" href="index.php">
                             Contacto
                         </a>
-                    </li>           
+                    </li> 
+                    
                 </ul>
             </div>         
                 <a href="cart.php" class="nav-item nav-link active">
