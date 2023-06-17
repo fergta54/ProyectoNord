@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-    
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
@@ -144,6 +145,7 @@ label a{
 </head>
 
 <body>
+    
     <!-- <form action="./validar.php" method="post">
         <h1>Ingrese credencial</h1>
         <p>Usuario <input type="text" placeholder="Ingrese su nombre" name="usuario"></p>
@@ -152,7 +154,69 @@ label a{
     </form> -->
 
     <div class="overlay">
+            <!-- navbar -->
             <div class="overl">
+            <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container px-4 px-lg-5">
+            <a class="cabecera" href="index.php">
+                <img src="../recursos/img/lg.png" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="cabecera" href="../index.php">
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="index.php">
+                            Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="./gestionVentas/menuProd.php">
+                            Comprar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="index.php">
+                            Sucursales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="index.php">
+                            Sobre Nosotros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="index.php">
+                            Contacto
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="../loginAzul/login.php">
+                            Log In
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="index.php">
+                            Sign In
+                        </a>
+                    </li>
+
+                    
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
+            </div>
+        </div>
+    </nav>
+    <!-- fin navbar -->
             <form action="./validar.php" method="post">
                 <div class="boxLog">
                     <div class="containerLog">
@@ -161,7 +225,7 @@ label a{
                             <h1 class="text-center text-light"><b>Bienvenido</b></h1>
                             <p class="text-center text-light"><b>al sistema</b></p>
                             <h4 class="text-center text-light"><b>"NORD-NET PRO"</b></h4>
-                            <header>Login</header>
+                            <h3 class="text-center text-light">Login</h3>
                         </div>
                         <div class="input-field">
                             <input type="text" name='usuario' class="input" placeholder="Ingrese su Correo" id=""/>
