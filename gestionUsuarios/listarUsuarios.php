@@ -34,7 +34,7 @@
                     <th>Contraseña</th>
                     <th>Rol</th>
                     <th>Estado</th>
-                    <th>Acción</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -62,17 +62,7 @@
                         <td>$row[nombre_rol]</td>
                         <td>$row[estado_descripcion]</td>
                         
-                        <td>";
-            
-                        if($row['estado_usuario'] === '1'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivarUsuario.php?id_usuario=$row[id_usuario]'>Desactivar</a>";
-                        }
-                        if($row['estado_usuario'] === '2'){
-                            echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarUsuario.php?id_usuario=$row[id_usuario]'>Activar</a>";
-                        }
-            
-                    echo "
-                        </td>
+                        
                     </tr>";
                 }
                 ?>

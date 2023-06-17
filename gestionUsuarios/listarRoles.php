@@ -30,7 +30,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Estado</th>
-                            <th>Accion</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -54,17 +54,7 @@
                         <td>$row[nombre_rol]</td>
                         <td>$row[estado_descripcion]</td>
                         
-                        <td>";
-
-                            if ($row['estado_rol'] === '1') {
-                                echo "<a class='btn btn-primary btn-warning btn-sm' href='./desactivar.php?id_rol=$row[id_rol]'>Desactivar</a>";
-                            }
-                            if ($row['estado_rol'] === '2') {
-                                echo "<a class='btn btn-primary btn-warning btn-sm' href='./activarRol.php?id_rol=$row[id_rol]'>Activar</a>";
-                            }
-
-                            echo "
-                        </td>
+                        
                     </tr>";
                         }
                         ?>
