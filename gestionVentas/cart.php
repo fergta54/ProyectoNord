@@ -4,6 +4,10 @@ require_once ("tarjetas.php");
 include('../conexion.php');
 
 
+
+
+
+
 //este codigo limpia el carrito una vez agregado a la base de datos
 /*
 session_start();
@@ -186,7 +190,46 @@ if (isset($_POST['remove'])){
         }
     }
   }
+
 ?>
+
+
+
+<script>
+// Función para decrementar la cantidad
+function decrementQuantity(productId) {
+    let quantityInput = document.getElementById(`quantity-${productId}`);
+    let currentQuantity = parseInt(quantityInput.value);
+
+    if (currentQuantity > 2) {
+        let newQuantity = currentQuantity - 1;
+        quantityInput.value = newQuantity;
+    }
+}
+
+// Función para incrementar la cantidad
+function incrementQuantity(productId) {
+    let quantityInput = document.getElementById(`quantity-${productId}`);
+    let currentQuantity = parseInt(quantityInput.value);
+
+    let newQuantity = currentQuantity + 1;
+    quantityInput.value = newQuantity;
+}
+
+// Escucha los eventos de clic en los botones de incremento y decremento
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('decrement-btn')) {
+        let productId = event.target.dataset.productid;
+        decrementQuantity(productId);
+    } else if (event.target.classList.contains('increment-btn')) {
+        let productId = event.target.dataset.productid;
+        incrementQuantity(productId);
+    }
+});
+
+
+</script>
+
 
 <!doctype html>
 <html lang="en">
@@ -203,7 +246,9 @@ if (isset($_POST['remove'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
 
 
 <body class="bg-light">
@@ -217,6 +262,7 @@ if (isset($_POST['remove'])){
                 <h3>MI CARRITO</h3>
                 <hr>
                 <?php
+
                 $subtotal = 0;
                 
                 $total = 0;
@@ -232,7 +278,7 @@ if (isset($_POST['remove'])){
                         while ($row = mysqli_fetch_assoc($seleccionar)){
                             foreach ($id_prod as $id){
                                 if ($row['id'] == $id){
-                                    cartElement($row['imagen_prod'], $row['nombre_prod'],$row['precio_unit_compra'], $row['id']);
+                                    cartElement($row['imagen_prod'], $row['nombre_prod'],$row['precio_unit_compra'], $row['id'], $quantity);
                                     $subtotal += $row['precio_unit_compra']; 
                                     $iva = round($subtotal * 0.13, 2);
                                     $total = round($subtotal + $iva, 2);
@@ -242,7 +288,45 @@ if (isset($_POST['remove'])){
                     }else{
                         echo "<h5>Carrito vacio</h5>";
                     }
+ 
 
+                    /*
+                    function updateCartTotals($conexion) {
+                        $subtotal = 0;
+                        $iva = 0;
+                        $total = 0;
+                      
+                        foreach ($_SESSION['cart'] as $item) {
+                          $productid = $item['id_prod'];
+                          $quantity = $item['quantity'];
+                      
+                          // Obtener el precio unitario del producto
+                          $seleccionarPrecio = mysqli_query($conexion, "SELECT precio_unit_compra FROM productos WHERE id_prod = $productid");
+                          $rowPrecio = mysqli_fetch_assoc($seleccionarPrecio);
+                          $precioUnitario = $rowPrecio['precio_unit_compra'];
+                      
+                          // Calcular el subtotal y el total del producto
+                          $subtotal += $precioUnitario * $quantity;
+                      
+                          // Mostrar el elemento del carrito utilizando la plantilla cartElement
+                          $seleccionarProducto = mysqli_query($conexion, "SELECT imagen_prod, nombre_prod, precio_unit_compra FROM productos WHERE id_prod = $productid");
+                          $rowProducto = mysqli_fetch_assoc($seleccionarProducto);
+                          $productimg = $rowProducto['imagen_prod'];
+                          $productname = $rowProducto['nombre_prod'];
+                          $productprice = $rowProducto['precio_unit_compra'];
+                      
+                          cartElement($productimg, $productname, $productprice, $productid, $quantity);
+                        }
+                      
+                        // Calcular el IVA y el total
+                        $iva = round($subtotal * 0.13, 2);
+                        $total = round($subtotal + $iva, 2);
+                      
+                        
+                      }*/
+                      
+                      
+                      
                 ?>
 
             </div>

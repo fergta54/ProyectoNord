@@ -33,36 +33,45 @@ function component($productname, $productprice, $productimg, $productid){
     echo $element;
 }
 
-function cartElement($productimg, $productname, $productprice, $productid){
-    $element = "
-    
-    <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
-                    <div class=\"border rounded\">
-                        <div class=\"row bg-white\">
-                            <div class=\"col-md-3 pl-0\">
-                                <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
-                            </div>
-                            <div class=\"col-md-6\">
-                                <h5 class=\"pt-2\">$productname</h5>
-                                <small class=\"text-secondary\"></small>
-                                <h5 class=\"pt-2\">Bs. $productprice</h5>
-                                <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar</button>
-                                <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Quitar</button>
-                            </div>
-                            <div class=\"col-md-3 py-5\">
-                                <div>
-                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
-                                    <input type=\"text\" value=\"1\" class=\"form-control w-25 d-inline\">
-                                    <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-    
-    ";
-    echo  $element;
+
+function cartElement($productimg, $productname, $productprice, $productid, $quantity){
+    // Verificar si $quantity es numérico, de lo contrario establecer a 1
+    // Obtener la cantidad actual del producto en el carrito
+$currentQuantity = 1;
+if (isset($_SESSION['cart'][$productid]['quantity'])) {
+    $currentQuantity = $_SESSION['cart'][$productid]['quantity'];
 }
+
+
+    $element = "
+    <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+        <div class=\"border rounded\">
+            <div class=\"row bg-white\">
+                <div class=\"col-md-3 pl-0\">
+                    <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
+                </div>
+                <div class=\"col-md-6\">
+                    <h5 class=\"pt-2\">$productname</h5>
+                    <small class=\"text-secondary\"></small>
+                    <h5 class=\"pt-2\">Bs. $productprice</h5>
+                    <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar</button>
+                    <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Quitar</button>
+                </div>
+                <div class=\"col-md-3 py-5\">
+                    <div>
+                        <button type=\"button\" class=\"btn bg-light border rounded-circle decrement-btn\" name=\"minus\" data-productid=\"$productid\"><i class=\"fas fa-minus\"></i></button>
+                        <input type=\"text\" value=\"" . intval($currentQuantity) . "\" class=\"form-control w-25 d-inline quantity-input\" id=\"quantity-$productid\" name=\"quantity\" readonly>
+                        <button type=\"button\" class=\"btn bg-light border rounded-circle increment-btn\" name=\"plus\" data-productid=\"$productid\"><i class=\"fas fa-plus\"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>"; 
+    echo $element;
+}
+
+
+
 
 
 

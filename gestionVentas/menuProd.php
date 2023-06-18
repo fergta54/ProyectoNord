@@ -5,33 +5,108 @@ include('../conexion.php');
 require_once ('tarjetas.php');
 
 
-
-if (isset($_POST['add'])){
-    if(isset($_SESSION['cart'])){
-
+/*
+if (isset($_POST['add'])) {
+    if (isset($_SESSION['cart'])) {
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
 
-        if(in_array($_POST['id_prod'], $item_array_id)){
-            echo "<script>alert('El producto ya esta en el carrito')</script>";
-            echo "<script>window.location = 'menuProd.php'</script>";
-        }else{
+        if (in_array($_POST['id_prod'], $item_array_id)) {
+            echo "<script>alert('El producto ya está en el carrito')</script>";
+        } else {
+            // Verificar el stock del producto en la tienda
+            $producto_id = $_POST['id_prod'];
+            $tienda_id = $_SESSION['selected_tienda'];
 
-            $count = count($_SESSION['cart']);
+            $verificar_stock = mysqli_query($conexion, "SELECT stock_inventario FROM inventarios WHERE id_producto = $producto_id AND id_tienda = $tienda_id");
+            $fila_stock = mysqli_fetch_assoc($verificar_stock);
+
+            if ($fila_stock && $fila_stock['stock_inventario'] > 0) {
+                $count = count($_SESSION['cart']);
+                $item_array = array(
+                    'id_prod' => $_POST['id_prod']
+                );
+
+                $_SESSION['cart'][$count] = $item_array;
+                echo "<script>alert('Producto agregado al carrito')</script>";
+            } else {
+                echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
+            }
+        }
+    } else {
+        // Verificar el stock del producto en la tienda
+        $producto_id = $_POST['id_prod'];
+        $tienda_id = $_SESSION['selected_tienda'];
+
+        $verificar_stock = mysqli_query($conexion, "SELECT stock_inventario FROM inventarios WHERE id_producto = $producto_id AND id_tienda = $tienda_id");
+        $fila_stock = mysqli_fetch_assoc($verificar_stock);
+
+        if ($fila_stock && $fila_stock['stock_inventario'] > 0) {
             $item_array = array(
                 'id_prod' => $_POST['id_prod']
             );
-
-            $_SESSION['cart'][$count] = $item_array;
+            // Create new session variable
+            $_SESSION['cart'][0] = $item_array;
+            echo "<script>alert('Producto agregado al carrito')</script>";
+        } else {
+            echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
         }
-    }else{
-        $item_array = array(
-                'id_prod' => $_POST['id_prod']
-        );
-        // Create new session variable
-        $_SESSION['cart'][0] = $item_array;
-        print_r($_SESSION['cart']);
+    }
+}*/
+
+
+if (isset($_POST['add'])) {
+    if (isset($_SESSION['cart'])) {
+        $item_array_id = array_column($_SESSION['cart'], "id_prod");
+
+        if (in_array($_POST['id_prod'], $item_array_id)) {
+            echo "<script>alert('El producto ya está en el carrito')</script>";
+        } else {
+            $producto_id = $_POST['id_prod'];
+            $tienda_id = $_SESSION['selected_tienda'];
+
+            // Verificar el stock del producto en la tienda
+            $verificar_stock = mysqli_query($conexion, "SELECT stock_inventario FROM inventarios WHERE id_producto = $producto_id AND id_tienda = $tienda_id");
+            $fila_stock = mysqli_fetch_assoc($verificar_stock);
+
+            if ($fila_stock && $fila_stock['stock_inventario'] > 0) {
+                // Aumentar la cantidad del producto en el carrito
+                $count = count($_SESSION['cart']);
+                $item_array = array(
+                    'id_prod' => $_POST['id_prod'],
+                    'quantity' => 1
+                );    
+
+                $_SESSION['cart'][$count] = $item_array;
+                echo "<script>alert('Producto agregado al carrito')</script>";
+            } else {
+                echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
+            }
+        }
+    } else {
+        $producto_id = $_POST['id_prod'];
+        $tienda_id = $_SESSION['selected_tienda'];
+
+        // Verificar el stock del producto en la tienda
+        $verificar_stock = mysqli_query($conexion, "SELECT stock_inventario FROM inventarios WHERE id_producto = $producto_id AND id_tienda = $tienda_id");
+        $fila_stock = mysqli_fetch_assoc($verificar_stock);
+
+        if ($fila_stock && $fila_stock['stock_inventario'] > 0) {
+            $item_array = array(
+                'id_prod' => $_POST['id_prod'],
+                'quantity' => 1
+            );
+            // Crear nueva variable de sesión
+            $_SESSION['cart'][0] = $item_array;
+            echo "<script>alert('Producto agregado al carrito')</script>";
+        } else {
+            echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
+        }
     }
 }
+
+
+
+
 ?>
 
 
@@ -52,6 +127,7 @@ if (isset($_POST['add'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 </head>
 
