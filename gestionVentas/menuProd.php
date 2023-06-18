@@ -5,7 +5,7 @@ include('../conexion.php');
 require_once ('tarjetas.php');
 
 
-/*
+
 if (isset($_POST['add'])) {
     if (isset($_SESSION['cart'])) {
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
@@ -51,9 +51,9 @@ if (isset($_POST['add'])) {
             echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
         }
     }
-}*/
+}
 
-
+/*
 if (isset($_POST['add'])) {
     if (isset($_SESSION['cart'])) {
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
@@ -104,7 +104,7 @@ if (isset($_POST['add'])) {
     }
 }
 
-
+*/
 
 
 ?>
