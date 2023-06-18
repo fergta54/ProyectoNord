@@ -50,7 +50,7 @@ function cartElement($productimg, $productname, $productprice, $productid, $quan
                     <h5 class=\"pt-2\">$productname</h5>
                     <small class=\"text-secondary\"></small>
                     <h5 class=\"pt-2\">Bs. $productprice</h5>
-                    <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar</button>
+                    <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar para después</button>
                     <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Quitar</button>
                 </div>
                 <div class=\"col-md-3 py-5\">

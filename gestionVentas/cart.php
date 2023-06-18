@@ -71,7 +71,7 @@ include('../conexion.php');
 require_once('tarjetas.php');
 
 if (isset($_POST['guardar'])) {
-    $id_cliente = 1; // Asignar el id_cliente directamente como 1
+    $id_cliente = 2; // Asignar el id_cliente directamente como 1
     $id_tienda = $_SESSION['selected_tienda']; // Obtener el ID de tienda seleccionado del formulario
 
 
@@ -405,20 +405,14 @@ document.addEventListener('click', function(event) {
                     <div class="row price-details">
                         <div class="col-md-6">
                         <?php
-if (isset($_SESSION['cart'])) {
-    $count = count($_SESSION['cart']);
-    $itemText = ($count != 1) ? 'items' : 'item';
-    echo "<h6>Subtotal ($count $itemText)</h6>";
-} else {
-    echo "<h6>Subtotal (0 items)</h6>";
-}
-?>
-
-
-
-
-
-
+                        if (isset($_SESSION['cart'])) {
+                            $count = count($_SESSION['cart']);
+                            $itemText = ($count != 1) ? 'items' : 'item';
+                            echo "<h6>Subtotal ($count $itemText)</h6>";
+                        } else {
+                            echo "<h6>Subtotal (0 items)</h6>";
+                        }
+                        ?>
                 <h6>IVA</h6>
                 <hr>
                 <h6>Total</h6>
@@ -430,10 +424,10 @@ if (isset($_SESSION['cart'])) {
                 <h6>Bs. <?php echo $total; ?></h6>
             </div>
         </div><br>
-        <div id="paypal-payment-button">
-    </div>
-</div>
-
+        <div id="paypal-payment-button"> 
+    </div><br>  
+    <button class="btn btn-info mx-2" style="align-content: center;" onclick="window.location.href = 'cancelar.php'">Generar Recibo</button>
+</div> <br>  
 <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
 </body>
