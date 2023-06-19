@@ -57,6 +57,20 @@
                         }
                         ?>             
                 </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item">
+                        <a class="cabecera" href="./perfilCliente.php">
+                            PERFIL
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cabecera" href="./ayudaCliente.php">
+                            AYUDA
+                        </a>
+                    </li>
+                </ul>
+            </div>   
                 
         </div>
     </nav>
