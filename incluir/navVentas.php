@@ -80,14 +80,31 @@
                         ?>
                     </li>
                     <li class="nav-item">
-                        <a class="cabecera" href="./contactanos.php">
+                        <?php
+                        $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                        if ($archivo_actual == 'index.php') { ?>
+                            <a class="cabecera" href="contactanos.php">
                             Contacto
-                        </a>
+                            </a>
+
+                        <?php } elseif ($archivo_actual != 'index.php') { ?>
+                            <a class="cabecera" href="../contactanos.php">
+                            Contacto
+                            </a>
+                        <?php }
+                        ?>
                     </li>
 
                     <?php
 
-                    if (isset($_SESSION['usuario']) && isset($_SESSION['rol'])) {
+                    $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                    if ($archivo_actual == 'index.php') { ?>
+                        
+
+                    <?php } elseif ($archivo_actual != 'index.php') { 
+                        if (isset($_SESSION['usuario']) && isset($_SESSION['rol'])) {
                         // echo '<script>Console.log("LLEGA")</script>';
                         $usuario = $_SESSION['usuario'];
                         $varRol = $_SESSION['rol'];
@@ -120,7 +137,7 @@
                     } else {
                         ?>
                         <li class="nav-item">
-                            <a class="cabecera" href="./loginAzul/loginC.php">
+                            <a class="cabecera" href="../loginAzul/loginC.php">
                                 Login
                             </a>
                         </li>
@@ -129,7 +146,7 @@
                             $archivo_actual = basename($_SERVER['PHP_SELF']);
 
                             if ($archivo_actual == 'index.php') { ?>
-                                <a class="cabecera" href="./registroAzul/registrarCliente.php">
+                                <a class="cabecera" href="../registroAzul/registrarCliente.php">
                                     SIGN up
                                 </a>
                             <?php } elseif ($archivo_actual != 'index.php') { ?>
@@ -141,20 +158,34 @@
                         </li>
                     <?php
                     }
+                        
+                   }
                     ?>
                 </ul>
             </div>
-            <a href="cart.php" class="nav-item nav-link active">
-                <i class="fas fa-shopping-cart"></i>
-                <?php
-                if (isset($_SESSION['cart'])) {
-                    $count = count($_SESSION['cart']);
-                    echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
-                } else {
-                    echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
-                }
-                ?>
-            </a>
+            <li class="nav-item">
+                        <?php
+                        $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                        if ($archivo_actual == 'index.php') { ?>
+                            
+
+                        <?php } elseif ($archivo_actual != 'index.php') { ?>
+                            <a href="cart.php" class="nav-item nav-link active">
+                            <i class="fas fa-shopping-cart"></i>
+                            <?php
+                            if (isset($_SESSION['cart'])) {
+                                $count = count($_SESSION['cart']);
+                                echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                            } else {
+                                echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                            }
+                            ?>
+                        </a>
+                        <?php }
+                        ?>
+                    </li>
+
             <li class="cabecera" style="list-style-type: none;">
                 <a href=".manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
                     <i class="fas fa-download"></i> Manual

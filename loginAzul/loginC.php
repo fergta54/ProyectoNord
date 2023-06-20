@@ -188,38 +188,38 @@ label a{
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../servicios.php">
                                     Servicios
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="./gestionVentas/menuProd.php">
+                                <a id="anav" class="nav-link" href="../gestionVentas/menuProd.php">
                                     Comprar
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../sucursales.php">
                                     Sucursales
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../sobreNosotros.php">
                                     Sobre Nosotros
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../contactanos.php">
                                     Contacto
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="../loginAzul/loginC.php">
+                                <a id="anav" class="nav-link" href="loginC.php">
                                     Log In
                                 </a>
                             </li>
                             <li class="nav-item">
                             <a id="anav" class="nav-link" href="../registroAzul/registrarCliente.php">
-                                    Sign In
+                                    Sign Up
                                 </a>
                             </li>
                         </ul>
