@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NORDSTERN</title>
-    
+
     <link rel="stylesheet" href="./recursos/css/cabecera.css">
     <link rel="stylesheet" href="./recursos/css/ventas.css">
     <link rel="stylesheet" href="./recursos/css/index.css">
@@ -17,9 +18,9 @@
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-    .nav-item {
-    margin-right: 25px;
-    }
+        .nav-item {
+            margin-right: 25px;
+        }
     </style>
 </head>
 
@@ -29,17 +30,16 @@
             <?php
             $archivo_actual = basename($_SERVER['PHP_SELF']);
 
-            if ($archivo_actual == 'index.php') {?>
+            if ($archivo_actual == 'index.php') { ?>
                 <a class="cabecera" href="index.php">
-                <img src="./recursos/img/lg.png" alt="logo" />
+                    <img src="./recursos/img/lg.png" alt="logo" />
                 </a>
-                
-            <?php } 
-            elseif ($archivo_actual != 'index.php') {?>
+
+            <?php } elseif ($archivo_actual != 'index.php') { ?>
                 <a class="cabecera" href="../index.php">
-            <img class="container-fluid" src="../recursos/img/lg.png" alt="logo" />
-            </a>
-            <?php } 
+                    <img class="container-fluid" src="../recursos/img/lg.png" alt="logo" />
+                </a>
+            <?php }
             ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,34 +51,32 @@
                         <?php
                         $archivo_actual = basename($_SERVER['PHP_SELF']);
 
-                        if ($archivo_actual == 'index.php') {?>
+                        if ($archivo_actual == 'index.php') { ?>
                             <a class="cabecera" href="index.php">
-                            Inicio
+                                Inicio
                             </a>
-                            
-                        <?php } 
-                        elseif ($archivo_actual != 'index.php') {?>
+
+                        <?php } elseif ($archivo_actual != 'index.php') { ?>
                             <a class="cabecera" href="../index.php">
-                            Inicio
+                                Inicio
                             </a>
-                        <?php } 
+                        <?php }
                         ?>
                     </li>
                     <li class="nav-item">
                         <?php
                         $archivo_actual = basename($_SERVER['PHP_SELF']);
 
-                        if ($archivo_actual == 'index.php') {?>
+                        if ($archivo_actual == 'index.php') { ?>
                             <a class="cabecera" href="./gestionVentas/menuProd.php">
-                            Compras
+                                Compras
                             </a>
-                            
-                        <?php } 
-                        elseif ($archivo_actual != 'index.php') {?>
+
+                        <?php } elseif ($archivo_actual != 'index.php') { ?>
                             <a class="cabecera" href="menuProd.php">
-                            Compras
+                                Compras
                             </a>
-                        <?php } 
+                        <?php }
                         ?>
                     </li>
                     <li class="nav-item">
@@ -86,10 +84,10 @@
                             Contacto
                         </a>
                     </li>
-            
+
                     <?php
-/*
-                    if (isset($_SESSION['usuario'])) {
+
+                    if (isset($_SESSION['usuario']) && isset($_SESSION['rol'])) {
                         // echo '<script>Console.log("LLEGA")</script>';
                         $usuario = $_SESSION['usuario'];
                         $varRol = $_SESSION['rol'];
@@ -105,7 +103,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="cabecera" href="./perfilCliente.php">
-                                 PERFIL
+                                PERFIL
                             </a>
                         </li>
                         <li class="nav-item">
@@ -127,45 +125,45 @@
                                 Login
                             </a>
                         </li>
-                        <li class="nav-item">   
+                        <li class="nav-item">
                             <?php
                             $archivo_actual = basename($_SERVER['PHP_SELF']);
-                            
-                            if ($archivo_actual == 'index.php') {?>
+
+                            if ($archivo_actual == 'index.php') { ?>
                                 <a class="cabecera" href="./registroAzul/registrarCliente.php">
-                                SIGN up
-                                </a>                              
-                            <?php } 
-                            elseif ($archivo_actual != 'index.php') {?>
-                                <a class="cabecera" href="../registroAzul/registrarCliente.php">
-                                SIGN up
+                                    SIGN up
                                 </a>
-                            <?php } 
+                            <?php } elseif ($archivo_actual != 'index.php') { ?>
+                                <a class="cabecera" href="../registroAzul/registrarCliente.php">
+                                    SIGN up
+                                </a>
+                            <?php }
                             ?>
                         </li>
                     <?php
                     }
-                    */?>
+                    ?>
                 </ul>
             </div>
-                <a href="cart.php" class="nav-item nav-link active">
-                        <i class="fas fa-shopping-cart"></i> 
-                        <?php
-                        if (isset($_SESSION['cart'])){
-                            $count = count($_SESSION['cart']);
-                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
-                        }else{
-                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
-                        }
-                        ?>             
-                </a>
-                <li class="cabecera" style="list-style-type: none;">
+            <a href="cart.php" class="nav-item nav-link active">
+                <i class="fas fa-shopping-cart"></i>
+                <?php
+                if (isset($_SESSION['cart'])) {
+                    $count = count($_SESSION['cart']);
+                    echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                } else {
+                    echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                }
+                ?>
+            </a>
+            <li class="cabecera" style="list-style-type: none;">
                 <a href=".manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
                     <i class="fas fa-download"></i> Manual
                 </a>
-                </li>
+            </li>
 
-        </div>      
+        </div>
     </nav>
 </header>
+
 </html>
