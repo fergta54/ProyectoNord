@@ -91,6 +91,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="cabecera" href="./perfilCliente.php">
+                                 PERFIL
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="cabecera" href="./ayudaCliente.php">
+                                AYUDA
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="cabecera" href="./loginAzul/cerrarSesion.php">
                                 Cerrar Sesion
                             </a>

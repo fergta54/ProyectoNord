@@ -99,7 +99,7 @@
 </head>
 
 <body>
-    <?php include('navVentas.php'); ?>
+<?php include('../incluir/navVentas.php'); ?>
 
     <h1>AYUDA AL CLIENTE</h1>
 

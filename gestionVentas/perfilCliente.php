@@ -152,7 +152,7 @@ mysqli_close($conexion);
 </head>
 
 <body>
-    <?php include('navVentas.php'); ?>
+<?php include('../incluir/navVentas.php'); ?>
 
     <h1>PERFIL DE USUARIO</h1>
 
