@@ -111,7 +111,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="cabecera" href="./loginAzul/cerrarSesion.php">
+                            <a class="cabecera" href="../loginAzul/cerrarSesion.php">
                                     Cerrar Sesion
                                 </a>
                             </li>
