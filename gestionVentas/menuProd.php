@@ -314,6 +314,6 @@ if (isset($_POST['add'])) {
                         </div>";                                  
 ?>
 
- <?php include('../incluir/footer.php'); ?>
-</body>
+
+</body> <?php include('../incluir/footer.php'); ?>
 </html>

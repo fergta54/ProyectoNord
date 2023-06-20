@@ -29,7 +29,7 @@ function component($productname, $productprice, $productimg, $productid){
 
 
 
-
+/*
 function cartElement($productimg, $productname, $productprice, $productid, $quantity){
 
     $element = "
@@ -68,7 +68,48 @@ function cartElement($productimg, $productname, $productprice, $productid, $quan
     
 
     echo $element;
+}*/
+
+function cartElement($productimg, $productname, $productprice, $productid, $quantity){
+    $element = "
+    <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+        <div class=\"border rounded\">
+            <div class=\"row bg-white\">
+                <div class=\"col-md-3 pl-0\">
+                    <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
+                </div>
+                <div class=\"col-md-6\">
+                    <h5 class=\"pt-2\">$productname</h5>
+                    <small class=\"text-secondary\"></small>
+                    <h5 class=\"pt-2\">Bs. $productprice</h5>
+                    <button type=\"submit\" class=\"btn btn-warning\" name=\"guardar\">Guardar para después</button>
+                    <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Quitar</button>
+                </div>
+                <div class=\"col-md-3 py-5\">
+                    <div>
+                        <form action=\"\" method=\"post\" style=\"display:inline;\">
+                            <input type=\"hidden\" name=\"productId\" value=\"$productid\">
+                            <input type=\"hidden\" name=\"action\" value=\"decrement\">
+                            <button type=\"submit\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
+                        </form>
+                        
+                        <span class=\"quantity\">$quantity</span>
+                        
+                        <form action=\"\" method=\"post\" style=\"display:inline;\">
+                            <input type=\"hidden\" name=\"productId\" value=\"$productid\">
+                            <input type=\"hidden\" name=\"action\" value=\"increment\">
+                            <button type=\"submit\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>"; 
+
+    
+    echo $element;
 }
+
 
 
 

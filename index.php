@@ -170,7 +170,7 @@ section{
                     sadfasdfsadñlkfjsaldkfjldskjflsjfklsdjfklsjdfklsjdfklsdjflksdjflksdjfl
                     sdfjsdkjfskdjfsldjflsdjfklsdjflksdjflksdjfkdsjflksdjkfsdjiejoihtwoi.
                 </p>
-                <a href="#">Comprar</a>
+                <a href="../gestionVentas/menuProd.php">Comprar</a>
             </div>
             <div class="imgBoxa">
                 <img src="./recursos/img/routerC.png" class="persona">

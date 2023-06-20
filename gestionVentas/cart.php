@@ -4,50 +4,6 @@ require_once("tarjetas.php");
 include('../conexion.php');
 ?>
 
-
-
-
-
-
-
-
-
-
-<script>
-    /*
-// Función para decrementar la cantidad
-function decrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    if (currentQuantity > 2) {
-        let newQuantity = currentQuantity - 1;
-        quantityInput.value = newQuantity;
-    }
-}
-
-// Función para incrementar la cantidad
-function incrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    let newQuantity = currentQuantity + 1;
-    quantityInput.value = newQuantity;
-}
-
-// Escucha los eventos de clic en los botones de incremento y decremento
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('decrement-btn')) {
-        let productId = event.target.dataset.productid;
-        decrementQuantity(productId);
-    } else if (event.target.classList.contains('increment-btn')) {
-        let productId = event.target.dataset.productid;
-        incrementQuantity(productId);
-    }
-});*/
-</script>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -95,7 +51,7 @@ document.addEventListener('click', function(event) {
                         WHERE estado_producto = 1
                         ORDER BY id_prod"
                         );
-
+                        $cantidadTotal = 0;
                         while ($row = mysqli_fetch_assoc($seleccionar)) {
                             foreach ($id_prod as $id) {
                                 if ($row['id'] == $id) {
@@ -103,6 +59,7 @@ document.addEventListener('click', function(event) {
                                     $quantity = isset($_SESSION['cart'][$id]['quantity']) ? $_SESSION['cart'][$id]['quantity'] : 1;
                                     cartElement($row['imagen_prod'], $row['nombre_prod'], $row['precio_unit_compra'], $row['id'], $quantity);
                                     $subtotal += $row['precio_unit_compra'] * $quantity;
+                                    $cantidadTotal += $quantity;
                                 }
                             }
                         }
@@ -112,10 +69,6 @@ document.addEventListener('click', function(event) {
                     } else {
                         echo "<h5>Carrito vacío</h5>";
                     }
-
-
-
-
                     ?>
                 </div>
             </div>
@@ -129,7 +82,9 @@ document.addEventListener('click', function(event) {
                         <div class="col-md-6">
                             <?php
                             if (isset($_SESSION['cart'])) {
-                                $count = count($_SESSION['cart']);
+                                //$count = count($_SESSION['cart']['quantity']);
+                                $count = $cantidadTotal;
+
                                 $itemText = ($count != 1) ? 'items' : 'item';
                                 echo "<h6>Subtotal ($count $itemText)</h6>";
                             } else {
@@ -156,8 +111,9 @@ document.addEventListener('click', function(event) {
     </div>
     <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
+    <?php include('../incluir/footer.php'); ?>
 </body>
-<?php include('../incluir/footer.php'); ?>
+
 
 </html>
 
@@ -346,8 +302,6 @@ if (isset($_POST['remove'])) {
 
 
 
-
-
 // Función para decrementar la cantidad
 function decrementQuantity($productId)
 {
@@ -412,6 +366,7 @@ if (isset($_POST['add'])) {
     }
 }
 
+
 // Procesar las acciones de incremento o decremento
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productId = $_POST['productId'];
@@ -429,15 +384,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-/*
+
 // Obtener el total de productos agregados al carrito
-$totalQuantity = 0;
-if (isset($_SESSION['cart'])) {
-    foreach ($_SESSION['cart'] as $item) {
-        $totalQuantity += $item['quantity'];
-    }
-}
-*/
+// $totalQuantity = 0;
+// if (isset($_SESSION['cart'])) {
+//     foreach ($_SESSION['cart'] as $item) {
+//         $totalQuantity += $item['quantity'];
+//     }
+// }
+
 
 
 ?>

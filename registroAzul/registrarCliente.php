@@ -162,7 +162,7 @@ label a{
     <div class="overlay">
         <!-- navbar -->
         <div class="overl">
-            <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container px-4 px-lg-5">
                     <a class="navbar-brand" href="../index.php">
                         <img src="../recursos/img/lg.png" alt="logo" />
@@ -180,27 +180,27 @@ label a{
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../servicios.php">
                                     Servicios
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="./gestionVentas/menuProd.php">
+                                <a id="anav" class="nav-link" href="../gestionVentas/menuProd.php">
                                     Comprar
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../sucursales.php">
                                     Sucursales
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../sobreNosotros.php">
                                     Sobre Nosotros
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                                <a id="anav" class="nav-link" href="../contactanos.php">
                                     Contacto
                                 </a>
                             </li>
@@ -210,8 +210,8 @@ label a{
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
-                                    Sign In
+                            <a id="anav" class="nav-link" href="../registroAzul/registrarCliente.php">
+                                    Sign Up
                                 </a>
                             </li>
                         </ul>
