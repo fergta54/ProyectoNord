@@ -1,59 +1,70 @@
-<?php
-include('../conexion.php');
+<!DOCTYPE html>
+<html lang="es">
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    // $query = "SELECT * FROM marcas WHERE id_marca=$id";
-    // $result = mysqli_query($conexion, $query);
-    // if (mysqli_num_rows($result) == 1) {
-    //     $row = mysqli_fetch_array($result);
-    //     $nombre = $row['nombre_marca'];
-    //     $descripcion = $row['descripcion_marca'];
-    // }
-    $query2 = "UPDATE categorias set estado_categoria = 1 WHERE id_categoria=$id";
-    mysqli_query($conexion, $query2);
-    $_SESSION['message'] = 'Task Updated Successfully';
-    $_SESSION['message_type'] = 'warning';
-    echo "<script type='text/javascript'>alert('La categoria ha sido activada');
-    window.location = './adminCategorias.php';
-    </script>";
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activar categorias</title>
+    <link rel="stylesheet" href="../recursos/css/index.css">
+    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
+    <script src="../recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <script src="../recursos/js/jquery-3.7.0.min.js"></script>
 
-// if (isset($_POST['actualizar'])) {
-//     $id = $_GET['id'];
-//     $nombre = $_POST['nombre'];
-//     $descripcion = $_POST['descripcion'];
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
-//     $query = "UPDATE marcas set nombre_marca = '$nombre', descripcion_marca = '$descripcion' WHERE id_marca=$id";
-//     mysqli_query($conexion, $query);
-//     $_SESSION['message'] = 'Task Updated Successfully';
-//     $_SESSION['message_type'] = 'warning';
-//     header('Location: ./adminMarcas.php');
-// }
+<body>
+    <div class="row">
+        <div class="col-2">
+            <?php include('../incluir/asideNavAdmin.php') ?>
+        </div>
+        <div class="col-10">
+            <?php
+            include('../conexion.php');
 
-?>
-<?php include('../incluir/barraNavAdmin.php'); ?>
-<!-- <center>
-    <h1>Editar Marca</h1>
-    <div class="container p-4">
-        <div class="row">
-            <div class="col-md-4 mx-auto">
-                <div class="card card-body">
-                    <form action="editarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
-                        <div class="form-group">
-                            <input name="nombre" type="text" class="form-control" value="<?php echo $nombre; ?>"></input>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="descripcion" class="form-control" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
-                        </div>
-                        <button class="btn-success" name="actualizar">
-                            Actualizar datos
-                        </button>
-                    </form>
-                </div>
-            </div>
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                // $query = "SELECT * FROM marcas WHERE id_marca=$id";
+                // $result = mysqli_query($conexion, $query);
+                // if (mysqli_num_rows($result) == 1) {
+                //     $row = mysqli_fetch_array($result);
+                //     $nombre = $row['nombre_marca'];
+                //     $descripcion = $row['descripcion_marca'];
+                // }
+                $query2 = "UPDATE categorias set estado_categoria = 1 WHERE id_categoria=$id";
+                mysqli_query($conexion, $query2);
+                //     echo "<script type='text/javascript'>alert('La categoria ha sido activada');
+                // window.location = './adminCategorias.php';
+                // </script>";
+
+                echo "<script type='text/javascript'>
+        Swal.fire({
+            icon: 'success',
+            title: 'Activación',
+            text: 'La categoria ha sido activada',
+        })
+        window.location = './adminCategorias.php';
+        </script>";
+            }
+
+            // if (isset($_POST['actualizar'])) {
+            //     $id = $_GET['id'];
+            //     $nombre = $_POST['nombre'];
+            //     $descripcion = $_POST['descripcion'];
+
+            //     $query = "UPDATE marcas set nombre_marca = '$nombre', descripcion_marca = '$descripcion' WHERE id_marca=$id";
+            //     mysqli_query($conexion, $query);
+            //     $_SESSION['message'] = 'Task Updated Successfully';
+            //     $_SESSION['message_type'] = 'warning';
+            //     header('Location: ./adminMarcas.php');
+            // }
+
+            ?>
         </div>
     </div>
-</center> -->
-<?php //include('includes/footer.php'); 
-?>
+</body>
+
+
+</html>
