@@ -218,7 +218,7 @@ label a{
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="index.php">
+                            <a id="anav" class="nav-link" href="../registroAzul/registrarCliente.php">
                                     Sign In
                                 </a>
                             </li>
