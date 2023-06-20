@@ -51,7 +51,7 @@ include('../conexion.php');
                         WHERE estado_producto = 1
                         ORDER BY id_prod"
                         );
-
+                        $cantidadTotal = 0;
                         while ($row = mysqli_fetch_assoc($seleccionar)) {
                             foreach ($id_prod as $id) {
                                 if ($row['id'] == $id) {
@@ -59,6 +59,7 @@ include('../conexion.php');
                                     $quantity = isset($_SESSION['cart'][$id]['quantity']) ? $_SESSION['cart'][$id]['quantity'] : 1;
                                     cartElement($row['imagen_prod'], $row['nombre_prod'], $row['precio_unit_compra'], $row['id'], $quantity);
                                     $subtotal += $row['precio_unit_compra'] * $quantity;
+                                    $cantidadTotal += $quantity;
                                 }
                             }
                         }
@@ -81,7 +82,9 @@ include('../conexion.php');
                         <div class="col-md-6">
                             <?php
                             if (isset($_SESSION['cart'])) {
-                                $count = count($_SESSION['cart']);
+                                //$count = count($_SESSION['cart']['quantity']);
+                                $count = $cantidadTotal;
+
                                 $itemText = ($count != 1) ? 'items' : 'item';
                                 echo "<h6>Subtotal ($count $itemText)</h6>";
                             } else {
@@ -108,7 +111,7 @@ include('../conexion.php');
     </div>
     <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
- <?php include('../incluir/footer.php'); ?>   
+    <?php include('../incluir/footer.php'); ?>
 </body>
 
 
@@ -383,12 +386,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 // Obtener el total de productos agregados al carrito
-$totalQuantity = 0;
-if (isset($_SESSION['cart'])) {
-    foreach ($_SESSION['cart'] as $item) {
-        $totalQuantity += $item['quantity'];
-    }
-}
+// $totalQuantity = 0;
+// if (isset($_SESSION['cart'])) {
+//     foreach ($_SESSION['cart'] as $item) {
+//         $totalQuantity += $item['quantity'];
+//     }
+// }
 
 
 
