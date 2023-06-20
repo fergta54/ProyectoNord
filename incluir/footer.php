@@ -57,9 +57,9 @@
   <div class="footer">
   
   <ul>
-    <li><a href="sobrenosotros.php">Sobre Nosotros</a></li>
+    <li><a href="./sobreNosotros.php">Sobre Nosotros</a></li>
     <li><a href="./contactanos.php">Contacto</a></li>
-    <li><a href="sucursales.php">Sucursales</a></li>
+    <li><a href="./sucursales.php">Sucursales</a></li>
     <li><a href="./servicios.php">Servicios</a></li>
   </ul><p>&copy; <?php echo date("Y"); ?> Nordstern. Todos los derechos reservados.</p>
 </div>

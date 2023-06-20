@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item">
-                        <a class="cabecera" href="../index.php">
+                        <a class="cabecera" href="./index.php">
                             Inicio
                         </a>
                     </li>
