@@ -1,4 +1,6 @@
 <?php
+//include('verificarSesionAdminNav.php');
+session_start();
 include('verificarSesionAdminNav.php');
 ?>
 <!doctype html>
@@ -59,6 +61,29 @@ include('verificarSesionAdminNav.php');
 </head>
 
 <body>
+
+<?php
+
+include("../conexion.php");
+
+
+// echo "<script type='text/javascript'>
+//   alert('".$_SESSION['usuario']."');
+//   </script>";
+
+//echo isset($_SESSION['usuario']);
+
+//$query=mysqli_query($conexion, "SELECT * FROM usuarios where nombre_usuario=".$_SESSION['usuario']);
+$query=mysqli_query($conexion, "SELECT * FROM usuarios INNER JOIN rol on usuarios.id_rol = rol.id_rol where nombre_usuario='".$_SESSION['usuario']."' ");
+while ($row=mysqli_fetch_array($query)) {
+  $role = $row['nombre_rol'];
+}
+
+if($role=='Administrador'){
+  
+
+?>
+
   <div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
       <div class="p-4 pt-5">
@@ -261,42 +286,18 @@ include('verificarSesionAdminNav.php');
             </li>
 
 
-
-
-
-            <br><br><br>
-            <?php
-            if ($_SESSION['usuario']) {
-              // echo '<script>Console.log("LLEGA")</script>';
-              $usuario = $_SESSION['usuario'];
-              $varRol = $_SESSION['rol'];
-            }
-            if ($varRol === 'admin') {
-            ?>
+            <br>
+            
               <li>
-                Bienvenido <?php
-                            echo 'Administrador ';
-                            // echo $_SESSION['usuario'];
-                            ?> !
-              </li>
-              <li>
-                <a class="cabecera" href="../loginAzul/cerrarSesion.php">
+                <a class="cabecera" href="../loginAzul/logout.php">
                   Cerrar Sesion
                 </a>
               </li>
-            <?php
-            } // 
-            else {
-            ?>
-              <li class="nav-item pl-4">
-                <a class="cabecera" href="../loginAzul/login.php">
-                  Login
-                </a>
-              </li>
-            <?php
-            }
-            ?>
+            
           </ul>
+        </div>
+        <div class="footer">
+          <p>Bienvenido <?php echo $role;?></p>
         </div>
         <div class="footer">
           <p>Grupo Azul</p>
@@ -304,6 +305,160 @@ include('verificarSesionAdminNav.php');
       </div>
     </nav>
   </div>
+
+  <?php }elseif($role!="Administrador") { ?>
+    <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <a href="../admin.php"><img src="../recursos/img/lg.png"></a>
+        <br><br>
+        <div id="menu-container">
+          <ul class="list-unstyled components mb-5">
+            
+            
+            <li>
+              <a href="#clientesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-address-book"></i> Gestion de Clientes</a>
+              <ul class="collapse list-unstyled" id="clientesSubmenu">
+                <li>
+                  <a href="../gestionClientes/listarClientes.php">◉ Listar Clientes</a>
+                </li>
+                <li>
+                  <a href="../gestionClientes/adminClientes.php">◉ Editar Clientes</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+            
+            
+            <li>
+              <a href="#categoriasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-tags"></i> Gestion de categorías</a>
+              <ul class="collapse list-unstyled" id="categoriasSubmenu">
+                <li>
+                  <a href="../gestionProductos/listarCategorias.php">◉ Listar categorías</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/crearCategoria.php">◉ Crear categoría</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/adminCategorias.php">◉ Editar categoría</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#marcasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-barcode"></i> Gestion de marcas</a>
+              <ul class="collapse list-unstyled" id="marcasSubmenu">
+                <li>
+                  <a href="../gestionProductos/listarMarcas.php">◉ Listar marcas</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/crearMarca.php">◉ Crear marca</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/adminMarcas.php">◉ Editar marcas</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-shopping-cart"></i> Gestion de productos</a>
+              <ul class="collapse list-unstyled" id="productosSubmenu">
+                <li>
+                  <a href="../gestionProductos/listarProductos.php">◉ Listar productos</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/crearProducto.php">◉ Crear producto</a>
+                </li>
+                <li>
+                  <a href="../gestionProductos/adminProductos.php">◉ Editar productos</a>
+                </li>
+              </ul>
+            </li>
+
+
+            <li>
+              <a href="#tiendasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-building"></i> Gestion de tiendas</a>
+              <ul class="collapse list-unstyled" id="tiendasSubmenu">
+                <li>
+                  <a href="../gestionTiendas/listarTiendas.php">◉ Listar tiendas</a>
+                </li>
+                <li>
+                  <a href="../gestionTiendas/crearTienda.php">◉ Crear tienda</a>
+                </li>
+                <li>
+                  <a href="../gestionTiendas/adminTiendas.php">◉ Editar tiendas</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#inventariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cubes"></i> Gestion de inventarios</a>
+              <ul class="collapse list-unstyled" id="inventariosSubmenu">
+                <li>
+                  <a href="../gestionInventarios/listaTiendasInv.php">◉ Editar Inventarios</a>
+                </li>
+                <!-- <li>
+                  <a href="#">◉ Editar Inventarios</a>
+                </li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="#proveedoresSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-truck"></i> Gestion de proveedores</a>
+              <ul class="collapse list-unstyled" id="proveedoresSubmenu">
+                <li>
+                  <a href="../gestionProveedores/listarProveedores.php">◉ Listar proveedores</a>
+                </li>
+                <li>
+                  <a href="../gestionProveedores/registrarProveedores.php">◉ Crear proveedor</a>
+                </li>
+                <li>
+                  <a href="../gestionProveedores/adminProveedores.php">◉ Editar proveedores</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt"></i> Gestion de pedidos</a>
+              <ul class="collapse list-unstyled" id="pedidosSubmenu">
+                <li>
+                  <a href="../gestionPedidos/listarPedidos.php">◉ Listar pedidos</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/crearPedido.php">◉ Crear pedido</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/crearPedidoItem.php">◉ Crear Item pedidos</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/adminPedidos.php">◉ Editar pedidos</a>
+                </li>
+                <li>
+                  <a href="../gestionPedidos/adminPedidosItem.php">◉ Editar Items pedidos</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+
+            <br>
+            
+              <li>
+                <a class="cabecera" href="../loginAzul/logout.php">
+                  Cerrar Sesion
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+        <div class="footer">
+          <p>Bienvenido <?php echo $role;?></p>
+        </div>
+        <div class="footer">
+          <p>Grupo Azul</p>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <?php } ?>
 
   <script src="../recursos/js/jquery.min.js"></script>
   <script src="../recursos/js/popper.js"></script>

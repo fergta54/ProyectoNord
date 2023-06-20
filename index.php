@@ -109,8 +109,8 @@ section{
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+                        <ul  class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4  ">
                             <li class="nav-item">
                                 <a class="cabecera" href="index.php">
                                     Inicio
@@ -142,31 +142,6 @@ section{
                                 </a>
                             </li>
 
-                            <?php
-
-                            if (isset($_SESSION['usuario'])) {
-                                // echo '<script>Console.log("LLEGA")</script>';
-                                $usuario = $_SESSION['usuario'];
-                                $varRol = $_SESSION['rol'];
-                            }
-                            if ($varRol === 'cliente') {
-                            ?>
-                                <li class="nav-item">
-                                    <a class="cabecera" href="">
-                                        Bienvenido <?php
-                                                    echo $_SESSION['usuario'];
-                                                    ?> !
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="cabecera" href="./loginAzul/cerrarSesion.php">
-                                        Cerrar Sesion
-                                    </a>
-                                </li>
-                            <?php
-                            } // 
-                            else {
-                            ?>
                                 <li class="nav-item">
                                     <a class="cabecera" href="./loginAzul/login.php">
                                         Login
@@ -177,9 +152,6 @@ section{
                                         SIGN IN
                                     </a>
                                 </li>
-                            <?php
-                            }
-                            ?>
                         </ul>
                     </div>
 
