@@ -1,6 +1,7 @@
 <?php
 // seguridad de sesiones paginacion
-include('./verificarSesionAdmin.php')
+//include('./verificarSesionAdmin.php')
+//session_start();
 ?>
 
 <!DOCTYPE html>

@@ -57,7 +57,10 @@ section{
     justify-content: flex-end;
     padding-right: 50px;
     margin-top: 50px;
+    background-color: black;
 }
 .content .imgBox img{
     max-width: 340px;
 }
+
+

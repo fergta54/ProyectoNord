@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +14,8 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
@@ -158,7 +163,7 @@ label a{
             <div class="overl">
             <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container px-4 px-lg-5">
-            <a class="cabecera" href="index.php">
+            <a class="cabecera" href="../index.php">
                 <img src="../recursos/img/lg.png" alt="logo" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -217,7 +222,7 @@ label a{
         </div>
     </nav>
     <!-- fin navbar -->
-            <form action="./validar.php" method="post">
+            <form action="login.php" method="post">
                 <div class="boxLog">
                     <div class="containerLog">
                         <div class="text-center" class="top">
@@ -236,7 +241,7 @@ label a{
                             <i class='bx bx-lock-alt'></i>
                         </div>
                         <div class="input-field">
-                            <button class='btn btn-danger w-100' type='submit'>Login</button>
+                            <input class='btn btn-danger w-100' name="submit" value="Login"  type='submit'>
                         </div>
                         <br>
                         <a href="./loginC.php">Volver</a>
@@ -248,3 +253,29 @@ label a{
 </body>
 
 </html>
+
+<?php
+
+$contrasenia = MD5($_POST['contrasenia']);
+include("../conexion.php");
+if (isset($_POST['submit'])) {
+    $query=mysqli_query($conexion, "SELECT * FROM usuarios where nombre_usuario='".$_POST['usuario']."' and contrasenia='$contrasenia' ");
+
+    if(mysqli_num_rows($query)>0) {
+        //session_start();
+        $_SESSION['usuario'] = $_POST['usuario'];
+        echo"<script type='text/javascript'>
+        window.location = '../admin.php';
+        </script>";
+        //echo $_SESSION['usuario'];
+    }else{
+        echo"<script type='text/javascript'>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Usuario o contraseña incorrectos',
+        })
+        </script>";
+    }
+}
+?>
