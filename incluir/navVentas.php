@@ -47,9 +47,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item">
-                        <a class="cabecera" href="./index.php">
+
+                        <?php
+                        $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                        if ($archivo_actual == 'index.php') {?>
+                            <a class="cabecera" href="index.php">
+                            Imicio
+                            </a>
+                            
+                        <?php } 
+                        elseif ($archivo_actual != 'index.php') {?>
+                            <a class="cabecera" href="../index.php">
                             Inicio
-                        </a>
+                            </a>
+                        <?php } 
+                        ?>
                     </li>
                     <li class="nav-item">
                         <?php
@@ -70,7 +83,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="cabecera" href="./contactanos.php">
-                            Contacto
+                            Contacto directo
                         </a>
                     </li>
             
