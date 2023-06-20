@@ -17,7 +17,12 @@ if ($filasCliente) {
     $row = mysqli_fetch_assoc($resultadoCliente);
     $_SESSION['id_cliente'] = $row['id_cliente'];
     $_SESSION['rol'] = 'cliente';
-    header("location: /PROYECTONORD-MAIN/gestionVentas/menuProd.php?id_cliente=" . $row['id_cliente']);
+    echo "<script type='text/javascript'>
+    window.location = '../gestionVentas/menuProd.php?id_cliente=" . $row['id_cliente'] . "';
+    </script>";
+
+
+    // header("location: /PROYECTONORD-MAIN/gestionVentas/menuProd.php?id_cliente=" . $row['id_cliente']);
 } else {
     sleep(2);
     echo "<script type='text/javascript'>alert('Error en la autenticación');
@@ -25,6 +30,5 @@ if ($filasCliente) {
     </script>";
 }
 
-mysqli_free_result($resultado);
+mysqli_free_result($resultadoCliente);
 mysqli_close($conexion);
-?>
