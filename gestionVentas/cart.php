@@ -64,7 +64,7 @@ if (isset($_POST['guardar'])) {
     }
 }*/
 
-
+/*
 //este codigo funciona con un id_clinete ne especifico!!
 session_start();
 include('../conexion.php');
@@ -116,8 +116,8 @@ if (isset($_POST['guardar'])) {
         // Puedes agregar lógica adicional para manejar el error de forma adecuada
     }
 }
+*/
 
-/*
 //este codigo verifica el id_cliente
 session_start();
 include('../conexion.php');
@@ -174,9 +174,20 @@ if (isset($_POST['guardar'])) {
         header("Location: registrarCliente.php");
         exit();
     }
-}*/
+}
 
 
+if (isset($_POST['remove'])){
+    if ($_GET['action'] == 'remove'){
+        foreach ($_SESSION['cart'] as $key => $value){
+            if($value["id_prod"] == $_GET['id']){
+                unset($_SESSION['cart'][$key]);
+                echo "<script>alert('Producto eliminado')</script>";
+                echo "<script>window.location = 'cart.php'</script>";
+            }
+        }
+    }
+  }
 
 
 
@@ -270,23 +281,10 @@ if (isset($_SESSION['cart'])) {
 
 
 
-
-
-
-if (isset($_POST['remove'])){
-    if ($_GET['action'] == 'remove'){
-        foreach ($_SESSION['cart'] as $key => $value){
-            if($value["id_prod"] == $_GET['id']){
-                unset($_SESSION['cart'][$key]);
-                echo "<script>alert('Producto eliminado')</script>";
-                echo "<script>window.location = 'cart.php'</script>";
-            }
-        }
-    }
-  }
-
-
 ?>
+
+
+
 
 
 
@@ -348,7 +346,7 @@ document.addEventListener('click', function(event) {
 
 <body class="bg-light">
 
-<?php include('navVentas.php') ?>
+<?php include('../incluir/navVentas.php'); ?>
 
 
 <div class="container-fluid">

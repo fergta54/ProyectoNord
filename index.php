@@ -98,7 +98,36 @@ section{
     </style>
 </head>
 
+<<<<<<< Updated upstream
 <body>
+=======
+
+<body>
+
+
+<?php include('./incluir/navVentas.php'); ?>
+
+<h1 class="heading">
+        <span>d</span>
+        <span>e</span>
+        <span>s</span>
+        <span>t</span>
+        <span>i</span>
+        <span>n</span>
+        <span>o</span>
+        <span>s</span>
+        
+    </h1>
+
+<div class="wrapper">
+        <div class="content">
+             <p>Nordstern</p>
+
+
+
+<section>
+
+>>>>>>> Stashed changes
     
         <header class="navbar">
             <nav class="navbar navbar-expand-lg navbar-light">
