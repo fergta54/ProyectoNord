@@ -91,35 +91,34 @@
                         // echo '<script>Console.log("LLEGA")</script>';
                         $usuario = $_SESSION['usuario'];
                         $varRol = $_SESSION['rol'];
-                    }
-                    if ($varRol === 'cliente') {
+                        if ($varRol === 'cliente') {
                     ?>
-                        <li class="nav-item">
-                            <a class="cabecera" href="">
-                                Bienvenido <?php
-                                            echo $_SESSION['usuario'];
-                                            ?> !
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./perfilCliente.php">
-                                PERFIL
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./ayudaCliente.php">
-                                AYUDA
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./loginAzul/cerrarSesion.php">
-                                Cerrar Sesion
-                            </a>
-                        </li>
-                    <?php
-                    } // 
-                    else {
-                    ?>
+                            <li class="nav-item">
+                                <a class="cabecera" href="">
+                                    Bienvenido <?php
+                                                echo $_SESSION['usuario'];
+                                                ?> !
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="cabecera" href="./perfilCliente.php">
+                                    PERFIL
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="cabecera" href="./ayudaCliente.php">
+                                    AYUDA
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="cabecera" href="./loginAzul/cerrarSesion.php">
+                                    Cerrar Sesion
+                                </a>
+                            </li>
+                        <?php
+                        } // 
+                    } else {
+                        ?>
                         <li class="nav-item">
                             <a class="cabecera" href="./loginAzul/loginC.php">
                                 Login
