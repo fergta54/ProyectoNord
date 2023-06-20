@@ -5,11 +5,15 @@ function component($productname, $productprice, $productimg, $productid){
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
         <form action=\"menuProd.php\" method=\"post\">
             <div class=\"card shadow card-height\">
-                <div>
+                <div style=\"width: 100%; height: 200px; overflow: hidden;\">
                     <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top custom-image\">
                 </div>
                 <div class=\"card-body\">
-                    <h5 class=\"card-title\">$productname</h5>
+                    <h5 class=\"card-title\">
+                        <div class=\"card-title-text\">
+                            $productname
+                        </div>
+                    </h5>
                     <p class=\"card-text\"></p>
                     <h5>
                         <small><s class=\"text-secondary\"></s></small>
@@ -25,6 +29,8 @@ function component($productname, $productprice, $productimg, $productid){
     ";
     echo $element;
 }
+
+
 
 
 
@@ -75,8 +81,8 @@ function cartElement($productimg, $productname, $productprice, $productid, $quan
     <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
         <div class=\"border rounded\">
             <div class=\"row bg-white\">
-                <div class=\"col-md-3 pl-0\">
-                    <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
+                <div class=\"col-md-3 pl-0\">            
+                    <img src=$productimg alt=\"Image1\" class=\"img-fluid\" style=\"width: 300px; height: 200px;\">
                 </div>
                 <div class=\"col-md-6\">
                     <h5 class=\"pt-2\">$productname</h5>
