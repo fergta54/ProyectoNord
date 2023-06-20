@@ -122,8 +122,7 @@ if (isset($_POST['guardar'])) {
 
 //este codigo verifica el id_cliente
 session_start();
-include('../conexion.php');
-require_once('tarjetas.php');
+
 
 if (isset($_POST['guardar'])) {
     if (isset($_SESSION['id_cliente'])) {
@@ -193,7 +192,7 @@ if (isset($_POST['remove'])){
 
 
 
-session_start();
+
 
 // Función para decrementar la cantidad
 function decrementQuantity($productId) {
@@ -427,7 +426,7 @@ document.addEventListener('click', function(event) {
         <div id="paypal-payment-button"> 
     </div><br>  
     <button class="btn btn-info mx-2" style="align-content: center;" onclick="window.location.href = 'cancelar.php'">Generar Recibo</button>
-</div> <br>  
+</div> <br>  </div> 
 <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
 </body>

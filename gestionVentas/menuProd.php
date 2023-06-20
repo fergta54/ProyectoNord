@@ -219,9 +219,6 @@ if (isset($_POST['add'])) {
             }           
             echo "</div>
                   </div>";*/
-
-                  include('../conexion.php');
-                  session_start();
                   
                   // Verificar si se ha enviado el formulario y se ha seleccionado una tienda
                   if (isset($_POST['tienda'])) {
