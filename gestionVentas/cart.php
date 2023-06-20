@@ -121,8 +121,6 @@ if (isset($_POST['guardar'])) {
 */
 
 //este codigo verifica el id_cliente
-session_start();
-
 
 if (isset($_POST['guardar'])) {
     if (isset($_SESSION['id_cliente'])) {
