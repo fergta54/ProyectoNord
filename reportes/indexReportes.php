@@ -91,7 +91,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning btn-primary">Reporte Usuarios</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesUsuarios/ReportesUsuarios.php">
+                                <form action="./ReportesUsuarios/ReportesUsuarios.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesUsuarios/ReporteUsuariosExcel.php">Generar reporte de EXCEL</a>
@@ -102,7 +102,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Categorias</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesCategorias/ReporteCategoriasPDF.php">
+                                <form action="./ReportesCategorias/ReporteCategoriasPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesCategorias/ReporteCategoriasExcel.php">Generar reporte de EXCEL</a>
@@ -112,7 +112,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Marcas</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesMarcas/ReporteMarcasPDF.php">
+                                <form action="./ReportesMarcas/ReporteMarcasPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesMarcas/ReporteMarcasExcel.php">Generar reporte de EXCEL</a>
@@ -122,7 +122,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Proveedores</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesProveedores/ReporteProveedoresPDF.php">
+                                <form action="./ReportesProveedores/ReporteProveedoresPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesProveedores/ReporteProveedoresExcel.php">Generar reporte de EXCEL</a>
@@ -134,7 +134,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Productos</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesProductos/ReportesProductosPDF.php">
+                                <form action="./ReportesProductos/ReportesProductosPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesProductos/ReporteProductosExcel.php">Generar reporte de EXCEL</a>
@@ -144,7 +144,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Clientes</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesClientes/ReporteClientesPDF.php">
+                                <form action="./ReportesClientes/ReporteClientesPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesClientes/ReporteClientesExcel.php">Generar reporte de EXCEL</a>
@@ -154,7 +154,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Tiendas</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesTiendas/ReporteTiendasPDF.php">
+                                <form action="./ReportesTiendas/ReporteTiendasPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesTiendas/ReporteTiendasExcel.php">Generar reporte de EXCEL</a>
@@ -164,7 +164,7 @@
                         <div class="dropdown w-100">
                             <button class="dropbtn w-100 btn btn-warning">Reporte Inventario</button>
                             <div class="dropdown-content w-100">
-                                <form action="./ReportesInventario/ReporteInventarioPDF.php">
+                                <form action="./ReportesInventario/ReporteInventarioPDF.php" target="_blank">
                                     <button class="w-100" type="submit">Generar reporte en PDF</button>
                                 </form>
                                 <a class="text-center" href="./ReportesInventario/ReporteInventarioExcel.php">Generar reporte de EXCEL</a>
