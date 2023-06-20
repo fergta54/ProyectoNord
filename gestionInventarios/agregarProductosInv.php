@@ -49,10 +49,7 @@
                 <h2 id="tituloInvTienda"><?php echo $tienda[1] ?></h2>
                 <h3>Agregar productos al inventario</h3>
                 <br><br>
-                <button id="agregarProdInv" class="botonMostrarOcultos">
-                    <a href="agregarProductosInv.php?id=<?php echo $fila[5] ?>&">Agregar Productos</a></button>
-                <br>
-                <br>
+
 
                 <table class="tablaAgrProductos table table-bordered">
                     <thead class="thead-dark">

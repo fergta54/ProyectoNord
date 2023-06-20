@@ -81,7 +81,7 @@
                                             var data = <?php echo json_encode($fila[2]); ?>;
 
                                             function dataURItoBlob(dataURI) {
-                                                // convert base64/URLEncoded data component to raw binary data held in a string
+                                                
                                                 var byteString;
 
                                                 if (dataURI.split(',')[0].indexOf('base64') >= 0)
@@ -143,7 +143,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="10" id="mostrarInhabil"><b>Categorias inhabilitadas</b></td>
+                            <td colspan="10" id="mostrarInhabil"><b>Productos inhabilitados</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {

@@ -141,7 +141,7 @@
 
                         ?>
                         <tr id="tituloEliminado" style="display:none;">
-                            <td colspan="9" id="mostrarInhabil"><b>Categorias inhabilitadas</b></td>
+                            <td colspan="9" id="mostrarInhabil"><b>Tiendas inhabilitadas</b></td>
                         </tr>
                         <?php
                         if (!$conexion) {
