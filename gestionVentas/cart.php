@@ -317,7 +317,8 @@ if (isset($_POST['guardar'])) {
                 }
             }
 
-            header("Location: menuProd.php");
+            //header("Location: menuProd.php");
+            echo "<script>window.location = 'menuProd.php'</script>";
             exit();
         } else {
             // Maneja el error en caso de que la inserción en la tabla ventas falle
@@ -325,7 +326,7 @@ if (isset($_POST['guardar'])) {
             // Puedes agregar lógica adicional para manejar el error de forma adecuada
         }
     } else {
-        header("Location: ../registroAzul/registrarCliente.php");
+        echo "<script>window.location = '../registroAzul/registrarCliente.php'</script>";
         exit();
     }
 }
