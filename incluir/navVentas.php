@@ -36,7 +36,7 @@
                 
             <?php } 
             elseif ($archivo_actual != 'index.php') {?>
-                <a class="cabecera" href="../admin.php">
+                <a class="cabecera" href="../index.php">
             <img class="container-fluid" src="../recursos/img/lg.png" alt="logo" />
             </a>
             <?php } 
@@ -68,6 +68,11 @@
                         <?php } 
                         ?>
                     </li>
+                    <li class="nav-item">
+                                <a class="cabecera" href="../contactanos.php">
+                                    Contacto
+                                </a>
+                            </li>
                     <li class="nav-item">
                         <a class="cabecera" href="index.php">
                             Servicios
