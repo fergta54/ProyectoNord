@@ -275,7 +275,7 @@ session_start();
                 </ul>
               </li>
               <li>
-                <a href="../manuales/AZUL_MANUAL_USUARIO_ADMINISTRADOR.pdf" download class=""><i class="fa fa-line-chart"></i> Descargar manual</a>
+                <a href="./manuales/AZUL_MANUAL_USUARIO_ADMINISTRADOR.pdf"   download><i class="fa fa-download"></i> Descargar manual</a>
 
               </li>
 
@@ -440,7 +440,10 @@ session_start();
 
               <br>
               <!-- aqui va el codigo que borre de la verificacion para el logout -->
+              <li>
+                <a href="./manuales/AZUL_MANUAL_USUARIO_VENDEDOR.pdf" download><i class="fa fa-download"></i> Descargar manual</a>
 
+              </li>
               <li>
                 <a class="cabecera" href="./loginAzul/logout.php">
                   Cerrar Sesion

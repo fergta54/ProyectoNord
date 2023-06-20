@@ -156,7 +156,7 @@
                 ?>
             </a>
             <li class="cabecera" style="list-style-type: none;">
-                <a href=".manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
+                <a href="./manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
                     <i class="fas fa-download"></i> Manual
                 </a>
             </li>

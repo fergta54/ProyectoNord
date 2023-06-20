@@ -285,7 +285,7 @@ include('verificarSesionAdminNav.php');
                 </ul>
               </li>
               <li>
-                <a href="../manuales/AZUL_MANUAL_USUARIO_ADMINISTRADOR.pdf" download class=""><i class="fa fa-line-chart"></i> Descargar manual</a>
+                <a href="../manuales/AZUL_MANUAL_USUARIO_ADMINISTRADOR.pdf"  download><i class="fa fa-download"></i> Descargar manual</a>
 
               </li>
 
@@ -444,7 +444,7 @@ include('verificarSesionAdminNav.php');
 
               <br>
               <li>
-                <a href="../manuales/AZUL_MANUAL_USUARIO_VENDEDOR.pdf" download class=""><i class="fa fa-line-chart"></i> Reportes</a>
+                <a href="../manuales/AZUL_MANUAL_USUARIO_VENDEDOR.pdf" download><i class="fa fa-download"></i> Descargar Manual</a>
 
               </li>
               <li>
