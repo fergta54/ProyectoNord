@@ -26,16 +26,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorMessage = "Todos los campos deben ser llenados";
             break;
         }
+        
 
         //insertar un nuevo rol en la base de datos
         $sql = "INSERT INTO usuarios(nombre_completo, nombre_usuario, correo_usuario, contrasenia, id_rol, estado_usuario) 
             VALUES('$nombreUsuario', '$usuarioUsuario', '$correoUsuario', MD5('$contraseniaUsuario'), '$rolUsuario', '$estadoUsuario')";
         $result = $conexion->query($sql);
 
+
+        $u = "SELECT nombre_usuario FROM usuarios where nombre_usuario='$usuarioUsuario' ";
+        $u2 = "SELECT correo_usuario FROM usuarios where correo_usuario='$correoUsuario' ";
+        $uu = mysqli_query($conexion, $u);
+        $uu2 = mysqli_query($conexion, $u2);
         if (!$result) {
             $errorMessage = "Invalid query: " . $conexion->error;
             break;
+        }elseif(mysqli_num_rows($uu) > 0 ){
+            echo"<script type='text/javascript'>
+            alert('El nombre de usuario ya existe');
+            </script>";
+            break;
+        }elseif(mysqli_num_rows($uu2) > 0 ){
+            echo"<script type='text/javascript'>
+            alert('El correo electronico ya existe');
+            </script>";
+            break;
         }
+
+        // $u = "SELECT nombre_usuario FROM usuarios where nombre_usuario='$usuarioUsuario' ";
+        // $uu = mysqli_query($conexion, $u);
+        // if (mysqli_num_rows($uu) > 0){
+        //     echo"<script type='text/javascript'>
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Error',
+        //         text: 'Ese nonmbre de usuario ya existe',
+        //     })
+        //     </script>";
+        // }
 
         $nombreUsuario = "";
         $usuarioUsuario = "";

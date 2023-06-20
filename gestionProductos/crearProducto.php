@@ -139,21 +139,6 @@
 
 
     <br><br>
-    <?php
-    include("../conexion.php");
-
-    if (!$conexion) {
-        echo "Error en la conexion";
-    } else {
-
-        $consulta = mysqli_query($conexion, "SELECT COUNT(*) FROM  marcas")
-            or die("Problemas en la inserción" . mysqli_error($conexion));
-        $totalRegistros = mysqli_fetch_array($consulta);
-        echo "Cantidad de pasajeros en Objeto JSON: " . json_encode($totalRegistros);
-        //echo "<script type='text/javascript'>alert(".json_encode($totalRegistros).");</script>";
-
-    }
-    ?>
 
 
     </center>
