@@ -69,7 +69,7 @@
                         ?>
                     </li>
                     <li class="nav-item">
-                        <a class="cabecera" href="../index.php">
+                        <a class="cabecera" href="./contactanos.php">
                             Contacto
                         </a>
                     </li>

@@ -25,7 +25,6 @@ if ($varSession == null || $varSession = '' || $varRol != 'Administrador') {
         window.location.href = '../loginAzul/login.php';
         </script>";
     //header("Location:../loginAzul/login.php");
-    die();
 }
 
 // if ($varRol != 'Administrador') {
