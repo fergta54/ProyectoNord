@@ -92,7 +92,7 @@
                         <select style="width:600px;" class="form-control-lg w-100" name="catProd" required>
                             <?php
                             $query1 = mysqli_query($conexion, "SELECT id_categoria,nombre_categoria FROM categorias 
-                                                    where estado_categoria=1");
+                                                    where estado_categoria=1 order by nombre_categoria");
 
                             $verFilas1 = mysqli_num_rows($query1);
                             $valores1 = mysqli_fetch_array($query1);
@@ -112,7 +112,7 @@
                         <select style="width:600px;" class="form-control-lg w-100" name="marcaProd" required>
                             <?php
                             $query2 = mysqli_query($conexion, "SELECT id_marca,nombre_marca FROM marcas 
-                                                    where estado_marca=1");
+                                                    where estado_marca=1 order by nombre_marca");
 
                             $verFilas2 = mysqli_num_rows($query2);
                             $valores2 = mysqli_fetch_array($query2);

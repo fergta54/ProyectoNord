@@ -210,9 +210,10 @@
                         <input name="precioProducto" class="form-control-lg w-100" id="precioProducto" type="number" step="any" required value="<?php echo $precio; ?>">
                         <br>
                         <label for="catProd">Seleccione la categoría</label>&emsp;&emsp;&emsp;&emsp;
-                        <select style="width:600px;" class="form-control" name="catProd" required>
+                        <select style="width:600px;" class="form-control-lg w-100" name="catProd" required>
                             <?php
-                            $query1 = mysqli_query($conexion, "SELECT id_categoria,nombre_categoria FROM categorias");
+                            $query1 = mysqli_query($conexion, "SELECT id_categoria,nombre_categoria FROM categorias 
+                                                                order by nombre_categoria");
 
                             $verFilas1 = mysqli_num_rows($query1);
                             $valores1 = mysqli_fetch_array($query1);
@@ -233,9 +234,10 @@
                         </select>
                         <br>
                         <label for="marcaProd">Seleccione la marca</label>&emsp;&emsp;&emsp;&emsp;
-                        <select style="width:600px;" class="form-control" name="marcaProd" required>
+                        <select style="width:600px;" class="form-control-lg w-100" name="marcaProd" required>
                             <?php
-                            $query2 = mysqli_query($conexion, "SELECT id_marca,nombre_marca FROM marcas");
+                            $query2 = mysqli_query($conexion, "SELECT id_marca,nombre_marca FROM marcas
+                                                        order by nombre_marca");
 
                             $verFilas2 = mysqli_num_rows($query2);
                             $valores2 = mysqli_fetch_array($query2);
