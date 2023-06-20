@@ -46,7 +46,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="cabecera" href="../index.php">
                             Inicio
                         </a>
@@ -69,18 +69,8 @@
                         ?>
                     </li>
                     <li class="nav-item">
-                                <a class="cabecera" href="../contactanos.php">
-                                    Contacto
-                                </a>
-                            </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Servicios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Sucursales
+                        <a class="cabecera" href="../index.php">
+                            Contacto
                         </a>
                     </li>
             
@@ -114,11 +104,10 @@
                                 Login
                             </a>
                         </li>
-                        <li class="nav-item">
-                            
+                        <li class="nav-item">   
                             <?php
                             $archivo_actual = basename($_SERVER['PHP_SELF']);
-                             
+                            
                             if ($archivo_actual == 'index.php') {?>
                                 <a class="cabecera" href="./registroAzul/registrarCliente.php">
                                 SIGN up
@@ -136,8 +125,6 @@
                     ?>
                 </ul>
             </div>
-
-
                 <a href="cart.php" class="nav-item nav-link active">
                         <i class="fas fa-shopping-cart"></i> 
                         <?php
