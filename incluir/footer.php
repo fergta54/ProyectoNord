@@ -7,7 +7,6 @@
   <style>
     body {
       margin: 0;
-      padding-bottom: 70px; /* valor según el tamaño del footer */
     }
 
     .footer {

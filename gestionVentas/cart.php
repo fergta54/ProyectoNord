@@ -4,50 +4,6 @@ require_once("tarjetas.php");
 include('../conexion.php');
 ?>
 
-
-
-
-
-
-
-
-
-
-<script>
-    /*
-// Función para decrementar la cantidad
-function decrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    if (currentQuantity > 2) {
-        let newQuantity = currentQuantity - 1;
-        quantityInput.value = newQuantity;
-    }
-}
-
-// Función para incrementar la cantidad
-function incrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    let newQuantity = currentQuantity + 1;
-    quantityInput.value = newQuantity;
-}
-
-// Escucha los eventos de clic en los botones de incremento y decremento
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('decrement-btn')) {
-        let productId = event.target.dataset.productid;
-        decrementQuantity(productId);
-    } else if (event.target.classList.contains('increment-btn')) {
-        let productId = event.target.dataset.productid;
-        incrementQuantity(productId);
-    }
-});*/
-</script>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -112,10 +68,6 @@ document.addEventListener('click', function(event) {
                     } else {
                         echo "<h5>Carrito vacío</h5>";
                     }
-
-
-
-
                     ?>
                 </div>
             </div>
@@ -156,8 +108,9 @@ document.addEventListener('click', function(event) {
     </div>
     <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
+ <?php include('../incluir/footer.php'); ?>   
 </body>
-<?php include('../incluir/footer.php'); ?>
+
 
 </html>
 
@@ -346,8 +299,6 @@ if (isset($_POST['remove'])) {
 
 
 
-
-
 // Función para decrementar la cantidad
 function decrementQuantity($productId)
 {
@@ -429,7 +380,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-/*
+
 // Obtener el total de productos agregados al carrito
 $totalQuantity = 0;
 if (isset($_SESSION['cart'])) {
@@ -437,7 +388,7 @@ if (isset($_SESSION['cart'])) {
         $totalQuantity += $item['quantity'];
     }
 }
-*/
+
 
 
 ?>

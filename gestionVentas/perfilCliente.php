@@ -354,7 +354,7 @@ if (isset($_POST['guardar_imagen'])) {
         </div>
     </div>
     </div>
-    </div>
+
     <script>
                                 function habilitarEdicion() {
                                     // Habilitar los campos de entrada de texto
@@ -369,8 +369,8 @@ if (isset($_POST['guardar_imagen'])) {
                                 }
                             </script>
     <script src="../recursos/js/bootstrap.bundle.min.js"></script>
-    <?php include('../incluir/footer.php'); ?>
+
 
 </body>
-
+    <?php include('../incluir/footer.php'); ?>
 </html>
