@@ -100,7 +100,7 @@
                     else {
                     ?>
                         <li class="nav-item">
-                            <a class="cabecera" href="./loginAzul/login.php">
+                            <a class="cabecera" href="./loginAzul/loginC.php">
                                 Login
                             </a>
                         </li>
