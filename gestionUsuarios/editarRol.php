@@ -7,7 +7,10 @@ include('../conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!isset($_GET["id_rol"])) {
-        header("location: ../gestionUsuarios/listarRoles.php");
+        //header("location: ../gestionUsuarios/listarRoles.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarRoles.php';
+        </script>";
         exit;
     }
 
@@ -18,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $row = $result->fetch_assoc();
 
     if (!$row) {
-        header("location: ../gestionUsuarios/listarRoles.php");
+        //header("location: ../gestionUsuarios/listarRoles.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarRoles.php';
+        </script>";
         exit;
     }
 
@@ -43,7 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
 
         $successMessage = "Informacion editada correctamente";
-        header("location: ../gestionUsuarios/listarRoles.php");
+        //header("location: ../gestionUsuarios/listarRoles.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarRoles.php';
+        </script>";
         exit;
     } while (false);
 }

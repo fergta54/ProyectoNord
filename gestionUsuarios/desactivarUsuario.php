@@ -7,7 +7,10 @@ if(isset($_GET["id_usuario"])){
     $sql = "UPDATE usuarios SET estado_usuario = 2 WHERE id_usuario = $id_usuario";
     $conexion->query($sql);
 
-    header("location: ./listarUsuarios.php");
+    //header("location: ./listarUsuarios.php");
+    echo"<script type='text/javascript'>
+        window.location = './listarUsuarios.php';
+        </script>";
     exit;
 }
 ?>

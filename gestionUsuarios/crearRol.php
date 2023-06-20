@@ -31,7 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $successMessage = "Rol añadido correctamente";
 
-        header("location: ../gestionUsuarios/listarRoles.php");
+        //header("location: ../gestionUsuarios/listarRoles.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarRoles.php';
+        </script>";
         exit;
     } while (false);
 }

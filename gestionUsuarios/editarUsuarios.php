@@ -11,7 +11,10 @@ include('../conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (!isset($_GET["id_usuario"])) {
-        header("location: ../gestionUsuarios/listarUsuarios.php");
+        //header("location: ../gestionUsuarios/listarUsuarios.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarUsuarios.php';
+        </script>";
         exit;
     }
 
@@ -22,7 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $row = $result->fetch_assoc();
 
     if (!$row) {
-        header("location: ../gestionUsuarios/listarUsuarios.php");
+        //header("location: ../gestionUsuarios/listarUsuarios.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarUsuarios.php';
+        </script>";
         exit;
     }
 
@@ -58,7 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
 
         $successMessage = "Informacion editada correctamente";
-        header("location: ../gestionUsuarios/listarUsuarios.php");
+        //header("location: ../gestionUsuarios/listarUsuarios.php");
+        echo"<script type='text/javascript'>
+        window.location = '../gestionUsuarios/listarUsuarios.php';
+        </script>";
         exit;
     } while (false);
 }
