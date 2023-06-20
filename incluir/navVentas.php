@@ -53,7 +53,7 @@
 
                         if ($archivo_actual == 'index.php') {?>
                             <a class="cabecera" href="index.php">
-                            Imicio
+                            Inicio
                             </a>
                             
                         <?php } 
@@ -83,7 +83,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="cabecera" href="./contactanos.php">
-                            Contacto directo
+                            Contacto
                         </a>
                     </li>
             
