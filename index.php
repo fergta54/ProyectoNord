@@ -31,7 +31,7 @@ $varRol = null;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
     }
-
+/* 
 section{
     position:relative;
     width: 100%;
@@ -94,6 +94,50 @@ section{
 }
 .content .imgBoxa img{
     max-width: 100%;
+} */
+.banner{
+    width:100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('./recursos/img/CiscoProductPortfolio.jpg');
+    background-size: cover;
+    background-position:center;
+}
+.content2{
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    text-align:center;
+    color:#fff;
+}
+.content2 .h1C{
+    font-size: 70px;
+    margin-top:80px;
+    background:none;
+    color:#fff;
+}
+.content2 p{
+    margin:20px, auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+.btnC{
+    width:200px;
+    height: 50px;
+    padding: 15px, 0;
+    text-align: center;
+    margin: 20px, 10px;
+    border-radius:25px;
+    font-weight: bold;
+    border: 2px, solid;
+    border-color: orange;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+.btnC:hover{
+    background-color: orange;
+    color: #fff;
 }
 
     </style>
@@ -102,87 +146,49 @@ section{
 
 <body>
     
-        <!-- <header class="navbar">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container px-4 px-lg-5">
-                    <a class="cabecera" href="index.php">
-                        <img src="./recursos/img/lg.png" alt="logo" />
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
-                        <ul  class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4  ">
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Inicio
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Servicios
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="./gestionVentas/menuProd.php">
-                                    Comprar
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Sucursales
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Sobre Nosotros
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="./contactanos.php">
-                                    Contacto
-                                </a>
-                            </li>
-
-                                <li class="nav-item">
-                                    <a class="cabecera" href="./loginAzul/login.php">
-                                        Login
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="cabecera" href="./registroAzul/registrarCliente.php">
-                                        SIGN IN
-                                    </a>
-                                </li>
-                        </ul>
-                    </div> -->
+        
 
 
 <?php include('./incluir/navVentas.php'); ?>
 
 
+    <div class="banner">
+    <!-- <section>
 
-        <section>
-        <div class="content">
-            <div class="textBox">
-                <h2>sdf sdf sdf sdfsds <br>sdff <span class="span">NORDSTERN</span></h2>
-                <p>sadfsadfsadfsadfasdfsadfklafjdlsjflsdfjlsdjflskjflskdjflsdlfjkdslfjsdf
-                    sadfasdfsadñlkfjsaldkfjldskjflsjfklsdjfklsjdfklsjdfklsdjflksdjflksdjfl
-                    sdfjsdkjfskdjfsldjflsdjfklsdjflksdjflksdjfkdsjflksdjkfsdjiejoihtwoi.
-                </p>
-                <a href="../gestionVentas/menuProd.php">Comprar</a>
+            <div class="content">
+                <div class="textBox">
+                    <h2>sdf sdf sdf sdfsds <br>sdff <span class="span">NORDSTERN</span></h2>
+                    <p>sadfsadfsadfsadfasdfsadfklafjdlsjflsdfjlsdjflskjflskdjflsdlfjkdslfjsdf
+                        sadfasdfsadñlkfjsaldkfjldskjflsjfklsdjfklsjdfklsjdfklsdjflksdjflksdjfl
+                        sdfjsdkjfskdjfsldjflsdjfklsdjflksdjflksdjfkdsjflksdjkfsdjiejoihtwoi.
+                    </p>
+                    <a href="../gestionVentas/menuProd.php">Comprar</a>
+                </div>
+                <div class="imgBoxa">
+                    <img src="./recursos/img/routerC.png" class="persona">
+                </div>
             </div>
-            <div class="imgBoxa">
-                <img src="./recursos/img/routerC.png" class="persona">
-            </div>
+            <ul class="thumb">
+                <li><img src="./recursos/img/switchC.png" alt=""></li>
+                <li><img src="./recursos/img/cableC.png" alt=""></li>
+                <li><img src="./recursos/img/laptop3C.png" alt=""></li>
+                <li><img src="./recursos/img/firewallC.png" alt=""></li>
+            </ul> 
+        </section>   -->
+
+    
+    </div>
+         
+    <div class="content2">
+        <h1 class="h1C">Diseña tus redes</h1>
+        
+        <p>Compra todos los producto necesarios para telecomunicaciones. <br> Registrate para comprar los mejores products de telecomunicaciones</p>
+        
+        <div>
+            <button class="btnC" type="button">Comprar</button>
+            <button class="btnC" type="button">Registrarse</button>
         </div>
-        <!-- <ul class="thumb">
-            <li><img src="./recursos/img/switchC.png" alt=""></li>
-            <li><img src="./recursos/img/cableC.png" alt=""></li>
-            <li><img src="./recursos/img/laptop3C.png" alt=""></li>
-            <li><img src="./recursos/img/firewallC.png" alt=""></li>
-        </ul> -->
-      </section>   
+    </div>
 
       
 </body>
