@@ -120,10 +120,8 @@
 
                                             imgEditarCat.src = objectURL;
                                         </script>
-                                        <label>Logo de la Categoria</label>
                                         <input type="file" accept="image/*" class="localCat22" id="logocat">
                                         <input name="lgcli" id="lgcli" type="hidden" value="<?php echo $dataLogo; ?>">
-                                        <input type="button" onclick="ponerImagenDefecto()" value="Eliminar imagen">
 
                                         <script>
                                             function ponerImagenDefecto() {
