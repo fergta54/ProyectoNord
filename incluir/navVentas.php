@@ -110,9 +110,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="cabecera" href="./registroAzul/registrarCliente.php">
+                            <?php
+                            $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                            if ($archivo_actual == 'index.php') {?>
+                                <a class="cabecera" href="./registroAzul/registrarCliente.php">
                                 SIGN IN
-                            </a>
+                                </a>                              
+                            <?php } 
+                            elseif ($archivo_actual != 'index.php') {?>
+                                <a class="cabecera" href="../registroAzul/registrarCliente.php">
+                                SIGN IN
+                                </a>
+                            <?php } 
+                            ?>
                         </li>
                     <?php
                     }

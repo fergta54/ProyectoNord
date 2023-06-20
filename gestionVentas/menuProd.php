@@ -11,7 +11,7 @@ if (isset($_POST['add'])) {
         $item_array_id = array_column($_SESSION['cart'], "id_prod");
 
         if (in_array($_POST['id_prod'], $item_array_id)) {
-            echo "<script>alert('El producto ya está en el carrito')</script>";
+            //echo "<script>alert('El producto ya está en el carrito')</script>";
         } else {
             // Verificar el stock del producto en la tienda
             $producto_id = $_POST['id_prod'];
@@ -27,7 +27,7 @@ if (isset($_POST['add'])) {
                 );
 
                 $_SESSION['cart'][$count] = $item_array;
-                echo "<script>alert('Producto agregado al carrito')</script>";
+                //echo "<script>alert('Producto agregado al carrito')</script>";
             } else {
                 echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
             }
@@ -46,7 +46,7 @@ if (isset($_POST['add'])) {
             );
             // Create new session variable
             $_SESSION['cart'][0] = $item_array;
-            echo "<script>alert('Producto agregado al carrito')</script>";
+            //echo "<script>alert('Producto agregado al carrito')</script>";
         } else {
             echo "<script>alert('El producto seleccionado no está disponible en el inventario de la tienda')</script>";
         }
