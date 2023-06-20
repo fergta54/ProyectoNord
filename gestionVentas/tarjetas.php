@@ -106,6 +106,7 @@ function cartElement($productimg, $productname, $productprice, $productid, $quan
         </div>
     </form>"; 
 
+    
     echo $element;
 }
 

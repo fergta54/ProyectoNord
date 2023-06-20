@@ -363,6 +363,7 @@ if (isset($_POST['add'])) {
     }
 }
 
+
 // Procesar las acciones de incremento o decremento
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productId = $_POST['productId'];
