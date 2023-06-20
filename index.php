@@ -82,16 +82,17 @@ section{
 .content .textBox a:hover{
     background: #333333;
 }
-.content .imgBox{
+.content .imgBoxa{
     width: 600px;
     height: 400px;
     display: flex;
     justify-content: flex-end;
     padding-right: 50px;
     margin-top: 50px;
+    
 
 }
-.content .imgBox img{
+.content .imgBoxa img{
     max-width: 100%;
 }
 
@@ -171,7 +172,7 @@ section{
                 </p>
                 <a href="#">Comprar</a>
             </div>
-            <div class="imgBox">
+            <div class="imgBoxa">
                 <img src="./recursos/img/routerC.png" class="persona">
             </div>
         </div>
@@ -182,5 +183,6 @@ section{
             <li><img src="./recursos/img/firewallC.png" alt=""></li>
         </ul> -->
       </section>   
+      
 </body>
 </html>
