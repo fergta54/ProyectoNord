@@ -101,7 +101,7 @@ section{
 
 <body>
     
-        <header class="navbar">
+        <!-- <header class="navbar">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container px-4 px-lg-5">
                     <a class="cabecera" href="index.php">
@@ -154,7 +154,7 @@ section{
                                     </a>
                                 </li>
                         </ul>
-                    </div>
+                    </div> -->
 
 
 <?php include('./incluir/navVentas.php'); ?>
