@@ -161,7 +161,7 @@ section{
 <?php include('./incluir/navVentas.php'); ?>
 
 
-<section>
+
         <section>
         <div class="content">
             <div class="textBox">
@@ -183,7 +183,7 @@ section{
             <li><img src="./recursos/img/firewallC.png" alt=""></li>
         </ul> -->
       </section>   
-      </section> 
+
       
 </body>
 <?php include('./incluir/footer.php'); ?>
