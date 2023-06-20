@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
     .nav-item {
-    margin-right: 20px;
+    margin-right: 25px;
     }
     </style>
 </head>
@@ -46,8 +46,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item">
-                        <a class="cabecera" href="./index.php">
+                    <li class="nav-item">
+                        <a class="cabecera" href="../index.php">
                             Inicio
                         </a>
                     </li>
@@ -57,30 +57,20 @@
 
                         if ($archivo_actual == 'index.php') {?>
                             <a class="cabecera" href="./gestionVentas/menuProd.php">
-                            Productos
+                            Compras
                             </a>
                             
                         <?php } 
                         elseif ($archivo_actual != 'index.php') {?>
                             <a class="cabecera" href="menuProd.php">
-                            Productos
+                            Compras
                             </a>
                         <?php } 
                         ?>
                     </li>
                     <li class="nav-item">
-                                <a class="cabecera" href="./contactanos.php">
-                                    Contacto
-                                </a>
-                            </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Servicios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="cabecera" href="index.php">
-                            Sucursales
+                        <a class="cabecera" href="../index.php">
+                            Contacto
                         </a>
                     </li>
             
@@ -114,18 +104,27 @@
                                 Login
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="cabecera" href="./registroAzul/registrarCliente.php">
-                                SIGN IN
-                            </a>
+                        <li class="nav-item">   
+                            <?php
+                            $archivo_actual = basename($_SERVER['PHP_SELF']);
+                            
+                            if ($archivo_actual == 'index.php') {?>
+                                <a class="cabecera" href="./registroAzul/registrarCliente.php">
+                                SIGN up
+                                </a>                              
+                            <?php } 
+                            elseif ($archivo_actual != 'index.php') {?>
+                                <a class="cabecera" href="../registroAzul/registrarCliente.php">
+                                SIGN up
+                                </a>
+                            <?php } 
+                            ?>
                         </li>
                     <?php
                     }
                     ?>
                 </ul>
             </div>
-
-
                 <a href="cart.php" class="nav-item nav-link active">
                         <i class="fas fa-shopping-cart"></i> 
                         <?php

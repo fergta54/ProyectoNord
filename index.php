@@ -185,4 +185,5 @@ section{
       </section>   
       
 </body>
+<?php include('../incluir/footer.php'); ?>
 </html>

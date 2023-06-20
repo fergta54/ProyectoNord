@@ -19,6 +19,7 @@
       background-color: #333;
       color: #888;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .footer p {
@@ -41,6 +42,11 @@
       color: white; /* Color del texto del enlace */
       text-decoration: none; /* Eliminar subrayado del enlace */
     }
+
+    .footer ul li a:hover {
+      color: royalblue;
+      text-decoration: none;
+    }    
 
 </style>
  

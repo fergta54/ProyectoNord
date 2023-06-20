@@ -64,6 +64,8 @@ if (isset($_POST['guardar'])) {
     }
 }*/
 
+
+
 /*
 //este codigo funciona con un id_clinete ne especifico!!
 session_start();
@@ -171,7 +173,7 @@ if (isset($_POST['guardar'])) {
             // Puedes agregar lógica adicional para manejar el error de forma adecuada
         }
     } else {
-        header("Location: registrarCliente.php");
+        header("Location: ../registroAzul/registrarCliente.php");
         exit();
     }
 }
