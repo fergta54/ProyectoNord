@@ -66,6 +66,7 @@
             <button onClick="mostrarGrafico1()">Mostrar primer grafico</button> -->
 
       <div class="container">
+        <br><br>
         <h1>Consulta 3: Montos vendidos por mes</h1>
 
         <div id="graficoMontos" style="width:1200px;height:800px;"></div>

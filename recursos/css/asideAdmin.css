@@ -110,7 +110,7 @@ a[data-toggle="collapse"] {
   }
 }
 
-#bienvenida {
+.bienvenida {
   background-color: aqua;
   color: red;
 }

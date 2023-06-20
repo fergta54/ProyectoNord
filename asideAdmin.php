@@ -294,8 +294,8 @@ session_start();
               </li>
             </ul>
           </div>
-          <div class="footer" id="bienvenida">
-            <p>Bienvenido <?php echo $role; ?></p>
+          <div class="footer">
+            <p class="bienvenida">Bienvenido <?php echo $role; ?></p>
           </div>
           <div class="footer">
             <p>Grupo Azul</p>
