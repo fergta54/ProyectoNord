@@ -115,12 +115,12 @@
 
                             if ($archivo_actual == 'index.php') {?>
                                 <a class="cabecera" href="./registroAzul/registrarCliente.php">
-                                SIGN IN
+                                SIGN UP
                                 </a>                              
                             <?php } 
                             elseif ($archivo_actual != 'index.php') {?>
                                 <a class="cabecera" href="../registroAzul/registrarCliente.php">
-                                SIGN IN
+                                SIGN UP
                                 </a>
                             <?php } 
                             ?>
