@@ -205,7 +205,7 @@ label a{
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a id="anav" class="nav-link" href="../loginAzul/login.php">
+                                <a id="anav" class="nav-link" href="../loginAzul/loginC.php">
                                     Log In
                                 </a>
                             </li>
