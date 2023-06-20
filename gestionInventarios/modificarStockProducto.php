@@ -70,89 +70,84 @@
             }
 
             ?>
-            <div class="row">
-                <div class="col-2">
-                    <?php include('../incluir/asideNavAdmin.php') ?>
-                </div>
-                <div class="col-10">
-                    <div class="container my-5 w-50">
-                        <h2 class="text-center">Modificar Stock del Producto</h2>
-                        <h3>Tienda <?php echo $tienda ?></h3>
 
-                        <form action="modificarStockProducto.php?id_inv=<?php echo $_GET['id_inv']; ?>" method="POST">
-                            <div class="form-group">
-                                <!-- <label for="tienda">Nombre de la tienda</label><br>
+            <div class="container my-5 w-50">
+                <h2 class="text-center">Modificar Stock del Producto</h2>
+                <h3>Tienda <?php echo $tienda ?></h3>
+
+                <form action="modificarStockProducto.php?id_inv=<?php echo $_GET['id_inv']; ?>" method="POST">
+                    <div class="form-group">
+                        <!-- <label for="tienda">Nombre de la tienda</label><br>
                         <input name="tienda" type="text" class="form-control-lg w-100" value="<?php echo $tienda; ?>" readonly>
                         <br><br> -->
-                                <label for="nombre">Nombre del producto</label><br>
-                                <input name="nombre" type="text" class="form-control-lg w-100" value="<?php echo $producto; ?>" readonly>
-                                <br><br>
-                                <center>
-                                    <label for="imgProd">Imagen del producto</label><br>
-                                    <img id="imgProd" width="150">
-                                </center>
-                                <br><br>
-                                <script>
-                                    var data = <?php echo json_encode($dataImagen); ?>;
+                        <label for="nombre">Nombre del producto</label><br>
+                        <input style="background-color:#C1BEBC;" name="nombre" type="text" class="form-control-lg w-100" value="<?php echo $producto; ?>" readonly>
+                        <br><br>
+                        <center>
+                            <label for="imgProd">Imagen del producto</label><br>
+                            <img id="imgProd" width="150">
+                        </center>
+                        <br><br>
+                        <script>
+                            var data = <?php echo json_encode($dataImagen); ?>;
 
-                                    function dataURItoBlob(dataURI) {
-                                        // convert base64/URLEncoded data component to raw binary data held in a string
-                                        var byteString;
+                            function dataURItoBlob(dataURI) {
+                                // convert base64/URLEncoded data component to raw binary data held in a string
+                                var byteString;
 
-                                        if (dataURI.split(',')[0].indexOf('base64') >= 0)
-                                            byteString = atob(dataURI.split(',')[1]);
-                                        else
-                                            byteString = unescape(dataURI.split(',')[1]);
+                                if (dataURI.split(',')[0].indexOf('base64') >= 0)
+                                    byteString = atob(dataURI.split(',')[1]);
+                                else
+                                    byteString = unescape(dataURI.split(',')[1]);
 
-                                        // separate out the mime component
-                                        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+                                // separate out the mime component
+                                var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-                                        // write the bytes of the string to a typed array
-                                        var ia = new Uint8Array(byteString.length);
-                                        for (var i = 0; i < byteString.length; i++) {
-                                            ia[i] = byteString.charCodeAt(i);
-                                        }
+                                // write the bytes of the string to a typed array
+                                var ia = new Uint8Array(byteString.length);
+                                for (var i = 0; i < byteString.length; i++) {
+                                    ia[i] = byteString.charCodeAt(i);
+                                }
 
-                                        return new Blob([ia], {
-                                            type: mimeString
-                                        });
-                                    }
-                                    var dataURI = data;
+                                return new Blob([ia], {
+                                    type: mimeString
+                                });
+                            }
+                            var dataURI = data;
 
-                                    var blob = dataURItoBlob(dataURI);
-                                    var objectURL = URL.createObjectURL(blob);
+                            var blob = dataURItoBlob(dataURI);
+                            var objectURL = URL.createObjectURL(blob);
 
-                                    imgProd.src = objectURL;
-                                </script>
+                            imgProd.src = objectURL;
+                        </script>
 
-                                <label for="descripcion">Descripción</label><br>
-                                <input name="descripcion" type="text" class="form-control-lg w-100" cols="100" rows="30" value="<?php echo $descripcion; ?>" readonly>
-                                <br>
-                                <label for="precioProducto">Precio de compra</label><br>
-                                <input name="precioProducto" class="form-control-lg w-100" id="precioProducto" type="number" step="any" required value="<?php echo $precio; ?>" readonly>
-                                <br>
-                                <label for="categoriaProducto">Categoría</label><br>
-                                <input name="categoriaProducto" class="form-control-lg w-100" id="categoriaProducto" type="text" step="any" required value="<?php echo $categoria; ?>" readonly>
-                                <br>
-                                <label for="marcaProducto">Marca</label><br>
-                                <input name="marcaProducto" class="form-control-lg w-100" id="marcaProducto" type="text" step="any" required value="<?php echo $marca; ?>" readonly>
-                                <br>
-                                <label for="stockInv">Ingrese el stock disponible en la tienda</label><br>
-                                <input name="stockInv" class="form-control-lg w-100" id="stockInv" type="number" step="any" required value="<?php echo $stock; ?>">
-                                <br>
-                            </div>
-
-                            <a href="./adminProductos.php" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
-                            <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Guardar stock de la tienda</button>
-                        </form>
+                        <label for="descripcion">Descripción</label><br>
+                        <input style="background-color:#C1BEBC;" name="descripcion" type="text" class="form-control-lg w-100" cols="100" rows="30" value="<?php echo $descripcion; ?>" readonly>
+                        <br>
+                        <label for="precioProducto">Precio de compra</label><br>
+                        <input style="background-color:#C1BEBC;" name="precioProducto" class="form-control-lg w-100" id="precioProducto" type="number" step="any" required value="<?php echo $precio; ?>" readonly>
+                        <br>
+                        <label for="categoriaProducto">Categoría</label><br>
+                        <input style="background-color:#C1BEBC;" name="categoriaProducto" class="form-control-lg w-100" id="categoriaProducto" type="text" step="any" required value="<?php echo $categoria; ?>" readonly>
+                        <br>
+                        <label for="marcaProducto">Marca</label><br>
+                        <input style="background-color:#C1BEBC;" name="marcaProducto" class="form-control-lg w-100" id="marcaProducto" type="text" step="any" required value="<?php echo $marca; ?>" readonly>
+                        <br>
+                        <label for="stockInv">Ingrese el stock disponible en la tienda</label><br>
+                        <input name="stockInv" class="form-control-lg w-100" id="stockInv" type="number" step="any" required value="<?php echo $stock; ?>">
+                        <br>
                     </div>
-                </div>
-            </div>
 
-            <?php //include('includes/footer.php'); 
-            ?>
+                    <a href="./invenTienda.php?id=<?php echo $id_tienda ?>" class="btn btn-primary btn-danger btn-lg w-100">Cancelar</a> <br><br>
+                    <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Guardar stock de la tienda</button>
+                </form>
+            </div>
         </div>
     </div>
+
+    <?php //include('includes/footer.php'); 
+    ?>
+
 
 </body>
 

@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../recursos/css/index.css">
+    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
+    <script src="../recursos/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -16,11 +20,11 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <form action="eliminarTienda.php?id=<?php echo $_GET['id']; ?>" method="POST">
+            <!-- <form action="eliminarTienda.php?id=<?php echo $_GET['id']; ?>" method="POST">
                 <button type="submit" id="botonOcultoEliminar" name="botonOcultoEliminar" hidden></button>
-            </form>
+            </form> -->
             <?php
-            if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
+            if (isset($_GET['id'])) {
                 include('../conexion.php');
                 $id = $_GET['id'];
                 $query2 = "UPDATE tiendas set estado_tienda = 2 WHERE id_tienda=$id";
@@ -29,17 +33,12 @@
                 //             echo "<script type='text/javascript'>alert('La tienda ha sido desactivada');
                 // window.location = './adminTiendas.php';
                 // </script>";
-                echo "<script type='text/javascript'>
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Desctivación',
-                        text: 'La tienda ha sido desactivada',
-                    })
+                echo "<script type='text/javascript'>                    
                     window.location = './adminTiendas.php';
                     </script>";
             }
             ?>
-            <script>
+            <!-- <script>
                 if (verificarEliminacion()) {
                     document.getElementById("botonOcultoEliminar").click();
                 } else {
@@ -55,7 +54,7 @@
                         return false;
                     }
                 }
-            </script>
+            </script> -->
 
         </div>
     </div>

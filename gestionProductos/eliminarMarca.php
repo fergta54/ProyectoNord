@@ -21,12 +21,12 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <form action="eliminarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
+            <!-- <form action="eliminarMarca.php?id=<?php echo $_GET['id']; ?>" method="POST">
                 <button type="submit" id="botonOcultoEliminar" name="botonOcultoEliminar" hidden></button>
-            </form>
+            </form> -->
 
             <?php
-            if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
+            if (isset($_GET['id'])) {
                 include('../conexion.php');
                 $id = $_GET['id'];
                 $query2 = "UPDATE marcas set estado_marca = 2 WHERE id_marca=$id";
@@ -37,17 +37,13 @@
                 //     </script>";
 
                 echo "<script type='text/javascript'>
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Desctivación',
-                        text: 'La marca ha sido desactivada',
-                    })
+                    
                     window.location = './adminMarcas.php';
                     </script>";
             }
             ?>
 
-            <script>
+            <!-- <script>
                 if (verificarEliminacion()) {
                     document.getElementById("botonOcultoEliminar").click();
                 } else {
@@ -63,7 +59,7 @@
                         return false;
                     }
                 }
-            </script>
+            </script> -->
         </div>
     </div>
 </body>

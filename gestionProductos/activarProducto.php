@@ -41,13 +41,13 @@
                 // </script>";
 
                 echo "<script type='text/javascript'>
-    Swal.fire({
-        icon: 'success',
-        title: 'Activación',
-        text: 'El producto ha sido activado',
-    })
-    window.location = './adminProductos.php';
-    </script>";
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Activación',
+                        text: 'El producto ha sido activado',
+                    })
+                    window.location = './adminProductos.php';
+                    </script>";
             }
             ?>
         </div>

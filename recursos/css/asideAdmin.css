@@ -109,3 +109,8 @@ a[data-toggle="collapse"] {
     display: none;
   }
 }
+
+.bienvenida {
+  background-color: aqua;
+  color: red;
+}

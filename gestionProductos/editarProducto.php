@@ -11,59 +11,70 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <?php
-    include('../conexion.php');
-    $nombre = '';
-    $descripcion = '';
-    $dataLogo = '';
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "SELECT nombre_prod,imagen_prod,precio_unit_compra,descripcion_prod,
-        productos.id_marca,marcas.nombre_marca,productos.id_categoria,categorias.nombre_categoria
-         FROM productos inner join marcas on productos.id_marca=marcas.id_marca
-        inner join categorias on productos.id_categoria=categorias.id_categoria WHERE id_prod=$id";
-        $result = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_prod'];
-            $dataImagen = $row['imagen_prod'];
-            $precio = $row['precio_unit_compra'];
-            $id_marca = $row[4];
-            $descripcion = $row['descripcion_prod'];
-            $id_categoria = $row[6];
-        }
-    }
-
-    if (isset($_POST['actualizar'])) {
-        $id = $_GET['id'];
-        $nombre = $_POST['nombre'];
-        $dataImagen = $_POST['lgPrd22'];
-        $precio = $_POST['precioProducto'];
-        $id_marca = $_POST['marcaProd'];
-        $descripcion = $_POST['descripcion'];
-        $id_categoria = $_POST['catProd'];
-
-
-        $query = "UPDATE productos set nombre_prod = '$nombre',imagen_prod='$dataImagen',precio_unit_compra='$precio',
-        id_marca='$id_marca', descripcion_prod = '$descripcion',id_categoria='$id_categoria'
-        WHERE id_prod=$id";
-        mysqli_query($conexion, $query);
-
-        echo "<script type='text/javascript'>alert('Los cambios en el producto han sido guardados');
-        window.location = './adminProductos.php';
-        </script>";
-    }
-
-    ?>
     <div class="row">
         <div class="col-2">
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
+            <?php
+            include('../conexion.php');
+            $nombre = '';
+            $descripcion = '';
+            $dataLogo = '';
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $query = "SELECT nombre_prod,imagen_prod,precio_unit_compra,descripcion_prod,
+        productos.id_marca,marcas.nombre_marca,productos.id_categoria,categorias.nombre_categoria
+         FROM productos inner join marcas on productos.id_marca=marcas.id_marca
+        inner join categorias on productos.id_categoria=categorias.id_categoria WHERE id_prod=$id";
+                $result = mysqli_query($conexion, $query);
+                if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    $nombre = $row['nombre_prod'];
+                    $dataImagen = $row['imagen_prod'];
+                    $precio = $row['precio_unit_compra'];
+                    $id_marca = $row[4];
+                    $descripcion = $row['descripcion_prod'];
+                    $id_categoria = $row[6];
+                }
+            }
+
+            if (isset($_POST['actualizar'])) {
+                $id = $_GET['id'];
+                $nombre = $_POST['nombre'];
+                $dataImagen = $_POST['lgPrd22'];
+                $precio = $_POST['precioProducto'];
+                $id_marca = $_POST['marcaProd'];
+                $descripcion = $_POST['descripcion'];
+                $id_categoria = $_POST['catProd'];
+
+
+                $query = "UPDATE productos set nombre_prod = '$nombre',imagen_prod='$dataImagen',precio_unit_compra='$precio',
+        id_marca='$id_marca', descripcion_prod = '$descripcion',id_categoria='$id_categoria'
+        WHERE id_prod=$id";
+                mysqli_query($conexion, $query);
+
+                // echo "<script type='text/javascript'>alert('Los cambios en el producto han sido guardados');
+                // window.location = './adminProductos.php';
+                // </script>";
+                echo "<script type='text/javascript'>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Modificacion',
+                    text: 'Los cambios en el producto han sido guardados',
+                })
+                window.location = './adminProductos.php';
+                </script>";
+            }
+
+            ?>
+
             <div class="container my-5 w-50">
                 <h2 class="text-center">Editar Producto</h2>
 
