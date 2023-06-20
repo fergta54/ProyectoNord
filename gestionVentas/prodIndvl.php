@@ -72,12 +72,12 @@ if (isset($_POST['add'])){
 </head>
 
 <body>
-<?php include('navVentas.php'); ?><br>
+<?php include('../incluir/navVentas.php'); ?><br>
     <?php
     include('../conexion.php');
 
 
-    function individualProd($productName, $productImage, $productPrice, $productDescription, $brandName, $categoryName) {
+    function individualProd($productid,$productName, $productImage, $productPrice, $productDescription, $brandName, $categoryName) {
         $element = '
         <div class="product-container">
             <div class="product-image">
@@ -115,7 +115,7 @@ if (isset($_POST['add'])){
     
     if ($seleccionar) {
         $row = mysqli_fetch_assoc($seleccionar);
-        individualProd($row['nombre_prod'], $row['imagen_prod'], $row['precio_unit_compra'], $row['descripcion_prod'], $row['nombre_marca'], $row['nombre_categoria']);
+        individualProd($row['id'],$row['nombre_prod'], $row['imagen_prod'], $row['precio_unit_compra'], $row['descripcion_prod'], $row['nombre_marca'], $row['nombre_categoria']);
     }
     
     ?>

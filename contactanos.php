@@ -14,6 +14,7 @@ $varRol = null;
     <title>NORDSTERN</title>
     <link rel="stylesheet" href="./recursos/css/cabecera.css">
     <link rel="stylesheet" href="./recursos/css/index.css">
+    <link rel="stylesheet" href="./recursos/css/ventas.css">
     <link rel="stylesheet" href="./recursos/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
@@ -197,30 +198,16 @@ $varRol = null;
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Servicios
+                                <a class="cabecera" href="contactanos.php">
+                                    Contacto
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="cabecera" href="./gestionVentas/menuProd.php">
-                                    Comprar
+                                    Compras
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Sucursales
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="index.php">
-                                    Sobre Nosotros
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="cabecera" href="./contactanos.php">
-                                    Contacto
-                                </a>
-                            </li>
+                            
 
                             <?php
 
@@ -330,5 +317,5 @@ $varRol = null;
             </div>
         </section>
 
-</body>
+</body> <?php include('./incluir/footer.php'); ?>
 </html>
