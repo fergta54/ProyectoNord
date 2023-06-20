@@ -19,7 +19,7 @@
 }
 
 .overlay {
-    background-image: url("../recursos/img/fondoLogin.jpg");
+    background-image: url("../recursos/img/fondoLoginC.jpg");
 
     background-size: cover;
     background-position: center;
@@ -31,17 +31,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 110%;
     background-color: rgba(0, 0, 0, 0.8); /* Ajusta el último valor (0.5) para controlar la opacidad */
-}
-.overl{
-    mix-blend-mode: normal;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); 
 }
 
 .buttonSubmit{
@@ -233,8 +224,6 @@ label a{
                         <div class="text-center" class="top">
                             <img  src="../recursos/img/lg.png" alt="" />
                             <h1 class="text-center text-light"><b>Bienvenido Cliente</b></h1>
-                            <p class="text-center text-light"><b>al sistema</b></p>
-                            <h4 class="text-center text-light"><b>"NORD-NET PRO"</b></h4>
                             <h3 class="text-center text-light">Login</h3>
                         </div>
                         <div class="input-field">
