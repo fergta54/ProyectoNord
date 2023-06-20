@@ -1,12 +1,167 @@
 <?php
 session_start();
-require_once ("tarjetas.php");
+require_once("tarjetas.php");
 include('../conexion.php');
+?>
 
 
 
 
 
+
+
+
+
+
+<script>
+    /*
+// Función para decrementar la cantidad
+function decrementQuantity(productId) {
+    let quantityInput = document.getElementById(`quantity-${productId}`);
+    let currentQuantity = parseInt(quantityInput.value);
+
+    if (currentQuantity > 2) {
+        let newQuantity = currentQuantity - 1;
+        quantityInput.value = newQuantity;
+    }
+}
+
+// Función para incrementar la cantidad
+function incrementQuantity(productId) {
+    let quantityInput = document.getElementById(`quantity-${productId}`);
+    let currentQuantity = parseInt(quantityInput.value);
+
+    let newQuantity = currentQuantity + 1;
+    quantityInput.value = newQuantity;
+}
+
+// Escucha los eventos de clic en los botones de incremento y decremento
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('decrement-btn')) {
+        let productId = event.target.dataset.productid;
+        decrementQuantity(productId);
+    } else if (event.target.classList.contains('increment-btn')) {
+        let productId = event.target.dataset.productid;
+        incrementQuantity(productId);
+    }
+});*/
+</script>
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="../recursos/css/ventas.css">
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
+    <script src="../recursos/js/bootstrap.min.js"></script>
+    <!-- Font Awesome carrito -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+
+<body class="bg-light">
+
+    <?php include('../incluir/navVentas.php'); ?>
+
+
+    <div class="container-fluid">
+        <div class="row px-5">
+            <div class="col-md-7">
+                <div class="shopping-cart">
+                    <h3>MI CARRITO</h3>
+                    <hr>
+                    <?php
+                    $subtotal = 0;
+                    $total = 0;
+
+                    // Obtener todos los productos del carrito y calcular subtotal
+                    if (isset($_SESSION['cart'])) {
+                        $id_prod = array_column($_SESSION['cart'], 'id_prod');
+
+                        $seleccionar = mysqli_query(
+                            $conexion,
+                            "SELECT pr.id_prod as id, pr.nombre_prod, pr.imagen_prod, pr.precio_unit_compra, pr.estado_producto
+                        FROM productos pr
+                        WHERE estado_producto = 1
+                        ORDER BY id_prod"
+                        );
+
+                        while ($row = mysqli_fetch_assoc($seleccionar)) {
+                            foreach ($id_prod as $id) {
+                                if ($row['id'] == $id) {
+                                    // Establecer la cantidad predeterminada en 1 si se detecta el producto en el carrito
+                                    $quantity = isset($_SESSION['cart'][$id]['quantity']) ? $_SESSION['cart'][$id]['quantity'] : 1;
+                                    cartElement($row['imagen_prod'], $row['nombre_prod'], $row['precio_unit_compra'], $row['id'], $quantity);
+                                    $subtotal += $row['precio_unit_compra'] * $quantity;
+                                }
+                            }
+                        }
+
+                        $iva = round($subtotal * 0.13, 2);
+                        $total = round($subtotal + $iva, 2);
+                    } else {
+                        echo "<h5>Carrito vacío</h5>";
+                    }
+
+
+
+
+                    ?>
+                </div>
+            </div>
+
+            <!-- Aquí se muestra la interfaz -->
+            <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
+                <div class="pt-4">
+                    <h6>DETALLE DE LA COMPRA</h6>
+                    <hr>
+                    <div class="row price-details">
+                        <div class="col-md-6">
+                            <?php
+                            if (isset($_SESSION['cart'])) {
+                                $count = count($_SESSION['cart']);
+                                $itemText = ($count != 1) ? 'items' : 'item';
+                                echo "<h6>Subtotal ($count $itemText)</h6>";
+                            } else {
+                                echo "<h6>Subtotal (0 items)</h6>";
+                            }
+                            ?>
+                            <h6>IVA</h6>
+                            <hr>
+                            <h6>Total</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Bs. <?php echo $subtotal; ?></h6>
+                            <h6>Bs. <?php echo $iva; ?></h6>
+                            <hr>
+                            <h6>Bs. <?php echo $total; ?></h6>
+                        </div>
+                    </div><br>
+                    <div id="paypal-payment-button">
+                    </div><br>
+                    <button class="btn btn-info mx-2" style="align-content: center;" onclick="window.location.href = 'cancelar.php'">Generar Recibo</button>
+                </div> <br>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
+    <script src="PayPal.js"></script>
+</body>
+<?php include('../incluir/footer.php'); ?>
+
+</html>
+
+<?php
 
 //este codigo limpia el carrito una vez agregado a la base de datos
 /*
@@ -121,8 +276,6 @@ if (isset($_POST['guardar'])) {
 */
 
 //este codigo verifica el id_cliente
-session_start();
-
 
 if (isset($_POST['guardar'])) {
     if (isset($_SESSION['id_cliente'])) {
@@ -178,31 +331,33 @@ if (isset($_POST['guardar'])) {
 }
 
 
-if (isset($_POST['remove'])){
-    if ($_GET['action'] == 'remove'){
-        foreach ($_SESSION['cart'] as $key => $value){
-            if($value["id_prod"] == $_GET['id']){
+if (isset($_POST['remove'])) {
+    if ($_GET['action'] == 'remove') {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value["id_prod"] == $_GET['id']) {
                 unset($_SESSION['cart'][$key]);
                 echo "<script>alert('Producto eliminado')</script>";
                 echo "<script>window.location = 'cart.php'</script>";
             }
         }
     }
-  }
+}
 
 
 
 
 
 // Función para decrementar la cantidad
-function decrementQuantity($productId) {
+function decrementQuantity($productId)
+{
     if ($_SESSION['cart'][$productId]['quantity'] > 1) {
         $_SESSION['cart'][$productId]['quantity'] -= 1;
     }
 }
 
 // Función para incrementar la cantidad
-function incrementQuantity($productId) {
+function incrementQuantity($productId)
+{
     $_SESSION['cart'][$productId]['quantity'] += 1;
 }
 
@@ -283,153 +438,3 @@ if (isset($_SESSION['cart'])) {
 
 
 ?>
-
-
-
-
-
-
-<script>
-/*
-// Función para decrementar la cantidad
-function decrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    if (currentQuantity > 2) {
-        let newQuantity = currentQuantity - 1;
-        quantityInput.value = newQuantity;
-    }
-}
-
-// Función para incrementar la cantidad
-function incrementQuantity(productId) {
-    let quantityInput = document.getElementById(`quantity-${productId}`);
-    let currentQuantity = parseInt(quantityInput.value);
-
-    let newQuantity = currentQuantity + 1;
-    quantityInput.value = newQuantity;
-}
-
-// Escucha los eventos de clic en los botones de incremento y decremento
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('decrement-btn')) {
-        let productId = event.target.dataset.productid;
-        decrementQuantity(productId);
-    } else if (event.target.classList.contains('increment-btn')) {
-        let productId = event.target.dataset.productid;
-        incrementQuantity(productId);
-    }
-});*/
-
-</script>
-
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="../recursos/css/ventas.css">
-    <link rel="stylesheet" href="../recursos/css/cabecera.css">
-    <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
-    <script src="../recursos/js/bootstrap.min.js"></script>
-    <!-- Font Awesome carrito -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    </head>
-
-
-<body class="bg-light">
-
-<?php include('../incluir/navVentas.php'); ?>
-
-
-<div class="container-fluid">
-<div class="row px-5">
-    <div class="col-md-7">
-        <div class="shopping-cart">
-            <h3>MI CARRITO</h3>
-            <hr>
-            <?php
-                $subtotal = 0;
-                $total = 0;
-                
-                // Obtener todos los productos del carrito y calcular subtotal
-                if (isset($_SESSION['cart'])) {
-                    $id_prod = array_column($_SESSION['cart'], 'id_prod');
-                
-                    $seleccionar = mysqli_query(
-                        $conexion,
-                        "SELECT pr.id_prod as id, pr.nombre_prod, pr.imagen_prod, pr.precio_unit_compra, pr.estado_producto
-                        FROM productos pr
-                        WHERE estado_producto = 1
-                        ORDER BY id_prod"
-                    );
-                
-                    while ($row = mysqli_fetch_assoc($seleccionar)) {
-                        foreach ($id_prod as $id) {
-                            if ($row['id'] == $id) {
-                                // Establecer la cantidad predeterminada en 1 si se detecta el producto en el carrito
-                                $quantity = isset($_SESSION['cart'][$id]['quantity']) ? $_SESSION['cart'][$id]['quantity'] : 1;
-                                cartElement($row['imagen_prod'], $row['nombre_prod'], $row['precio_unit_compra'], $row['id'], $quantity);
-                                $subtotal += $row['precio_unit_compra'] * $quantity;
-                            }
-                        }
-                    }
-                
-                    $iva = round($subtotal * 0.13, 2);
-                    $total = round($subtotal + $iva, 2);
-                } else {
-                    echo "<h5>Carrito vacío</h5>";
-                }
-                
-                
-                
-                
-                ?>
-                </div>
-            </div>
-
-            <!-- Aquí se muestra la interfaz -->
-            <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
-                <div class="pt-4">
-                    <h6>DETALLE DE LA COMPRA</h6>
-                    <hr>
-                    <div class="row price-details">
-                        <div class="col-md-6">
-                        <?php
-                        if (isset($_SESSION['cart'])) {
-                            $count = count($_SESSION['cart']);
-                            $itemText = ($count != 1) ? 'items' : 'item';
-                            echo "<h6>Subtotal ($count $itemText)</h6>";
-                        } else {
-                            echo "<h6>Subtotal (0 items)</h6>";
-                        }
-                        ?>
-                <h6>IVA</h6>
-                <hr>
-                <h6>Total</h6>
-            </div>
-            <div class="col-md-6">
-                <h6>Bs. <?php echo $subtotal; ?></h6>
-                <h6>Bs. <?php echo $iva; ?></h6>
-                <hr>
-                <h6>Bs. <?php echo $total; ?></h6>
-            </div>
-        </div><br>
-        <div id="paypal-payment-button"> 
-    </div><br>  
-    <button class="btn btn-info mx-2" style="align-content: center;" onclick="window.location.href = 'cancelar.php'">Generar Recibo</button>
-</div> <br>  </div> 
-<script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
-    <script src="PayPal.js"></script>
-</body>
-<?php include('../incluir/footer.php'); ?>
-
-</html>
