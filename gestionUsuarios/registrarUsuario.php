@@ -74,7 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $successMessage = "Usuario añadido correctamente";
 
-        header("location: ./listarUsuarios.php");
+        //header("location: ./listarUsuarios.php");
+        echo"<script type='text/javascript'>
+        window.location = './listarUsuarios.php';
+        </script>";
         exit;
     } while (false);
 }

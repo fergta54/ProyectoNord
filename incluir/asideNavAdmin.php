@@ -284,6 +284,10 @@ if($role=='Administrador'){
                 </li>
               </ul>
             </li>
+            <li>
+              <a href="../manuales/AZUL_MANUAL_USUARIO_ADMINISTRADOR.pdf" download class=""><i class="fa fa-line-chart"></i> Reportes</a>
+
+            </li>
 
 
             <br>
@@ -439,7 +443,10 @@ if($role=='Administrador'){
 
 
             <br>
-            
+            <li>
+              <a href="../manuales/AZUL_MANUAL_USUARIO_VENDEDOR.pdf" download class=""><i class="fa fa-line-chart"></i> Reportes</a>
+
+            </li>
               <li>
                 <a class="cabecera" href="../loginAzul/logout.php">
                   Cerrar Sesion
