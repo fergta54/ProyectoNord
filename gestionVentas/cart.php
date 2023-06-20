@@ -424,7 +424,7 @@ document.addEventListener('click', function(event) {
         <div id="paypal-payment-button"> 
     </div><br>  
     <button class="btn btn-info mx-2" style="align-content: center;" onclick="window.location.href = 'cancelar.php'">Generar Recibo</button>
-</div> <br>  </div> 
+</div> <br>  </div> </div> </div> 
 <script src="https://www.paypal.com/sdk/js?client-id=ATqJoT8uledW83BN2RvdA4o9tptMnGw4EUVlV1na6YHhKgqXEHcJXE8t0EZLGsDr4mybfMJ5nXxL10vQ&disable-funding=credit,card"></script>
     <script src="PayPal.js"></script>
 </body>

@@ -88,7 +88,7 @@
                     </li>
             
                     <?php
-
+/*
                     if (isset($_SESSION['usuario'])) {
                         // echo '<script>Console.log("LLEGA")</script>';
                         $usuario = $_SESSION['usuario'];
@@ -145,7 +145,7 @@
                         </li>
                     <?php
                     }
-                    ?>
+                    */?>
                 </ul>
             </div>
                 <a href="cart.php" class="nav-item nav-link active">
