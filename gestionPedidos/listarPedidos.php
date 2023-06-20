@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEDIDOS</title>
+    <title>Listar Pedidos</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -43,7 +43,7 @@
                                 INNER JOIN estados ON pedidos.estado_pedido = estados.id_estado 
                                 INNER JOIN proveedores ON pedidos.id_proveedor = proveedores.id_proveedor 
                                 INNER JOIN situacion_pedidos ON pedidos.id_situacion_pedido = situacion_pedidos.id_situacion_pedido  
-                                ORDER BY estado_prov";
+                                ORDER BY ID_PEDIDO";
                         $result = $conexion->query($sql);
 
                         if (!$result) {

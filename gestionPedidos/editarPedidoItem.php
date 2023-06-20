@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Pedidos</title>
+    <title>Editar Item de Pedido</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
         <div class="col-10">
             <div class="container my-5 w-50">
-                <h2 class="text-center">Crear Pedido</h2>
+                <h2 class="text-center">Editar Item</h2>
                 <?php
                 if (!empty($errorMessage)) {
                 ?>

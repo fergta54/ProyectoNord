@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="col-10">
             <div class="container my-5 w-50">
-                <h2 class="text-center">Crear Item</h2>
+                <h2 class="text-center">Añadir Item</h2>
 
                 <?php
                 if (!empty($errorMessage)) {
