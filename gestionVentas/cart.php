@@ -424,7 +424,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redireccionar para evitar el reenvío del formulario
-   // header('Location: ' . $_SERVER['PHP_SELF']);
+    // header('Location: ' . $_SERVER['PHP_SELF']);
     echo "<script>window.location = 'cart.php'</script>";
     exit;
 }
