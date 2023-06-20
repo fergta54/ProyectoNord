@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 // $usuario = $_SESSION['usuario'];
 $usuario = null;
 $varRol = null;
@@ -98,6 +98,7 @@ section{
     </style>
 </head>
 
+
 <body>
     
         <header class="navbar">
@@ -155,12 +156,11 @@ section{
                         </ul>
                     </div>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+
+<?php include('./incluir/navVentas.php'); ?>
+
+
+<section>
         <section>
         <div class="content">
             <div class="textBox">
@@ -181,10 +181,6 @@ section{
             <li><img src="./recursos/img/laptop3C.png" alt=""></li>
             <li><img src="./recursos/img/firewallC.png" alt=""></li>
         </ul> -->
-
-        </section>
-        
-    
-    
+      </section>   
 </body>
 </html>

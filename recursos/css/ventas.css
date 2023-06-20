@@ -33,3 +33,13 @@ h1 {
   border-radius: 10px; /* Borde redondeado */
   text-align: center;
 }
+
+.card-height {
+  height: 100%; /* Establece la altura deseada para las tarjetas */
+}
+
+.custom-image {
+  width: 100%; /* Establece el ancho deseado para las imágenes */
+  height: 200px; /* Establece la altura deseada para las imágenes */
+  object-fit: cover; /* Ajusta la imagen para que ocupe todo el espacio sin deformarse */
+}

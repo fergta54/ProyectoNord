@@ -2,36 +2,30 @@
 
 function component($productname, $productprice, $productimg, $productid){
     $element = "
-    
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-                <form action=\"menuProd.php\" method=\"post\">
-                    <div class=\"card shadow\">
-                        <div>
-                            <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top\">
-                        </div>
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title\">$productname</h5>
-                            <p class=\"card-text\">
-                                
-                            </p>
-                            <h5>
-                                <small><s class=\"text-secondary\"></s></small>
-                                <span class=\"price\">Bs. $productprice</span>
-                            </h5>
-
-                            <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\" style=\"color: black\"></i></button>
-                             <input type='hidden' name='id_prod' value='$productid'>
-
-                        
-                             <a href=\"prodIndvl.php?id_prod=$productid\" class=\"btn btn-dark my-3\">Detalles</a>
-
-                        </div>
-                    </div>
-                </form>
+        <form action=\"menuProd.php\" method=\"post\">
+            <div class=\"card shadow card-height\">
+                <div>
+                    <img src=\"$productimg\" alt=\"Image1\" class=\"img-fluid card-img-top custom-image\">
+                </div>
+                <div class=\"card-body\">
+                    <h5 class=\"card-title\">$productname</h5>
+                    <p class=\"card-text\"></p>
+                    <h5>
+                        <small><s class=\"text-secondary\"></s></small>
+                        <span class=\"price\">Bs. $productprice</span>
+                    </h5>
+                    <button type=\"submit\" class=\"btn btn-warning my-3\" name=\"add\">Añadir al carrito <i class=\"fas fa-shopping-cart\" style=\"color: black\"></i></button>
+                    <input type='hidden' name='id_prod' value='$productid'>
+                    <a href=\"prodIndvl.php?id_prod=$productid\" class=\"btn btn-dark my-3\">Detalles</a>
+                </div>
             </div>
+        </form>
+    </div>
     ";
     echo $element;
 }
+
 
 
 

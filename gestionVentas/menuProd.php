@@ -120,9 +120,11 @@ if (isset($_POST['add'])) {
     <title>menuProd</title>
     <link rel="stylesheet" href="../recursos/css/ventas.css">
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
+    <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
+
     <!-- Font Awesome carrito -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
     <!-- Bootstrap CDN -->
@@ -134,7 +136,8 @@ if (isset($_POST['add'])) {
 
 
 <body>
-<?php include('navVentas.php'); ?>
+
+<?php include('../incluir/navVentas.php'); ?>
 
     <h1>PRODUCTOS</h1>
 

@@ -75,7 +75,7 @@
                         </center>
                         <br><br>
                         <script>
-                            var data = <?php echo json_encode($dataLogo); ?>;
+                            var data = <?php echo json_encode($dataFoto); ?>;
 
                             function dataURItoBlob(dataURI) {
                                 // convert base64/URLEncoded data component to raw binary data held in a string

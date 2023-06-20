@@ -227,7 +227,7 @@ label a{
                     <div class="containerLog">
                         <div class="text-center" class="top">
                             <img  src="../recursos/img/lg.png" alt="" />
-                            <h1 class="text-center text-light"><b>Bienvenido</b></h1>
+                            <h1 class="text-center text-light"><b>Bienvenido Empleado</b></h1>
                             <p class="text-center text-light"><b>al sistema</b></p>
                             <h4 class="text-center text-light"><b>"NORD-NET PRO"</b></h4>
                             <h3 class="text-center text-light">Login</h3>
@@ -243,7 +243,8 @@ label a{
                         <div class="input-field">
                             <input class='btn btn-danger w-100' name="submit" value="Login"  type='submit'>
                         </div>
-                        
+                        <br>
+                        <a href="./loginC.php">Volver</a>
                     </div>
                 </div>
             </form>
