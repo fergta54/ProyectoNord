@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include("../conexion.php");
+
+$id_cliente = $_SESSION['id_cliente'];
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
