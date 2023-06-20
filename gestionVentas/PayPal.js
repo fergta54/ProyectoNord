@@ -19,15 +19,11 @@ paypal
     onApprove: function (data, actions) {
       return actions.order.capture().then(function (details) {
         console.log(details);
-        window.location.replace(
-          'http://localhost/ProyectoNord/gestionVentas/placeOrder.php'
-        );
+        window.location.href('./menuProd.php');
       });
     },
     onCancel: function (data) {
-      window.location.replace(
-        'http://localhost/ProyectoNord/gestionVentas/Oncancel.php'
-      );
+      window.location.href('./menuProd.php');
     },
   })
   .render('#paypal-payment-button');
