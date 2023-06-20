@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
     .nav-item {
-    margin-right: 20px;
+    margin-right: 25px;
     }
     </style>
 </head>
@@ -57,13 +57,13 @@
 
                         if ($archivo_actual == 'index.php') {?>
                             <a class="cabecera" href="./gestionVentas/menuProd.php">
-                            Productos
+                            Compras
                             </a>
                             
                         <?php } 
                         elseif ($archivo_actual != 'index.php') {?>
                             <a class="cabecera" href="menuProd.php">
-                            Productos
+                            Compras
                             </a>
                         <?php } 
                         ?>
@@ -115,17 +115,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            
                             <?php
                             $archivo_actual = basename($_SERVER['PHP_SELF']);
-
+                             
                             if ($archivo_actual == 'index.php') {?>
                                 <a class="cabecera" href="./registroAzul/registrarCliente.php">
-                                SIGN UP
+                                SIGN up
                                 </a>                              
                             <?php } 
                             elseif ($archivo_actual != 'index.php') {?>
                                 <a class="cabecera" href="../registroAzul/registrarCliente.php">
-                                SIGN UP
+                                SIGN up
                                 </a>
                             <?php } 
                             ?>
