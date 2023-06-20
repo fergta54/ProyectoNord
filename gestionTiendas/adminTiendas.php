@@ -78,7 +78,7 @@
                                     <td>' . $fila[2] . '</td>
                                     <td>' . $fila[3] . '</td>
                                     <td>' . $fila[4] . '</td>
-                                    <td>' ?><img id="logo<?php echo $i ?>" width="50">
+                                    <td>' ?><img id="logo<?php echo $i ?>" width="100">
                                         <script>
                                             var data = <?php echo json_encode($fila[5]); ?>;
 
