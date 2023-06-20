@@ -147,6 +147,14 @@ label a{
 #anav:hover{
     color: orange;
 }
+.volverbtn{
+    color: white;
+    text-decoration: none;
+}
+.volverbtn:hover{
+    color: orange;
+    text-decoration: none;
+}
     </style>
 </head>
 
@@ -242,7 +250,7 @@ label a{
                             
                         </div>
                         <br>
-                        <a href="./login.php">Ir al login de empleados</a>
+                        <a class="volverbtn" href="./login.php">Ir al login de empleados</a>
 
                         
                     </div>
