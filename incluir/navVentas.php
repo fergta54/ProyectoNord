@@ -240,9 +240,19 @@
                     </li>
 
             <li class="cabecera" style="list-style-type: none;">
-                <a href="./manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
-                    <i class="fas fa-download"></i> Manual
-                </a>
+                <?php
+                            $archivo_actual = basename($_SERVER['PHP_SELF']);
+
+                            if ($archivo_actual == 'index.php') { ?>
+                                <a href="./manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
+                                <i class="fas fa-download"></i> Manual
+                            </a>
+                            <?php } elseif ($archivo_actual != 'index.php') { ?>
+                                <a href="../manuales/AZUL_MANUAL_USUARIO_CLIENTE.pdf" download style="color: white;">
+                                <i class="fas fa-download"></i> Manual
+                            </a>
+                            <?php }
+                            ?>
             </li>
 
         </div>

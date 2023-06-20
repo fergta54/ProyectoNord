@@ -234,9 +234,9 @@ if (isset($_POST['add'])) {
                   
                   if ($tiendas) {
                       // Generar el formulario de selección de tiendas y categorías en la misma fila
-                      echo "<div style='display: flex; align-items: center;'>
+                      echo "<div style='display: flex; justify-content:center;'>
                               <form method='POST' action=''>
-                              <span style='margin-right: 30px;''></span> <!-- Espacio horizontal adicional -->
+                              <span ></span> <!-- Espacio horizontal adicional -->
                                   <label for='tienda'> Seleccione:  </label>
                                   <select name='tienda' id='tienda'>
                                       <option value=''>--Seleccione una sucursal--</option>";
