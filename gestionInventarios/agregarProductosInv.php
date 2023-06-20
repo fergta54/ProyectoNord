@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <script src="../recursos/js/botonMostrar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -80,7 +82,7 @@
                                     where id_prod not in (SELECT productos.id_prod
                                         FROM inventarios inner join tiendas on inventarios.id_tienda=tiendas.id_tienda
                                         inner join productos on inventarios.id_producto=productos.id_prod 
-                                        WHERE inventarios.id_tienda=$idTiend)
+                                        WHERE inventarios.id_tienda=$idTiend) and estado_producto=1
                                     order by nombre_prod"
                                 )
                                     or die("Problemas en la inserción" . mysqli_error($conexion));
@@ -135,11 +137,42 @@
                                                 logo3<?php echo $i ?>.src = objectURL;
                                             </script>
                                             <td>
-                                                <center><button class="btn btn-warning"><a class="botonesProductos" href="agrProdEspec.php?id_pr=<?php echo $fila[0] ?>&id_tiend=<?php echo $idTiend ?>">
+                                                <center><button class="btn btn-warning" onClick="eliminarUno(<?= $fila[0] ?>,<?= $idTiend ?>)"><a class="botonesProductos">
                                                             Agregar al inventario
                                                         </a></button> </center>
                                             </td>
                                             </tr>
+                                            <script>
+                                                function eliminarUno(idProd, idTiend) {
+                                                    Swal.fire({
+                                                        title: "¿Seguro?",
+                                                        text: "¿Está seguro de agregar el producto a la tienda?",
+                                                        icon: "warning",
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#55dd6b ',
+                                                        confirmButtonText: 'Sí, agregar',
+                                                        cancelButtonText: "No, cancelar"
+                                                    }).then(result => {
+                                                        event.preventDefault();
+                                                        console.log(result.value);
+                                                        if (result.value) {
+                                                            Swal.fire({
+                                                                icon: 'success',
+                                                                title: 'Agregado',
+                                                                text: 'El producto ha sido agregado a la tienda',
+                                                            })
+                                                            window.location = 'agrProdEspec.php?id_pr=' + idProd + '&id_tiend=' + idTiend;
+                                                        } else {
+                                                            Swal.fire({
+                                                                icon: 'warning',
+                                                                title: 'Aviso',
+                                                                text: 'No se agregó el producto',
+                                                            })
+
+                                                        }
+                                                    });
+                                                }
+                                            </script>
                         <?php
 
                                             $fila = mysqli_fetch_array($ejecutarConsulta);

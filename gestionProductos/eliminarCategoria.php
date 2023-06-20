@@ -21,12 +21,12 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <form action="eliminarCategoria.php?id=<?php echo $_GET['id']; ?>" method="POST">
+            <!-- <form action="eliminarCategoria.php?id=<?php echo $_GET['id']; ?>" method="POST">
                 <button type="submit" id="botonOcultoEliminar" name="botonOcultoEliminar" hidden></button>
-            </form>
+            </form> -->
 
             <?php
-            if (isset($_GET['id']) && isset($_POST['botonOcultoEliminar'])) {
+            if (isset($_GET['id'])) {
                 include('../conexion.php');
                 $id = $_GET['id'];
                 $query2 = "UPDATE categorias set estado_categoria = 2 WHERE id_categoria=$id";
@@ -37,33 +37,13 @@
                 // </script>";
 
                 echo "<script type='text/javascript'>
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Desctivación',
-                        text: 'La categoria ha sido desactivada',
-                    })
+                    
                     window.location = './adminCategorias.php';
                     </script>";
             }
             ?>
 
-            <script>
-                if (verificarEliminacion()) {
-                    document.getElementById("botonOcultoEliminar").click();
-                } else {
-                    alert("La categoria sigue activa");
-                    window.location = './adminCategorias.php'
-                }
 
-                function verificarEliminacion() {
-                    let texto = "¿Está seguro de desactivar la categoria?";
-                    if (confirm(texto) == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            </script>
         </div>
     </div>
 </body>

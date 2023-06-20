@@ -11,55 +11,66 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <?php
-    include('../conexion.php');
-    $nombre = '';
-    $direccion = '';
-    $latitud = '';
-    $longitud = '';
-    $dataFoto = '';
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "SELECT * FROM tiendas WHERE id_tienda=$id";
-        $result = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_tienda'];
-            $direccion = $row['direccion_tienda'];
-            $latitud = $row['latitud_tienda'];
-            $longitud = $row['longitud_tienda'];
-            $dataFoto = $row['foto_tienda'];
-        }
-    }
-
-    if (isset($_POST['actualizar'])) {
-        $id = $_GET['id'];
-        $nombre = $_POST['nombre'];
-        $direccion = $_POST['direccion'];
-        $latitud = $_POST['latitud'];
-        $longitud = $_POST['longitud'];
-        $dataFoto = $_POST['lgTiend22'];
-
-        $query = "UPDATE tiendas set nombre_tienda = '$nombre', direccion_tienda = '$direccion',
-        latitud_tienda='$latitud',longitud_tienda='$longitud',
-        foto_tienda='$dataFoto' WHERE id_tienda=$id";
-        mysqli_query($conexion, $query);
-
-        echo "<script type='text/javascript'>alert('Los cambios en la tienda han sido guardados');
-        window.location = './adminTiendas.php';
-        </script>";
-    }
-
-    ?>
     <div class="row">
         <div class="col-2">
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
+            <?php
+            include('../conexion.php');
+            $nombre = '';
+            $direccion = '';
+            $latitud = '';
+            $longitud = '';
+            $dataFoto = '';
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $query = "SELECT * FROM tiendas WHERE id_tienda=$id";
+                $result = mysqli_query($conexion, $query);
+                if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    $nombre = $row['nombre_tienda'];
+                    $direccion = $row['direccion_tienda'];
+                    $latitud = $row['latitud_tienda'];
+                    $longitud = $row['longitud_tienda'];
+                    $dataFoto = $row['foto_tienda'];
+                }
+            }
+
+            if (isset($_POST['actualizar'])) {
+                $id = $_GET['id'];
+                $nombre = $_POST['nombre'];
+                $direccion = $_POST['direccion'];
+                $latitud = $_POST['latitud'];
+                $longitud = $_POST['longitud'];
+                $dataFoto = $_POST['lgTiend22'];
+
+                $query = "UPDATE tiendas set nombre_tienda = '$nombre', direccion_tienda = '$direccion',
+                latitud_tienda='$latitud',longitud_tienda='$longitud',
+                foto_tienda='$dataFoto' WHERE id_tienda=$id";
+                mysqli_query($conexion, $query);
+
+                // echo "<script type='text/javascript'>alert('Los cambios en la tienda han sido guardados');
+                // window.location = './adminTiendas.php';
+                // </script>";
+                echo "<script type='text/javascript'>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Modificacion',
+                    text: 'Los cambios en la tienda han sido guardados',
+                })
+                window.location = './adminTiendas.php';
+                </script>";
+            }
+
+            ?>
             <div class="container my-5 w-50">
                 <h2 class="text-center">Editar Tienda</h2>
 

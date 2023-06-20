@@ -16,42 +16,51 @@
 </head>
 
 <body>
-    <?php
-    include('../conexion.php');
-    $nombre = '';
-    $descripcion = '';
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "SELECT * FROM marcas WHERE id_marca=$id";
-        $result = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_marca'];
-            $descripcion = $row['descripcion_marca'];
-        }
-    }
-
-    if (isset($_POST['actualizar'])) {
-        $id = $_GET['id'];
-        $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-
-        $query = "UPDATE marcas set nombre_marca = '$nombre', descripcion_marca = '$descripcion' WHERE id_marca=$id";
-        mysqli_query($conexion, $query);
-        // $_SESSION['message'] = 'Task Updated Successfully';
-        // $_SESSION['message_type'] = 'warning';
-        echo "<script type='text/javascript'>alert('Los cambios en la marca han sido guardados');
-        window.location = './adminMarcas.php';
-        </script>";
-    }
-
-    ?>
     <div class="row">
         <div class="col-2">
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
+            <?php
+            include('../conexion.php');
+            $nombre = '';
+            $descripcion = '';
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $query = "SELECT * FROM marcas WHERE id_marca=$id";
+                $result = mysqli_query($conexion, $query);
+                if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    $nombre = $row['nombre_marca'];
+                    $descripcion = $row['descripcion_marca'];
+                }
+            }
+
+            if (isset($_POST['actualizar'])) {
+                $id = $_GET['id'];
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+
+                $query = "UPDATE marcas set nombre_marca = '$nombre', descripcion_marca = '$descripcion' WHERE id_marca=$id";
+                mysqli_query($conexion, $query);
+                // $_SESSION['message'] = 'Task Updated Successfully';
+                // $_SESSION['message_type'] = 'warning';
+                // echo "<script type='text/javascript'>alert('Los cambios en la marca han sido guardados');
+                // window.location = './adminMarcas.php';
+                // </script>";
+                echo "<script type='text/javascript'>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Modificacion',
+                    text: 'Los cambios en la marca han sido guardados',
+                })
+                window.location = './adminMarcas.php';
+                </script>";
+            }
+
+            ?>
+
             <div class="container my-5 w-50">
                 <h2 class="text-center">Editar Marca</h2>
 

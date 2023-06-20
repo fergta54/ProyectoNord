@@ -21,11 +21,11 @@
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
-            <form action="agrProdEspec.php?id_pr=<?php echo $_GET['id_pr']; ?>&id_tiend=<?php echo $_GET['id_tiend']; ?>" method="POST">
+            <!-- <form action="agrProdEspec.php?id_pr=<?php echo $_GET['id_pr']; ?>&id_tiend=<?php echo $_GET['id_tiend']; ?>" method="POST">
                 <button type="submit" id="botonOcultoAgregar" name="botonOcultoAgregar" hidden></button>
-            </form>
+            </form> -->
             <?php
-            if (isset($_GET['id_pr']) && isset($_POST['botonOcultoAgregar'])) {
+            if (isset($_GET['id_pr'])) {
                 include('../conexion.php');
                 // $idProducto = $_GET['id_pr'];
                 // $idTienda = $_GET['id_tiend'];
@@ -46,17 +46,12 @@
 
                 // </script>";
 
-                echo "<script type='text/javascript'>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Agregado',
-                    text: 'El producto ha sido agregado al inventario de la tienda',
-                })
+                echo "<script type='text/javascript'>                
                 window.location = './modificarStockProducto.php?id_inv=" . $lastIdInv . "'
                 </script>";
             }
             ?>
-            <script>
+            <!-- <script>
                 if (verificarEliminacion()) {
                     document.getElementById("botonOcultoAgregar").click();
                 } else {
@@ -77,7 +72,7 @@
                         return false;
                     }
                 }
-            </script>
+            </script> -->
         </div>
     </div>
 </body>

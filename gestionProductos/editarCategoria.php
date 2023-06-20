@@ -11,48 +11,63 @@
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
     <script src="../recursos/js/bootstrap.min.js"></script>
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <?php
-    include('../conexion.php');
-    $nombre = '';
-    $descripcion = '';
-    $dataLogo = '';
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = "SELECT * FROM categorias WHERE id_categoria=$id";
-        $result = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_array($result);
-            $nombre = $row['nombre_categoria'];
-            $descripcion = $row['descripcion_categoria'];
-            $dataLogo = $row['logo_categoria'];
-        }
-    }
-
-    if (isset($_POST['actualizar'])) {
-        $id = $_GET['id'];
-        $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $dataLogo = $_POST['lgCat22'];
-
-        $query = "UPDATE categorias set nombre_categoria = '$nombre', descripcion_categoria = '$descripcion',
-        logo_categoria='$dataLogo' WHERE id_categoria=$id";
-        mysqli_query($conexion, $query);
-
-        echo "<script type='text/javascript'>alert('Los cambios en la categoria han sido guardados');
-        window.location = './adminCategorias.php';
-        </script>";
-    }
-
-    ?>
     <div class="row">
         <div class="col-2">
             <?php include('../incluir/asideNavAdmin.php') ?>
         </div>
         <div class="col-10">
+            <?php
+            include('../conexion.php');
+            $nombre = '';
+            $descripcion = '';
+            $dataLogo = '';
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $query = "SELECT * FROM categorias WHERE id_categoria=$id";
+                $result = mysqli_query($conexion, $query);
+                if (mysqli_num_rows($result) == 1) {
+                    $row = mysqli_fetch_array($result);
+                    $nombre = $row['nombre_categoria'];
+                    $descripcion = $row['descripcion_categoria'];
+                    $dataLogo = $row['logo_categoria'];
+                }
+            }
+
+            if (isset($_POST['actualizar'])) {
+                $id = $_GET['id'];
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+                $dataLogo = $_POST['lgCat22'];
+
+                $query = "UPDATE categorias set nombre_categoria = '$nombre', descripcion_categoria = '$descripcion',
+        logo_categoria='$dataLogo' WHERE id_categoria=$id";
+                mysqli_query($conexion, $query);
+
+                //         echo "<script type='text/javascript'>alert('Los cambios en la categoria han sido guardados');
+                // window.location = './adminCategorias.php';
+                // </script>";
+                // echo "<script type='text/javascript'>
+                //      edicion()
+                //             </script>";
+                echo "<script type='text/javascript'>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Modificacion',
+                    text: 'Los cambios en la categoria han sido guardados',
+                })
+                window.location = './adminCategorias.php';
+                                   </script>";
+            }
+
+            ?>
+
             <div class="container my-5 w-50">
                 <h2 class="text-center">Editar Categoría</h2>
 
@@ -188,6 +203,8 @@
                     <button type="submit" class="btn btn-primary btn-success btn-lg w-100" name="actualizar">Actualizar datos</button>
                 </form>
             </div>
+
+
         </div>
     </div>
 

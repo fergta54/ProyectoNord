@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <script src="../recursos/js/jquery-3.7.0.min.js"></script>
     <script src="../recursos/js/botonMostrar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
         </div>
         <div class="col-10">
             <div class="container my-5 text-center">
-                <h1>Administración de Categorías</h1>
+                <h1>Edición de Categorías</h1>
                 <br><br>
                 <button id="botonMostrar" class="botonMostrarOcultos" onClick="toggleButton()" value="Mostrar Desactivados">
                     <a href="#mostrarInhabil">Mostrar inhabilitadas</a></button>
@@ -121,11 +123,43 @@
                                                     </a></button> </center>
                                         </td>
                                         <td>
-                                            <center><button class="botonEditar btn btn-danger"><a class="botonesProductos" href=" eliminarCategoria.php?id=<?php echo $fila[0] ?>">
+                                            <center><button class="botonEditar btn btn-danger" onClick="eliminarUno(<?= $fila[0] ?>)"><a class="botonesProductos">
                                                         Inhabilitar
                                                     </a></button> </center>
                                         </td>
                                         </tr>
+                                        <script>
+                                            function eliminarUno(id) {
+                                                Swal.fire({
+                                                    title: "¿Seguro?",
+                                                    text: "¿Está seguro de desactivar la categoria?",
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: '#DD6B55',
+                                                    confirmButtonText: 'Sí,desactivarla',
+                                                    cancelButtonText: "No, no desactivar"
+                                                }).then(result => {
+                                                    event.preventDefault();
+                                                    console.log(result.value);
+                                                    if (result.value) {
+                                                        Swal.fire({
+                                                            icon: 'warning',
+                                                            title: 'Desactivación',
+                                                            text: 'La categoria ha sido desactivada',
+                                                        })
+                                                        window.location = 'eliminarCategoria.php?id=' + id;
+                                                    } else {
+                                                        Swal.fire({
+                                                            icon: 'warning',
+                                                            title: 'Activa',
+                                                            text: 'La categoria sigue activa',
+                                                        })
+
+                                                    }
+                                                });
+                                            }
+                                        </script>
+
                         <?php
 
                                         $fila = mysqli_fetch_array($ejecutarConsulta);
