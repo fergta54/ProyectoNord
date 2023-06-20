@@ -183,6 +183,7 @@ section{
             <li><img src="./recursos/img/firewallC.png" alt=""></li>
         </ul> -->
       </section>   
+      </section> 
       
 </body>
 <?php include('./incluir/footer.php'); ?>
