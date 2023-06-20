@@ -80,6 +80,7 @@
                         ?>
                     </li>
                     <li class="nav-item">
+                    <?php
                         $archivo_actual = basename($_SERVER['PHP_SELF']);
 
                         if ($archivo_actual == 'index.php') { ?>
