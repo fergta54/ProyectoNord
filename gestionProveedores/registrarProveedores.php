@@ -31,9 +31,6 @@
                         <label for="correoProveedor">Correo</label><br>
                         <input name="correoProveedor" class="form-control-lg w-100" id="correoProveedor" type="email" required>
                         <br><br>
-                        <label for="razonsocialProveedor">Razon Social</label><br>
-                        <input name="razonsocialProveedor" class="form-control-lg w-100" id="razonsocialProveedor" type="text" required>
-                        <br><br>
                         <label for="telefonoProveedor">Telefono</label><br>
                         <input name="telefonoProveedor" class="form-control-lg w-100" id="telefonoProveedor" type="text" required>
                         <br><br>

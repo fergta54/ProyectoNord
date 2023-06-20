@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROVEEDOR</title>
+    <title>CLIENTES</title>
     <link rel="stylesheet" href="../recursos/css/index.css">
     <link rel="stylesheet" href="../recursos/css/cabecera.css">
     <link rel="stylesheet" href="../recursos/css/bootstrap.min.css">
@@ -70,7 +70,7 @@
         <div class="col-10">
             <div class="container my-5 w-50">
                 <h2 class="text-center">Editar Cliente</h2>
-                <form action="editarCliente.php?id=<?php echo $_GET['id']; ?>" method="POST">
+                <form action="aditarCliente.php?id=<?php echo $_GET['id']; ?>" method="POST">
                     <div class="form-group">
                         <label for="nombre">Nombre</label><br>
                         <input name="nombre" type="text" class="form-control-lg w-100" id="nombre" value="<?php echo $nombre; ?>"></input>
